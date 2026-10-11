@@ -1,0 +1,20 @@
+{
+  "version": "v0.1.0-dev.20261011",
+  "installer": {
+    "bytes": 124928,
+    "sha256": "d3185d0e285143829c9cf946c4ee57213408b58057b21477f201436239b847d3"
+  },
+  "source_sha256": {
+    "driver_setup.c": "c9dc6bffc70dd7f94152aadad464f3796a97beea3b06e5396a543ee11ae07f50",
+    "Driver-Setup.ps1": "9b9950a48c5c25fb879830e4a47bef8a6f98bc5e765e223d8acb50af07e68ba5",
+    "Native-Driver-Api.cs": "c702abf3dccd9558dd877388502db0fdfda3e03f95e465e62dfd01fe5829b7f3"
+  },
+  "recipe": {
+    "bytes": 103995,
+    "sha256": "76e941996afd46273c4e409bc976e100ed247d2d53a09ed6fb3afdfa7bc9da50"
+  },
+  "compiler": "Zig 0.17.0-dev.2251+1175a3e99",
+  "target": "x86_64-windows.win7-gnu",
+  "combined_installer_hardware_validated": false,
+  "vendor_binaries_in_asset": false
+}

@@ -1,0 +1,31 @@
+NoMoreBCA Windows 7 support kit - DEVELOPMENT PREVIEW
+==================================================
+
+This small archive is not a complete driver pack. It contains our installer,
+a pinned recipe and this guide. NoMoreBCA retrieves the original driver files
+directly from Apple, AMD, Lenovo and Microsoft and assembles the selected pack.
+Downloading only this ZIP will not provide the required driver payload.
+
+The combined installer requires Windows 7 SP1 x64 on MacBookPro11,5 or the
+experimental, untested MacBookPro11,4. On 11,4, AMD/M370X and AMD HDMI-audio
+components are excluded. Intel Iris graphics remain unverified.
+
+After NoMoreBCA has prepared the files and normal Windows setup has completed,
+open NoMoreBCA-Driver-Setup.exe from Community-Windows7-Drivers at the Windows
+partition root. Approve the ordinary administrator/UAC prompt and select the
+components you want. No Internet connection or extra runtime is required for
+that Windows installer. Drivers are not automatically installed during setup.
+If the Microsoft SHA-2 update requests a reboot, restart normally, then rerun
+the installer. Open Boot Camp Control Panel to enable trackpad features.
+
+The component drivers have been tested individually on the development 11,5.
+The complete combined installer still requires clean-install acceptance.
+Known unfinished: internal Fn controls, keyboard backlight and the tested
+Thunderbolt dock's Ethernet. Camera image, sleep/power management and fresh
+USB-keyboard reliability have not been fully verified. See the repository
+README for current confirmed functions and the separate M370X EFI requirement.
+
+NoMoreBCA does not disable UAC, change driver-signature enforcement, install
+remote access, modify Windows activation or provide a Windows licence.
+Third-party software remains subject to its publishers' terms. This repository
+does not grant redistribution rights to their files.

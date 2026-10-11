@@ -1,0 +1,3128 @@
+{
+  "schema": 1,
+  "id": "win7-115-development-20261011",
+  "family": "Windows 7",
+  "models": [
+    "MacBookPro11,5",
+    "MacBookPro11,4"
+  ],
+  "sources": {
+    "apple": {
+      "url": "https://swcdn.apple.com/content/downloads/62/58/041-98143-A_HN8B941A1T/nknv1gt3xcgylggwc11kl5e0j4296tjfo1/BootCampESD.pkg",
+      "bytes": 1614464893,
+      "sha256": "f72f3d43355321f35432a25432b2c56cd66df34997fa14a0e66830f456e5da7a",
+      "kind": "apple-pkg",
+      "toc_sha1": "5d773499c67d9a5ca2bc136c41849fe4f73d599c"
+    },
+    "amd-display": {
+      "url": "https://www2.ati.com/drivers/beta/non-whql-64bit-radeon-software-crimson-16.6.1-win10-win8.1-win7-june2.exe",
+      "bytes": 337928528,
+      "sha256": "002f8bf5c8648e540008f4015a68c450e95d89eae967bfd16af394381a175254",
+      "kind": "7zip"
+    },
+    "amd-audio": {
+      "url": "https://drivers.amd.com/drivers/15.201.1301-150819a-188578c-whql.zip",
+      "bytes": 308664555,
+      "sha256": "d9db136403d412d0dcb37b3e78ce8d98064ad3a604d8d67b4e079dbbd92087f4",
+      "kind": "7zip"
+    },
+    "broadcom-wifi": {
+      "url": "https://download.lenovo.com/pccbbs/mobiles/9cke01wf.exe",
+      "bytes": 112953296,
+      "sha256": "ce682a987d240438512029f43b3f24a6cf58c6ad48561b91a48a2ea1f7c5abe9",
+      "kind": "inno"
+    },
+    "sha2": {
+      "url": "https://download.microsoft.com/download/c/8/7/c87ae67e-a228-48fb-8f02-b2a9a1238099/Windows6.1-KB3033929-x64.msu",
+      "bytes": 45918843,
+      "sha256": "5318587007edb6c8b29310ff18da479a162b486b9101a7de735f94a70dbc3b31",
+      "kind": "file"
+    }
+  },
+  "containers": {
+    "keyboard": {
+      "parent": "apple",
+      "member": "BootCamp/Drivers/Apple/AppleKeyboardInstaller64.exe",
+      "kind": "7zip",
+      "bytes": 2062288,
+      "sha256": "f640131967fe6204f5e35c398e14fd512f3f61028bcb7efa64e858936a28a04e"
+    },
+    "trackpad": {
+      "parent": "apple",
+      "member": "BootCamp/Drivers/Apple/AppleMultiTouchTrackPadInstaller64.exe",
+      "kind": "7zip",
+      "bytes": 2065832,
+      "sha256": "94d6325f9eba66849f7c0cb4f63ac5c9bd366c49149edd74c221022c962c37dd"
+    },
+    "cirrus": {
+      "parent": "apple",
+      "member": "BootCamp/Drivers/Cirrus/CirrusAudioCS4208x64.exe",
+      "kind": "7zip",
+      "bytes": 2156376,
+      "sha256": "2b984ea8cdeb80773957ed4cbce3740ca2553652fa249012edebc0dee9d73fd8"
+    },
+    "bootcamp": {
+      "parent": "apple",
+      "member": "BootCamp/Drivers/Apple/BootCamp.msi",
+      "kind": "7zip",
+      "bytes": 4550656,
+      "sha256": "db0e6d1f384b723935344431408af5b07d632639c6c31e6612ad8be961f46dd7"
+    },
+    "mei-setup": {
+      "parent": "apple",
+      "member": "BootCamp/Drivers/Intel/ManagementEngine/SetupME.exe",
+      "kind": "7zip",
+      "bytes": 73861080,
+      "sha256": "5c1bad6be4f0c93132df34a2d3a64a4d3b3a493dfa066f3133c482975f60bd65"
+    },
+    "mei-msi": {
+      "parent": "mei-setup",
+      "member": "ME_MEI_Drivers_x64.msi",
+      "kind": "7zip",
+      "bytes": 9302016,
+      "sha256": "f0e427447aa28e3fa84559cdbe82a9f9d26887b75041f561e524e2fceee8435b"
+    },
+    "mei-cab": {
+      "parent": "mei-msi",
+      "member": "drivers.cab",
+      "kind": "7zip",
+      "bytes": 3512232,
+      "sha256": "d948bd6a580af9c6ec61b4ce362696a04a77f9774e998f3d3befd9c0945ce580"
+    }
+  },
+  "files": [
+    {
+      "path": "Payload/AMD-M370X/C0303160.cat",
+      "bytes": 122389,
+      "sha256": "ed422b9c1351baa1721a72659da7907b611441cbda1584abe319153b2d624ad2",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/C0303160.cat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/C0303160.inf",
+      "bytes": 231680,
+      "sha256": "4b401b11b1a4f681be17dec15008e98e4b9bf58fc7708237d16f138ea5290aff",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/C0303160.inf",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/C0303160.msi",
+      "bytes": 99328,
+      "sha256": "15052f110b65be94aada91e62a55c41e90aa298ab1ea2699c7d55c7bad62dc95",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/C0303160.msi",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/c7303160.cat",
+      "bytes": 120287,
+      "sha256": "c9155d7b0b8f0ef0a16fa6a8c15386fb956e3d70275c35c8678fbf501dacd75b",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/c7303160.cat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/C7303160.inf",
+      "bytes": 204265,
+      "sha256": "616a091e65088d8f3ab1ed9184c11fb9c165a8059285aa273f227e6ec71e76ff",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/C7303160.inf",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/C7303160.msi",
+      "bytes": 97792,
+      "sha256": "185e74b4060673bcbe13082119cd344c5a2b36290d3fe0b517bb81eee3d2108d",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/C7303160.msi",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/cu303160.cat",
+      "bytes": 119866,
+      "sha256": "f817f18a664530d361d310c760b3093e3c4f72300267e051ef86b8efefc9e26c",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/cu303160.cat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/CU303160.inf",
+      "bytes": 205565,
+      "sha256": "1317c8b5b2c98bdbf5db02872c177ba0797535862519b16cb7a3ae94f1f45042",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/CU303160.inf",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/CU303160.msi",
+      "bytes": 97792,
+      "sha256": "76c8bc6235bf4497b144ee81cbf88c5e68d2309f360f7563d4787fd1352be8d5",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/CU303160.msi",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amd_opencl32.dll",
+      "bytes": 87040,
+      "sha256": "f058ca49ac84e61e1a2e6ca2788a39cf363979e3ba9f782a778edb96c3e1d519",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amd_opencl32.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amd_opencl64.dll",
+      "bytes": 96256,
+      "sha256": "f72f399fcd4213b301d19ab967ada9fb62a1c102ff6efee2226aa4d04dbf6e6c",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amd_opencl64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amd-vulkan32.json",
+      "bytes": 144,
+      "sha256": "94540b4c3fbcf07c711bcd5db538da0605c4942a5e7d541398179f60ce1a2c21",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amd-vulkan32.json",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amd-vulkan64.json",
+      "bytes": 144,
+      "sha256": "11ad0d681b4ff040955b915892bc66fb8a45364f1891f89d9984a5c0ca75bc02",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amd-vulkan64.json",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdacpksd.sy_",
+      "bytes": 194979,
+      "sha256": "bdf3b9e0a9f0a89f997d4dde7105f4879e9b69b1c85f1b851704620066c45ec2",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdacpksd.sy_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdave32.dl_",
+      "bytes": 64608,
+      "sha256": "bd052c68de7883735b45ca9cb91e115b8167af2295924eb5f41b9553059d9868",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdave32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdave64.dl_",
+      "bytes": 70609,
+      "sha256": "094195728d94817ea908e8dcafe735983d9bba2678b80a3f4d31a7143442244a",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdave64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amde31a.dat",
+      "bytes": 175584,
+      "sha256": "623b18eb408d056aa26b9bad0dc8a4fd6c3e3330f6559c5a163628ac135d581e",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amde31a.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amde34a.dat",
+      "bytes": 166624,
+      "sha256": "2480f4af46db5f6a1f392f5b5bd784df12acbd5b74b2a8b312f92016edcdd780",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amde34a.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amde34b.dat",
+      "bytes": 166624,
+      "sha256": "5c59d03429c99a7b55de751c56b04126cc12b10f708e48dfd6b0596c0039d1e6",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amde34b.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdgfxinfo32.dl_",
+      "bytes": 118257,
+      "sha256": "4ea047c37be90627050428aef2c697cb210c6b4afcc53602763fbd25d4067d73",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdgfxinfo32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdgfxinfo64.dl_",
+      "bytes": 125769,
+      "sha256": "5e28f5e46924870eafbdd24017ed6e9fc3c89682aee987b7391941e46cbea19b",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdgfxinfo64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdh264enc32.dll",
+      "bytes": 925104,
+      "sha256": "be0bcbfc7894ef0345664493f80ba6d542e06b778b672d1c0a0be8aa97295c24",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdh264enc32.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdh264enc64.dll",
+      "bytes": 1108968,
+      "sha256": "27d3495bdc9e6a06ed1a404ffef2b89392d5d33ebce87837b11e00ba0bf0d1ea",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdh264enc64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhcp32.dl_",
+      "bytes": 98931,
+      "sha256": "f2a86da90d718b4b575f3c3cf28fcacc90d7a250a2280dc2a2de93ad0ac3fb8b",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdhcp32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhcp64.dl_",
+      "bytes": 105563,
+      "sha256": "ded67bf6e31f3a263336cd8ea7eb2d4add1337f1eaf96455a505cadd391accdb",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdhcp64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhdl32.dl_",
+      "bytes": 101013,
+      "sha256": "9529259b1cec2ed71cea244a61d62dc37d9c5b1654703373339bafa2bc971128",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdhdl32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhdl64.dl_",
+      "bytes": 106572,
+      "sha256": "c0ee62583b1aaf069867b9b64ab3aa14c1fd9e63cc8ef779567b9bc04b5a10f6",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdhdl64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhsars.dl_",
+      "bytes": 1215,
+      "sha256": "daf8af519d66d5be9acf817376dcec8387c414947bd04c1c14e69009a97d6125",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdhsars.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhwdecoder_32.dll",
+      "bytes": 208384,
+      "sha256": "88768a2070350f39df5a8e43c3a49f511f1650bc870ea83779cdb5c67b25d5aa",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdhwdecoder_32.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhwdecoder_64.dll",
+      "bytes": 246272,
+      "sha256": "bfd30db287be636030a5086e714cd8f2da67b52f6f3f3c75771634e29d8c9557",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdhwdecoder_64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdicdxx.da_",
+      "bytes": 143831,
+      "sha256": "f9b966dadfc0102f2b92dbc96dc61b91960fd371f554b164046a746decd43a4d",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdicdxx.da_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkernelevents.mc",
+      "bytes": 12893,
+      "sha256": "d46d54fca276ec1be56c2743d61869621f6deae888272951e4f1dea771f03dbb",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkernelevents.mc",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.cbz",
+      "bytes": 9852,
+      "sha256": "e9ede0c0ffe216b2216ad35964d1b617624fdb0851b09e6b310a0ab96674b24d",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.cbz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.csz",
+      "bytes": 8083,
+      "sha256": "6cd457d65c13368177be4d8d1d6d26bb3682d68fa6acfc60d5a3a36194f3fec6",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.csz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.ctz",
+      "bytes": 9863,
+      "sha256": "6f8ed2e983f4b37a6d5d8ee4162b73bd5b900b447cdf1bbddfe812c1453ba2b0",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.ctz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.ibz",
+      "bytes": 1989,
+      "sha256": "8e230cb48860e5fbd8831b4b2df7f1fb385ca04781a8441e570d8d1d33f8126c",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.ibz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.isz",
+      "bytes": 1989,
+      "sha256": "8e230cb48860e5fbd8831b4b2df7f1fb385ca04781a8441e570d8d1d33f8126c",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.isz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.itz",
+      "bytes": 1989,
+      "sha256": "8e230cb48860e5fbd8831b4b2df7f1fb385ca04781a8441e570d8d1d33f8126c",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.itz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.sbz",
+      "bytes": 79120,
+      "sha256": "9ccb666cbdff7a79ae6b1083c8cbd347832b4a990b10eddf1110af1734acd18a",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.sbz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.ssz",
+      "bytes": 79120,
+      "sha256": "1c2ac2778d92249c05f6c0d79bbcf95ab7d1e16f9dc2514157fdd2549a95579e",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.ssz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.stz",
+      "bytes": 79120,
+      "sha256": "2c11ea03f42666e4e6d09f70773fbe4add71b31620d05b97905af914d552492a",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdkmpfd.stz",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdlvr32.dl_",
+      "bytes": 304839,
+      "sha256": "d81c140de003ee0f6601817277012bef4d760a4c67f6fc196c3abfdd3ff6f8f0",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdlvr32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdlvr64.dl_",
+      "bytes": 358703,
+      "sha256": "40c853430c371e75ee5d827888d117b505b2e47a1885eb069212d8f5d3ba3e89",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdlvr64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmantle32.dl_",
+      "bytes": 2749999,
+      "sha256": "f89f47c689119f6d182b73aef83baa829515c2828f34562e0adf13faf838562c",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmantle32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmantle64.dl_",
+      "bytes": 3249209,
+      "sha256": "0c5aec425582b7294e227c20b3a79d3f19c0f5121ff01e656eac5965660571ca",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmantle64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmftdecoder_32.dll",
+      "bytes": 97280,
+      "sha256": "8511c05ce6e47c7e2774b7663271da680dcfe6c12acecc6c4e1f04129ec04e71",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmftdecoder_32.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmftdecoder_64.dll",
+      "bytes": 114688,
+      "sha256": "c8862c1464204b9e24cc87a673007e0c9e0d8f1ae50121015b261e605d770e7e",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmftdecoder_64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmftvideodecoder_32.dll",
+      "bytes": 110880,
+      "sha256": "73c266f2435f777e6aade6670f8242a0b7cc8506e1d750556b964aa9a707f16b",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmftvideodecoder_32.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmftvideodecoder_64.dll",
+      "bytes": 126360,
+      "sha256": "4517c57d74a8b9a7e04f625ff6229010accff0ac3f62459fc463ad5767cadd4c",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmftvideodecoder_64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmiracast.dl_",
+      "bytes": 264371,
+      "sha256": "c965ff5d07281bfc0a4b9819c90a168d40b37d98a6729305c18f33560730d7e7",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmiracast.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmmcl.dl_",
+      "bytes": 19784,
+      "sha256": "7afd82c5bf36f88439cfb387b1199daa000c01e0eba27a257cdb610d6d64e32d",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmmcl.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmmcl6.dl_",
+      "bytes": 21643,
+      "sha256": "ed0b510781041a0c113d5bd43a92251c8f65486b895525a436efb910c4e4c1a6",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdmmcl6.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdocl.dll",
+      "bytes": 38098432,
+      "sha256": "26094eb7d528dbd1551e97a7396f24669c02f627505439eef8bf1d2df7906259",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdocl.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdocl12cl.dll",
+      "bytes": 21600768,
+      "sha256": "c8c42aafeaeff4313c28d060ec560c6bcf70277f75830fa88679490c05396204",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdocl12cl.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdocl12cl64.dll",
+      "bytes": 27433472,
+      "sha256": "f5bf7af01a6422b718c06548b25500055dce6e10cd4476252668b8380ccc8731",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdocl12cl64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdocl64.dll",
+      "bytes": 48616960,
+      "sha256": "bddd1eb3b93265b2f020973c3fa9669354cf46b46e28d325ce0b39236d0335d0",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdocl64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdpcom32.dl_",
+      "bytes": 59285,
+      "sha256": "289a6610d7dd9f93c761d1b811d1a5a6b7a86a4d11ccbf4a4c571650952e92f4",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdpcom32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdpcom64.dl_",
+      "bytes": 63874,
+      "sha256": "8bcc2792fa5114d0188fa7f632a62dbb2b6e071dcab420b4618031be7a923f77",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdpcom64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdvlk32.dl_",
+      "bytes": 3297393,
+      "sha256": "b639c2f309724c83e187628793cd70a8b511ed531954602524d264491706534a",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdvlk32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdvlk64.dl_",
+      "bytes": 3908398,
+      "sha256": "08dfcf7c2192056b750baa61115045871a3240e257912798a6addbb7b825e2bd",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdvlk64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdxc32.dl_",
+      "bytes": 3292273,
+      "sha256": "0b2d160bbd2158cc6f338b048226621cb35172f1abf19f7b1d429a9c90c16e2b",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdxc32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdxc64.dl_",
+      "bytes": 3836103,
+      "sha256": "5d5bfd5cbb8b9bd32c5b8955d3464bd48ece1e1479d88b26bfebad7e0c6eb7b4",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amdxc64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amf-mft-mjpeg-decoder32.dll",
+      "bytes": 1293824,
+      "sha256": "3243c177e3a9db335d3a437f5f2c1243c0f3e2be23fa61a13d7eaf15457c4702",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amf-mft-mjpeg-decoder32.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amf-mft-mjpeg-decoder64.dll",
+      "bytes": 1533440,
+      "sha256": "cd5bd4ee63700e0425ef12523b5a65891422a55101c934f7dcdc0d8f3add56bc",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/amf-mft-mjpeg-decoder64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ati2erec.dl_",
+      "bytes": 12367,
+      "sha256": "a86b56b9a6b437ad9a481362257e744d360ece200e978489b87fdf3ceba3a582",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ati2erec.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiadlxx.dl_",
+      "bytes": 710070,
+      "sha256": "0b2b5b55f884287214fe3cebc16e5e41b0ee9fdd0ce4dd8cd8001b081dce6b3f",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiadlxx.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiadlxy.dl_",
+      "bytes": 527975,
+      "sha256": "04339fbf5def6d6eb2238aa7549c5a571cfbed6bece5fee12e1b380eaf637fb0",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiadlxy.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiapfxx.blb",
+      "bytes": 717520,
+      "sha256": "415a2dcdde8d3c7a677449c9015b458137046b0bce9af16299b73a7bae0820bb",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiapfxx.blb",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiapfxx.ex_",
+      "bytes": 219770,
+      "sha256": "5e58e48035dc5bf6725e2f376490c4e9a17a3c6454091464f6bc02f7bfabe415",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiapfxx.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticalcl.dl_",
+      "bytes": 28185,
+      "sha256": "5b648509a8b563a6eb625cad82c47cdf2c76c89fce8aaf820a8711e35a62ddf2",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/aticalcl.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticalcl64.dl_",
+      "bytes": 31344,
+      "sha256": "8016e354f366a91e55d5aa2c681b3561fa55c5c7be99cdebe579f64ddbe405b8",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/aticalcl64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticaldd.dl_",
+      "bytes": 8052221,
+      "sha256": "623213bf8858a52324009e5192b29999a5c02980e10dff988d632ea1ade0cef0",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/aticaldd.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticaldd64.dl_",
+      "bytes": 8594947,
+      "sha256": "c5563e0995cc9f54694cbcdce5466e362d97c51008be697c3274deb4a18a33c1",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/aticaldd64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticalrt.dl_",
+      "bytes": 29270,
+      "sha256": "940412f667c3b51b64a51ebd192d4e4a191043e5babc58e3fcfa2cd02d8ecf23",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/aticalrt.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticalrt64.dl_",
+      "bytes": 33901,
+      "sha256": "95a1d869e9be75ff72f8c5aa27b4ffd9dd4b682cf0ab14f6f0e380cf3bff1aa2",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/aticalrt64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticfx32.dl_",
+      "bytes": 551224,
+      "sha256": "43308e831c503e46d5771f1f880447fd626d56f1983b4adcf5a30f33bee2844e",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/aticfx32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticfx64.dl_",
+      "bytes": 673549,
+      "sha256": "56f56f503eeb9f8eb48e6fc81a3eb2d5fb700f54eb1264599f825479203aa963",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/aticfx64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atidemgy.dl_",
+      "bytes": 170972,
+      "sha256": "8649604b930ddf7b8ac7b6ee972416a35cae105b6637bf7a8af42f6d62fd6122",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atidemgy.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atidxx32.dl_",
+      "bytes": 3905494,
+      "sha256": "10bbf3cf1bb3bfb741cbf04db219ed5e463a227a4aa70761d7345c710f9a14fb",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atidxx32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atidxx64.dl_",
+      "bytes": 4533689,
+      "sha256": "a85e67d1c6e4ea3cebe9d416b8c8dabc8b8f14e3966ff080247db9286ae771d8",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atidxx64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atieah32.ex_",
+      "bytes": 117711,
+      "sha256": "ef36fc7b43535c2e78dc61ba7be8bafd809e51ae5311921a117fdbcea727a119",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atieah32.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atieah64.ex_",
+      "bytes": 124287,
+      "sha256": "5b70d57a41c74ddfdfb1794d8fdbb5c32c186a3321bb0538269e743164af5919",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atieah64.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atieclxx.ex_",
+      "bytes": 345514,
+      "sha256": "20d010327254f18635cb85e14ee88d8188abca750fcbc53e4a5354962131c5c4",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atieclxx.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiesrxx.ex_",
+      "bytes": 177447,
+      "sha256": "11c848c1ab92958de5e4c7fc42e816010e92ba0a8fbdeb229ab372729613a7fd",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiesrxx.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atig6pxx.dl_",
+      "bytes": 60908,
+      "sha256": "4487c29d3bb69aed1e34efa32e4268557fad9e35f79d51c850b2c21f7892b1f1",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atig6pxx.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atig6txx.dl_",
+      "bytes": 106163,
+      "sha256": "e797a9cea561cf57b431796998307c8503b15e911a8d498240e460b2ce0797e2",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atig6txx.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atigktxx.dl_",
+      "bytes": 98918,
+      "sha256": "63a4c8939021789d4509353fd220741180729e1a4302586d1557469caef491c3",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atigktxx.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiglpxx.dl_",
+      "bytes": 58274,
+      "sha256": "48f3eac92c9d2c3d22f306a95b8fdebbd4b14ce2f2839708d3f7b64af2038f47",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiglpxx.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiicdxx.da_",
+      "bytes": 116292,
+      "sha256": "5df3c5c6c180992028182b28eace5b340953999e5d8bd70e2106774142fa28e3",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiicdxx.da_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atikmdag.sy_",
+      "bytes": 14934708,
+      "sha256": "78cfc12972fc5e3c1a0d305298da4c678eb9c3d389214083b31445669638bcd6",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atikmdag.sy_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atikmpag.sy_",
+      "bytes": 276254,
+      "sha256": "c84f7714fdf096fae65ec6505896e553d2dd83a807959385cc9615e949b61409",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atikmpag.sy_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atimpc32.dl_",
+      "bytes": 59285,
+      "sha256": "4a05d49bf2a423b8bc3c377817fa8c9a551d44939b4290fe54ae46d517499835",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atimpc32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atimpc64.dl_",
+      "bytes": 63872,
+      "sha256": "6b7e40b6d34ce3bae7c8ed5fdaf26604e5f9fb5e85afceba9f2fcbc741822b09",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atimpc64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atimuixx.dl_",
+      "bytes": 23829,
+      "sha256": "9061136bb89aeb9bd22bd6b74acfc3cf3790e11045b2f06d966eb59c191f65b3",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atimuixx.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atio6axx.dl_",
+      "bytes": 13367005,
+      "sha256": "4004654795d962446a3cfb56303ec42fd22cd59ce9606534f520e4f54d0cf498",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atio6axx.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiodcli.ex_",
+      "bytes": 29592,
+      "sha256": "d646fc374af5394d0a6668128d4994c42ccde17475b13df133142a2f75483bb8",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiodcli.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiode.ex_",
+      "bytes": 102873,
+      "sha256": "22b01a05745479ac0ce3aaf671d3b57d2bb0ed10d797678fe4d868b0e8dbd050",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiode.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atioglxx.dl_",
+      "bytes": 10992078,
+      "sha256": "b923cbfe0c04459d2cc5204324a34f21bf667d2887c18232f5035b20217070ec",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atioglxx.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atisamu32.dl_",
+      "bytes": 65589,
+      "sha256": "28a81cd0a13dca030000af4ed67c29d1f16364692f7a0ab2c3bcbc6e09e3c7d9",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atisamu32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atisamu64.dl_",
+      "bytes": 69057,
+      "sha256": "715c60cde81cb72f729e5827cf7d70b77b97f15cde231c04c7e7faf0dc426cba",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atisamu64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atitmm64.dl_",
+      "bytes": 155503,
+      "sha256": "93d0a960d8812aad871e9355a9bdb42372206cfba76514d95f89611cf1d8d8cf",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atitmm64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiu9p64.dl_",
+      "bytes": 86599,
+      "sha256": "02cfc03cf43abd23e226068d833fa8c627ee8fbb67fb721fdbeb6ca1cd26887a",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiu9p64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiu9pag.dl_",
+      "bytes": 78614,
+      "sha256": "a6b9bd70776aff175d5080d44945eb23d7c101732b7ca3d94ddf824603f6f367",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiu9pag.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumd64.dl_",
+      "bytes": 3977852,
+      "sha256": "b06f50d292874319fb4a32a40b53ca74a698d164a1ac6eb22122dd6727571042",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiumd64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumd6a.ca_",
+      "bytes": 3866560,
+      "sha256": "e52f62b01d2c16c80f07aed4a474ff9d80c75be398268f6cccaa9d14b847f1c7",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiumd6a.ca_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumd6a.dl_",
+      "bytes": 5588902,
+      "sha256": "60881e9c53e6ce92a51ebe1bedbaf44d8159a97c2a581e35cfff794f4531a46e",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiumd6a.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumdag.dl_",
+      "bytes": 3459175,
+      "sha256": "553fb868b07b3d35d7ea7580e282b164700ef45da1585a2862843a11c0880906",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiumdag.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumdva.ca_",
+      "bytes": 3904547,
+      "sha256": "9b9e8901af85d9109dc60b92b1a7a6dea9cc180d10d99a7ff600b8decaf1fdcb",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiumdva.ca_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumdva.dl_",
+      "bytes": 5222875,
+      "sha256": "3935ca7b8d022fe2aafddfb5724e50a5a36af154fbc6da230b3434da7ccb7c91",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiumdva.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiuxp64.dl_",
+      "bytes": 90951,
+      "sha256": "a2a5f467c17ae0548b7495004768ae546eacf0c65ac273a020726e3f0078728a",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiuxp64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiuxpag.dl_",
+      "bytes": 82671,
+      "sha256": "24b111df2e7c89000b723e435a10cfbc353110a8651958d82b96976e1a3715cf",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/atiuxpag.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativce02.dat",
+      "bytes": 100832,
+      "sha256": "0c49622ce912b451ae5637b2015240b112a26397a3247336c5c0bf24c54e3f4e",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativce02.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativce03.dat",
+      "bytes": 177280,
+      "sha256": "b3a63984bb1d754254dc36308684491405ebb3084320492e4e192f62b7a4a357",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativce03.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_cik_nd.dat",
+      "bytes": 232496,
+      "sha256": "5cdc5de1b0fe8b9a53c604efc6e52126fc5f0e996e1fedb39c3c934e4ccade49",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_cik_nd.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_cik.dat",
+      "bytes": 234292,
+      "sha256": "6207f65129a9dfa47d0dd344ec2e489e8c29a801fec46b547a572262a8209655",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_cik.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_cz_nd.dat",
+      "bytes": 266688,
+      "sha256": "f0a52b035a286701c6b540d7a4c386c097d1146066a824b3aeb3ab369771aaeb",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_cz_nd.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_el_nd.dat",
+      "bytes": 368416,
+      "sha256": "b52b2c0274497dd4ec841644d83907b68c4918feb573b034934fab809fdd468f",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_el_nd.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_fj_nd.dat",
+      "bytes": 257872,
+      "sha256": "466c1b17695a77d2ac92099e297c826ab42d1d870aefcc4b13c087b68fd925a6",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_fj_nd.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_fj.dat",
+      "bytes": 260852,
+      "sha256": "b4ec4280b7324d60043bf9c3ce4adee2e91785c0bdc049808313b7c998400502",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_fj.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_stn_nd.dat",
+      "bytes": 270784,
+      "sha256": "a8bf71e929c9b5ade0b1365b77f1457f9ac258af799597b01c2d4af7e3dc32fb",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_stn_nd.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_vi_nd.dat",
+      "bytes": 322736,
+      "sha256": "104ac5678d0d21363e27a7947cfd92980a22cf3c5838ebd037eabeda6888c4d9",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_vi_nd.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_vi.dat",
+      "bytes": 322996,
+      "sha256": "dfeaff2b126d43395ae6f07542103c7bc431d1438ee1341ccd588a3203e870d7",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvaxy_vi.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvsva.dat",
+      "bytes": 157144,
+      "sha256": "e698410e1b8e5b2875aa8b4d01fe6e4f0bf354f40d92925c4e3503d7fd1ec208",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvsva.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvsvl.dat",
+      "bytes": 204952,
+      "sha256": "f35a4644d926183d38815207e338e7919cbdd2b1bdb8164074e47b74ea1cf150",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/ativvsvl.dat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/clinfo.exe",
+      "bytes": 252928,
+      "sha256": "33fe0e986e6d6fee4db95d18f5ba45f9c1c53ea423fff280b286604b391ab880",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/clinfo.exe",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/coinst_16.20.dll",
+      "bytes": 865280,
+      "sha256": "67ea0d23e59f5aa30773cb63fac8c2d3920f113dfba0f022716eca56d921db90",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/coinst_16.20.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/detoured32.dl_",
+      "bytes": 1456,
+      "sha256": "e77877bb528b02e58cc382677e49ee30ab5d594161ea87949e6b9f89d4499253",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/detoured32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/detoured64.dl_",
+      "bytes": 1346,
+      "sha256": "b573357e4e01a9c8476aacabcfc41c93e577924a13c32babae219a12c3a9eba6",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/detoured64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/dgtrayicon.ex_",
+      "bytes": 156881,
+      "sha256": "ab5ad4e2dd3fd5458314a686b4c537ea41a462c08f5fcde8bbcc5bf7db1d1116",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/dgtrayicon.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/doppengine.dl_",
+      "bytes": 140994,
+      "sha256": "51c645398b9b998c6607b21efd090ba91b217fbd47a2bb411ca30d92ab5676ef",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/doppengine.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/dsemanager.ex_",
+      "bytes": 112387,
+      "sha256": "34bf7226ab9c9dc5fd439819164e42b8842450331ffaeaa65634a5be83563631",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/dsemanager.ex_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/gamemanager32.dl_",
+      "bytes": 135957,
+      "sha256": "27d1de686dcc05f38e93ed2c5786c69e2d7d2d102fff55ef5cbbc5004f562102",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/gamemanager32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/gamemanager64.dl_",
+      "bytes": 148285,
+      "sha256": "d94a662011a77edcce4311472dfebf8748ea286f6c42016f007f6df6ddadc5d9",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/gamemanager64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/hsa-thunk.dl_",
+      "bytes": 128229,
+      "sha256": "77e97ad064b3d23e6c22a5d3f4d0a3e98cc9031574be2dd0769e5dd0ff7030fa",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/hsa-thunk.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/hsa-thunk64.dl_",
+      "bytes": 140169,
+      "sha256": "bb068eed6567d33e05d715ae186f22472e2276d51578986d2c5db1cfa7553993",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/hsa-thunk64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/kapp_ci.sbin",
+      "bytes": 47664,
+      "sha256": "ecc9af565509d6a1f78228b842183e0d2bfe7661e4dbabdd9602508ae224c111",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/kapp_ci.sbin",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/kapp_si.sbin",
+      "bytes": 43536,
+      "sha256": "9216a737a9282db515ff14b6877bf73dc1b55cce8b20e0552320c30fd3a2ac36",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/kapp_si.sbin",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mantle32.dl_",
+      "bytes": 72045,
+      "sha256": "56792545fa67f8cfc15865db25160a4cb64ef864ae11bd82d946d1f21b5628f7",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/mantle32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mantle64.dl_",
+      "bytes": 78210,
+      "sha256": "d741bc9b56496bed6d25b38694b3dc94f53a42685ff2f0d26a397b930749d865",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/mantle64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mantleaxl32.dl_",
+      "bytes": 58988,
+      "sha256": "401f5058aa2330554ca9ba4b54d977731467512b7bad752e63e9b44207397a70",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/mantleaxl32.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mantleaxl64.dl_",
+      "bytes": 64561,
+      "sha256": "af1642d3aae40b04be7aec38e6602ba9e645b9437d0b8673b36ca5709a821c0f",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/mantleaxl64.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mcl32.dll",
+      "bytes": 49152,
+      "sha256": "a0def5e3593c3f301de2ac6f2611ac76f03e847b76df1f74d8ac8d89bb792c69",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/mcl32.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mcl64.dll",
+      "bytes": 64512,
+      "sha256": "2ceb0a7d438197fd51c0e60e6457f06259c65b1ad86cdd925fdab9c5d8aa1a88",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/mcl64.dll",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/samu_krnl_ci.sbin",
+      "bytes": 140240,
+      "sha256": "41f8bde125374995650ceac052f74e988f76825408b3ea9ed375784d104aee28",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/samu_krnl_ci.sbin",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/samu_krnl_isv_ci.sbin",
+      "bytes": 138832,
+      "sha256": "bc0d7254d90ba333871b0854e8234ad7db67e404fb1e1318a1a75f239e59a243",
+      "component": "AMD-M370X",
+      "parent": "amd-display",
+      "member": "Packages/Drivers/Display/WT6A_INF/B303175/samu_krnl_isv_ci.sbin",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/ArabicLicense.txt",
+      "bytes": 22894,
+      "sha256": "f7da3dc848ba74baadd5d08f3e4f95f67412e011dca7f761c959924238229756",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "ArabicLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/BrazilianPortugueseLicense.txt",
+      "bytes": 29920,
+      "sha256": "93aff27cb1719b803d1e15b357a134a273c1445d2fb5c525691343e0174ad7e8",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "BrazilianPortugueseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/cs4208_24.inf",
+      "bytes": 190297,
+      "sha256": "5a50b7903dad40a7e1b600be5b1dba930e3564161e604c1c17c13e3ec5562870",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "cs4208_24.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/cs4208.cat",
+      "bytes": 19680,
+      "sha256": "3d7494ea13c216773251195cc6e66d53794ae986d7866a9f839fe43290889dff",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "cs4208.cat",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/CzechLicense.txt",
+      "bytes": 28060,
+      "sha256": "a5d5d12cedca7c226638e23ae0e717fe61918f0746754f5489494b87d6befbd0",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "CzechLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/DanishLicense.txt",
+      "bytes": 27300,
+      "sha256": "d1af24434c622ef139ecfca759876b86e59316b3430236a86ba83dde136445d2",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "DanishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/DPInst.exe",
+      "bytes": 1047632,
+      "sha256": "c20a5d3f5be543a8e73cd25f9dbf14aa0fc4ba1fdc249ee4ff91d159d174d0ea",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "DPInst.exe",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/DPInst.xml",
+      "bytes": 18192,
+      "sha256": "ddb3360a67ec75784e0224c1dcffd7db537626d2e603cfeef074eed5f2828774",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "DPInst.xml",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/DutchLicense.txt",
+      "bytes": 34054,
+      "sha256": "348d0fc12111f6d50081251b3cce3a5d5f057ef839b66398e672a2b6197a1584",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "DutchLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/EnglishLicense.txt",
+      "bytes": 27142,
+      "sha256": "ee1e7764d1a6773f5009afcd3712b4756daf2d004b3978d99cf9a6bc385c3aef",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "EnglishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/FinnishLicense.txt",
+      "bytes": 24916,
+      "sha256": "885dc67cacb0ac04be0b02a8e9d83dafcf9c066c90b498c5c14c636f7bffa3bd",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "FinnishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/FrenchLicense.txt",
+      "bytes": 32112,
+      "sha256": "ccde40f0535d3c596eb6b74420c942d9374ee57af619d6ce07e89ce06f516ca2",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "FrenchLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/GermanLicense.txt",
+      "bytes": 33430,
+      "sha256": "a4c3e049309e5a588485f5530992c1ac0f0237d4b356b4936347be33c30b2ca7",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "GermanLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/HungarianLicense.txt",
+      "bytes": 31146,
+      "sha256": "16e4087f675442fbe96a209f68cb091e4c94c642887eb3a6e7a2e985c51b07f3",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "HungarianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/ItalianLicense.txt",
+      "bytes": 32122,
+      "sha256": "014bb342de5e11e2172a1aeb720a1fbe3e1cdc6697e208409509c0f3c21d92ab",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "ItalianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/JapaneseLicense.txt",
+      "bytes": 13762,
+      "sha256": "072578a9f4d36bb6a1206ca717e61a141fb076e32ffae07b83501e326e8217ce",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "JapaneseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/KoreanLicense.txt",
+      "bytes": 14590,
+      "sha256": "cd8437a71e4e0854d077eca9ce06460a202c189c696ae954e9b77c77aa75b390",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "KoreanLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/NorwegianLicense.txt",
+      "bytes": 28762,
+      "sha256": "657a3058025eaa8a696558b58616292543f4d8a726b54e5180fb9e6838179396",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "NorwegianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/PolishLicense.txt",
+      "bytes": 31026,
+      "sha256": "ccd0cadce282d62ba04cda2e8c680eade4de8e204cc3d51df16af2962745d99c",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "PolishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/PortugueseLicense.txt",
+      "bytes": 31498,
+      "sha256": "d0c14f0db8c355b5727de805fe7c36c308075781e9e88ac2b0e6a65803265d7e",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "PortugueseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/RussianLicense.txt",
+      "bytes": 34646,
+      "sha256": "b7d959c56e4dbef9497c3c5b04290779e1f2b226abd79ac8714b8b1b0610e4fb",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "RussianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/SimplifiedChineseLicense.txt",
+      "bytes": 8944,
+      "sha256": "e42a046204477ec3badd97289508bbd941d4eec618d337ecb972229665ea3757",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "SimplifiedChineseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/SpanishLicense.txt",
+      "bytes": 32044,
+      "sha256": "47f12e0b8ad5d4e0fb242ab68b2c67248e588a9db8da2dcdeb5121105e194ec3",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "SpanishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/SwedishLicense.txt",
+      "bytes": 28372,
+      "sha256": "93e68b4f10aa03609b5ae35b51f8d70501e87aec75bd77b2e06feb4544fb64ca",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "SwedishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/TraditionalChineseLicense.txt",
+      "bytes": 8392,
+      "sha256": "341c5b7bf1b06ff6a52d33ef2136202a5e18f450c6d74e341c600748af159354",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "TraditionalChineseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/TurkishLicense.txt",
+      "bytes": 28716,
+      "sha256": "cae135441fd5306c57216bc6f5a292ed2fc76992f50acacf6de3ba14fc16d011",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "TurkishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/CLFiltAPO.dll",
+      "bytes": 77824,
+      "sha256": "09bbd65c1ec9cdb8781d4f5ff21618077d5236745ff078f07887ea43518005f7",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "x64/CLFiltAPO.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/CLLoopAPO.dll",
+      "bytes": 81920,
+      "sha256": "795247e948e25ffbf4be044005d8a7f67665d08188e051965367d31255db785b",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "x64/CLLoopAPO.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/CSLFD.sys",
+      "bytes": 89168,
+      "sha256": "63bc8f65b89e0b128ae2cd17c6437abb7656695fc387fdc6856d4842f91280ae",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "x64/CSLFD.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/CSUFD.sys",
+      "bytes": 13496,
+      "sha256": "726518cbc163af050fe22911aea2b6e144c63d13cd1ddce3ae51ba5460f98515",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "x64/CSUFD.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/WdfCoInstaller01011.dll",
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "component": "Cirrus-Audio",
+      "parent": "cirrus",
+      "member": "x64/WdfCoInstaller01011.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/atihdw76.cat",
+      "bytes": 12414,
+      "sha256": "982fe2dae5615f35291530d7ab94e4551398f7709f5c072b6d0606f9973853fe",
+      "component": "AMD-HDMI-Audio",
+      "parent": "amd-audio",
+      "member": "15.201.1301-150819a-188578C-WHQL/Packages/Drivers/WDM/HDMI/W764A/atihdw76.cat",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/AtihdW76.inf",
+      "bytes": 51422,
+      "sha256": "5bcc279c05e196ba5ebb5f238f8c5a510404c3242fc2157f81514b371cb72972",
+      "component": "AMD-HDMI-Audio",
+      "parent": "amd-audio",
+      "member": "15.201.1301-150819a-188578C-WHQL/Packages/Drivers/WDM/HDMI/W764A/AtihdW76.inf",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/AtihdW76.msi",
+      "bytes": 86528,
+      "sha256": "ae0a42ec752d072a58c2df76e64c53fb5fa6e9334d328ac83e7d95e467a3ef07",
+      "component": "AMD-HDMI-Audio",
+      "parent": "amd-audio",
+      "member": "15.201.1301-150819a-188578C-WHQL/Packages/Drivers/WDM/HDMI/W764A/AtihdW76.msi",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/atihdw76.sy_",
+      "bytes": 64748,
+      "sha256": "e28b7868362510788102b339da71388293a685642dd464b3ea52ec3a1c54b4fe",
+      "component": "AMD-HDMI-Audio",
+      "parent": "amd-audio",
+      "member": "15.201.1301-150819a-188578C-WHQL/Packages/Drivers/WDM/HDMI/W764A/atihdw76.sy_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/delayapo.dl_",
+      "bytes": 61636,
+      "sha256": "b3a9519814c3f35ce38ca04d96882a0570a2c7f2cfd201cfbf4ef739400f75b3",
+      "component": "AMD-HDMI-Audio",
+      "parent": "amd-audio",
+      "member": "15.201.1301-150819a-188578C-WHQL/Packages/Drivers/WDM/HDMI/W764A/delayapo.dl_",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/AppleMTP.sys",
+      "bytes": 49152,
+      "sha256": "a9fa5cd140368c675469cc130e3d68c5931e1c26b2c6446327ea3475e8dfc11b",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "AppleMTP.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/AppleMTP64.cat",
+      "bytes": 13820,
+      "sha256": "09cad994ce660c58ad7840436005d06019cde8ee944dd1934d4a66d9af341355",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "AppleMTP64.cat",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/AppleMTP64.inf",
+      "bytes": 7168,
+      "sha256": "29216b4c8dafba55ff4d6635a4be1f58e78402309817c0d8736e86262d2b07ec",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "AppleMTP64.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/ArabicLicense.txt",
+      "bytes": 22894,
+      "sha256": "f7da3dc848ba74baadd5d08f3e4f95f67412e011dca7f761c959924238229756",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "ArabicLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/BrazilianPortugueseLicense.txt",
+      "bytes": 29920,
+      "sha256": "93aff27cb1719b803d1e15b357a134a273c1445d2fb5c525691343e0174ad7e8",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "BrazilianPortugueseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/CzechLicense.txt",
+      "bytes": 28060,
+      "sha256": "a5d5d12cedca7c226638e23ae0e717fe61918f0746754f5489494b87d6befbd0",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "CzechLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/DanishLicense.txt",
+      "bytes": 27300,
+      "sha256": "d1af24434c622ef139ecfca759876b86e59316b3430236a86ba83dde136445d2",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "DanishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/DPInst.exe",
+      "bytes": 1047632,
+      "sha256": "c20a5d3f5be543a8e73cd25f9dbf14aa0fc4ba1fdc249ee4ff91d159d174d0ea",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "DPInst.exe",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/DPInst.xml",
+      "bytes": 18192,
+      "sha256": "ddb3360a67ec75784e0224c1dcffd7db537626d2e603cfeef074eed5f2828774",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "DPInst.xml",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/DutchLicense.txt",
+      "bytes": 34054,
+      "sha256": "348d0fc12111f6d50081251b3cce3a5d5f057ef839b66398e672a2b6197a1584",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "DutchLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/EnglishLicense.txt",
+      "bytes": 27142,
+      "sha256": "ee1e7764d1a6773f5009afcd3712b4756daf2d004b3978d99cf9a6bc385c3aef",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "EnglishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/FinnishLicense.txt",
+      "bytes": 24916,
+      "sha256": "885dc67cacb0ac04be0b02a8e9d83dafcf9c066c90b498c5c14c636f7bffa3bd",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "FinnishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/FrenchLicense.txt",
+      "bytes": 32112,
+      "sha256": "ccde40f0535d3c596eb6b74420c942d9374ee57af619d6ce07e89ce06f516ca2",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "FrenchLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/GermanLicense.txt",
+      "bytes": 33430,
+      "sha256": "a4c3e049309e5a588485f5530992c1ac0f0237d4b356b4936347be33c30b2ca7",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "GermanLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/HungarianLicense.txt",
+      "bytes": 31146,
+      "sha256": "16e4087f675442fbe96a209f68cb091e4c94c642887eb3a6e7a2e985c51b07f3",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "HungarianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/ItalianLicense.txt",
+      "bytes": 32122,
+      "sha256": "014bb342de5e11e2172a1aeb720a1fbe3e1cdc6697e208409509c0f3c21d92ab",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "ItalianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/JapaneseLicense.txt",
+      "bytes": 13762,
+      "sha256": "072578a9f4d36bb6a1206ca717e61a141fb076e32ffae07b83501e326e8217ce",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "JapaneseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/KoreanLicense.txt",
+      "bytes": 14590,
+      "sha256": "cd8437a71e4e0854d077eca9ce06460a202c189c696ae954e9b77c77aa75b390",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "KoreanLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/NorwegianLicense.txt",
+      "bytes": 28762,
+      "sha256": "657a3058025eaa8a696558b58616292543f4d8a726b54e5180fb9e6838179396",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "NorwegianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/PolishLicense.txt",
+      "bytes": 31026,
+      "sha256": "ccd0cadce282d62ba04cda2e8c680eade4de8e204cc3d51df16af2962745d99c",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "PolishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/PortugueseLicense.txt",
+      "bytes": 31498,
+      "sha256": "d0c14f0db8c355b5727de805fe7c36c308075781e9e88ac2b0e6a65803265d7e",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "PortugueseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/RussianLicense.txt",
+      "bytes": 34646,
+      "sha256": "b7d959c56e4dbef9497c3c5b04290779e1f2b226abd79ac8714b8b1b0610e4fb",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "RussianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/SimplifiedChineseLicense.txt",
+      "bytes": 8944,
+      "sha256": "e42a046204477ec3badd97289508bbd941d4eec618d337ecb972229665ea3757",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "SimplifiedChineseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/SpanishLicense.txt",
+      "bytes": 32044,
+      "sha256": "47f12e0b8ad5d4e0fb242ab68b2c67248e588a9db8da2dcdeb5121105e194ec3",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "SpanishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/SwedishLicense.txt",
+      "bytes": 28372,
+      "sha256": "93e68b4f10aa03609b5ae35b51f8d70501e87aec75bd77b2e06feb4544fb64ca",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "SwedishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/TraditionalChineseLicense.txt",
+      "bytes": 8392,
+      "sha256": "341c5b7bf1b06ff6a52d33ef2136202a5e18f450c6d74e341c600748af159354",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "TraditionalChineseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/TurkishLicense.txt",
+      "bytes": 28716,
+      "sha256": "cae135441fd5306c57216bc6f5a292ed2fc76992f50acacf6de3ba14fc16d011",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "TurkishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/WdfCoinstaller01011.dll",
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "component": "Apple-Trackpad",
+      "parent": "trackpad",
+      "member": "WdfCoinstaller01011.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/AppleBTBC.cat",
+      "bytes": 10247,
+      "sha256": "e758fac432e27325b2eeac18dc83e23713866e97a8325403b2cbc260e85dc2d3",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/AppleBTBC.cat",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/AppleBTBC.inf",
+      "bytes": 4363,
+      "sha256": "cf438c1eb09e22e10d6e68645ae44effe902eaa599e64b6da6696a0775eb4c6b",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/AppleBTBC.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/AppleBTBC.sys",
+      "bytes": 38912,
+      "sha256": "226990076cc5e612da2db3d38f70fce9ddb7e7c954e1921c907257d47341b263",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/AppleBTBC.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/ArabicLicense.txt",
+      "bytes": 22894,
+      "sha256": "f7da3dc848ba74baadd5d08f3e4f95f67412e011dca7f761c959924238229756",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/ArabicLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/BrazilianPortugueseLicense.txt",
+      "bytes": 29920,
+      "sha256": "93aff27cb1719b803d1e15b357a134a273c1445d2fb5c525691343e0174ad7e8",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/BrazilianPortugueseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/CzechLicense.txt",
+      "bytes": 28060,
+      "sha256": "a5d5d12cedca7c226638e23ae0e717fe61918f0746754f5489494b87d6befbd0",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/CzechLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/DanishLicense.txt",
+      "bytes": 27300,
+      "sha256": "d1af24434c622ef139ecfca759876b86e59316b3430236a86ba83dde136445d2",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/DanishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/DPInst.exe",
+      "bytes": 1047632,
+      "sha256": "c20a5d3f5be543a8e73cd25f9dbf14aa0fc4ba1fdc249ee4ff91d159d174d0ea",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/DPInst.exe",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/DPInst.xml",
+      "bytes": 18192,
+      "sha256": "ddb3360a67ec75784e0224c1dcffd7db537626d2e603cfeef074eed5f2828774",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/DPInst.xml",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/DutchLicense.txt",
+      "bytes": 34054,
+      "sha256": "348d0fc12111f6d50081251b3cce3a5d5f057ef839b66398e672a2b6197a1584",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/DutchLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/EnglishLicense.txt",
+      "bytes": 27142,
+      "sha256": "ee1e7764d1a6773f5009afcd3712b4756daf2d004b3978d99cf9a6bc385c3aef",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/EnglishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/FinnishLicense.txt",
+      "bytes": 24916,
+      "sha256": "885dc67cacb0ac04be0b02a8e9d83dafcf9c066c90b498c5c14c636f7bffa3bd",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/FinnishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/FrenchLicense.txt",
+      "bytes": 32112,
+      "sha256": "ccde40f0535d3c596eb6b74420c942d9374ee57af619d6ce07e89ce06f516ca2",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/FrenchLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/GermanLicense.txt",
+      "bytes": 33430,
+      "sha256": "a4c3e049309e5a588485f5530992c1ac0f0237d4b356b4936347be33c30b2ca7",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/GermanLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/HungarianLicense.txt",
+      "bytes": 31146,
+      "sha256": "16e4087f675442fbe96a209f68cb091e4c94c642887eb3a6e7a2e985c51b07f3",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/HungarianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/ItalianLicense.txt",
+      "bytes": 32122,
+      "sha256": "014bb342de5e11e2172a1aeb720a1fbe3e1cdc6697e208409509c0f3c21d92ab",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/ItalianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/JapaneseLicense.txt",
+      "bytes": 13762,
+      "sha256": "072578a9f4d36bb6a1206ca717e61a141fb076e32ffae07b83501e326e8217ce",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/JapaneseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/KoreanLicense.txt",
+      "bytes": 14590,
+      "sha256": "cd8437a71e4e0854d077eca9ce06460a202c189c696ae954e9b77c77aa75b390",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/KoreanLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/NorwegianLicense.txt",
+      "bytes": 28762,
+      "sha256": "657a3058025eaa8a696558b58616292543f4d8a726b54e5180fb9e6838179396",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/NorwegianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/PolishLicense.txt",
+      "bytes": 31026,
+      "sha256": "ccd0cadce282d62ba04cda2e8c680eade4de8e204cc3d51df16af2962745d99c",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/PolishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/PortugueseLicense.txt",
+      "bytes": 31498,
+      "sha256": "d0c14f0db8c355b5727de805fe7c36c308075781e9e88ac2b0e6a65803265d7e",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/PortugueseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/RussianLicense.txt",
+      "bytes": 34646,
+      "sha256": "b7d959c56e4dbef9497c3c5b04290779e1f2b226abd79ac8714b8b1b0610e4fb",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/RussianLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/SimplifiedChineseLicense.txt",
+      "bytes": 8944,
+      "sha256": "e42a046204477ec3badd97289508bbd941d4eec618d337ecb972229665ea3757",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/SimplifiedChineseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/SpanishLicense.txt",
+      "bytes": 32044,
+      "sha256": "47f12e0b8ad5d4e0fb242ab68b2c67248e588a9db8da2dcdeb5121105e194ec3",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/SpanishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/SwedishLicense.txt",
+      "bytes": 28372,
+      "sha256": "93e68b4f10aa03609b5ae35b51f8d70501e87aec75bd77b2e06feb4544fb64ca",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/SwedishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/TraditionalChineseLicense.txt",
+      "bytes": 8392,
+      "sha256": "341c5b7bf1b06ff6a52d33ef2136202a5e18f450c6d74e341c600748af159354",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/TraditionalChineseLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/TurkishLicense.txt",
+      "bytes": 28716,
+      "sha256": "cae135441fd5306c57216bc6f5a292ed2fc76992f50acacf6de3ba14fc16d011",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/TurkishLicense.txt",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/WdfCoinstaller01011.dll",
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "component": "Apple-Bluetooth",
+      "parent": "apple",
+      "member": "$WinPEDriver$/AppleBluetoothBroadcom64/WdfCoinstaller01011.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/3f3ca95b-3978-4168-b47b-5444f42d6c89.devicemetadata-ms",
+      "bytes": 938,
+      "sha256": "6828173bc3132487d8433648f9e0d909c603ce645746ced4d751afaa1d05ba4f",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "3f3ca95b-3978-4168-b47b-5444f42d6c89.devicemetadata-ms",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/46a6fdbe-c823-4579-bab6-35f67e01f793.devicemetadata-ms",
+      "bytes": 833,
+      "sha256": "002d2c8f82580b6b1c02db252612f2d20c252266ee85caca6ce236e426e294c2",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "46a6fdbe-c823-4579-bab6-35f67e01f793.devicemetadata-ms",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/heci.cat",
+      "bytes": 12259,
+      "sha256": "917fb7ad564cd6245f6a0e1b3e0df3ca0f672b32f45dae1f1dd40c7b33b19304",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "heci.cat",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/heci.inf",
+      "bytes": 23838,
+      "sha256": "e39a9681b062d2a613f3e51e40c3bbdfd85a1a01b42b860e76b75d897ad51897",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "heci.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x64/HECIx64.sys",
+      "bytes": 66848,
+      "sha256": "302a53ff6456e026777273f3a2687f2a578859e6436ec133cde8c60e5466af92",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "x64/HECIx64.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x64/TEEDriverx64.sys",
+      "bytes": 129312,
+      "sha256": "6c9ab779c2355a341800a8f93aaaf9b19faff444cd6a7bd27c63d53f379a75ef",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "x64/TEEDriverx64.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x64/WdfCoInstaller01011.dll",
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "x64/WdfCoInstaller01011.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x86/HECI.sys",
+      "bytes": 58656,
+      "sha256": "b4cacdfe45d071a13f7532f06d5b43ca2c0f06408b65e7aad67334c3a4dd3662",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "x86/HECI.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x86/TEEDriver.sys",
+      "bytes": 111904,
+      "sha256": "cdc32d7782196e672cd5c0516f3c1ac1eb7ecbf212ca41871723cc7829b63524",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "x86/TEEDriver.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x86/WdfCoInstaller01011.dll",
+      "bytes": 1629040,
+      "sha256": "c7649879a10c9332fc0f9744c7e3224647aee9e7e62c7e21cf9e987462e3dd06",
+      "component": "Intel-MEI",
+      "parent": "mei-cab",
+      "member": "x86/WdfCoInstaller01011.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/4350c5rtecdc.bin",
+      "bytes": 635116,
+      "sha256": "dd264d7f621996acb0bc25d4ed6061d3e2521f4dc55182686a10c6bf22034f24",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/4350c5rtecdc.bin",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/4356a2rtecdc.bin",
+      "bytes": 629868,
+      "sha256": "d3b602942094b2797eae9e11061d752383ed2656a56f3539f5ab919c2e67d7aa",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/4356a2rtecdc.bin",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/43602a1rtecdc.bin",
+      "bytes": 636791,
+      "sha256": "560767684bab9bc07085b4961ffa1826d606f67866c1e292729381bc5a36d18b",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/43602a1rtecdc.bin",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/4371c2rtecdc.bin",
+      "bytes": 629868,
+      "sha256": "be9a6c73a7829a32721286efad4d4e8f3cfaa95501231f865579e2e95316631b",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/4371c2rtecdc.bin",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmihvsrv64.dll",
+      "bytes": 4137504,
+      "sha256": "9796edd25b8626e87f3520bf6594b25740db2a208d165accb559b69371c7bc46",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/bcmihvsrv64.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmihvui64.dll",
+      "bytes": 3776032,
+      "sha256": "e9e9ee5b4c6d849c20ff156084905bed8654f2f64447dcff0921afc1a345b82a",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/bcmihvui64.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmpciedhd6.cat",
+      "bytes": 10900,
+      "sha256": "8bd530a70543a658b0f5d121493e7c0fab5e7e9f9f8e175af9d5eb74b5c6d44e",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/bcmpciedhd6.cat",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmpciedhd6.inf",
+      "bytes": 20812,
+      "sha256": "45a7725c0f763c5d97b106ba0f76e37c1f8d528bd15221553b0d77715eb8af88",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/bcmpciedhd6.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmpciedhd6.sys",
+      "bytes": 331008,
+      "sha256": "ae4ac50bdf04c75a13184476dd417dc2ea117d48bf99ac68c2537334007f2325",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/bcmpciedhd6.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/wapiutil.exe",
+      "bytes": 39968,
+      "sha256": "c87f25ed199cd3ef1511a114b3a80ff68b804f5bcaed6c785f4d73bffc82f4c4",
+      "component": "Broadcom-WiFi",
+      "parent": "broadcom-wifi",
+      "member": "app/WLAN_BCM4350/bcm.inf/x64/wapiutil.exe",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard/Keymagic64.inf",
+      "bytes": 18702,
+      "sha256": "a535653e4a88defe41884aaeb7bf0509955743d85dce502b317dda6fc04b2de7",
+      "component": "Apple-Keyboard",
+      "parent": "keyboard",
+      "member": "Keymagic64.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard/Keymagic.sys",
+      "bytes": 50688,
+      "sha256": "a1557a4114421051eda10012d85506cc056e0f0037a9de89cf0cba68d63f1344",
+      "component": "Apple-Keyboard",
+      "parent": "keyboard",
+      "member": "Keymagic.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard/Keymagic64.cat",
+      "bytes": 18409,
+      "sha256": "e8591aaa52b06a7ee0f0153de13469c320d6a835b7643f518c27cf6141ca159c",
+      "component": "Apple-Keyboard",
+      "parent": "keyboard",
+      "member": "Keymagic64.cat",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard/WdfCoinstaller01011.dll",
+      "bytes": 1804672,
+      "sha256": "31f16923f8e799fba0d7799a2b26c4f7e0b923c134d9cb0d86a1ab8067aca885",
+      "component": "Apple-Keyboard",
+      "parent": "keyboard",
+      "member": "WdfCoinstaller01011.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/BootCamp-Utility/Bootcamp.exe",
+      "bytes": 2713448,
+      "sha256": "d07ea8eedbe29a93f899befbf4df6995f291e7ea80b3aea2b0158d7f15c98d2c",
+      "component": "BootCamp-Utility",
+      "parent": "bootcamp",
+      "member": "Bootcamp.exe",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/BootCamp-Utility/Boot Camp.Resources/en.lproj/Resources.dll",
+      "bytes": 193464,
+      "sha256": "d3b772b12768e3561699962a1398d836bd23b713084875396648a32a4c57ff64",
+      "component": "BootCamp-Utility",
+      "parent": "bootcamp",
+      "member": "BootCamp.Resources_en.lproj_Resources.dll",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/BootCamp-ControlPanel/AppleControlPanel.exe",
+      "bytes": 3831064,
+      "sha256": "d021e42e0ac16d5454437696bd36cb5b76a8c2c8747ac59738bca7ff76d920ee",
+      "component": "BootCamp-ControlPanel",
+      "parent": "bootcamp",
+      "member": "AppleControlPanel.exe",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Microsoft-SHA2-Update/Windows6.1-KB3033929-x64.msu",
+      "bytes": 45918843,
+      "sha256": "5318587007edb6c8b29310ff18da479a162b486b9101a7de735f94a70dbc3b31",
+      "component": "Microsoft-SHA2-Update",
+      "parent": "sha2",
+      "member": "",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    }
+  ],
+  "hardware_status": "11,5 individual components tested; fresh combined installer not yet accepted. 11,4 untested.",
+  "ready_for_release": false,
+  "vendor_binaries_hosted": false
+}
