@@ -2,8 +2,14 @@
 using System;
 using System.Text;
 using System.ComponentModel;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 public static class NoMoreBCADriverApi {
+    public sealed class DeviceInfo {
+        public string PNPDeviceID, Name, Service;
+        public string[] HardwareID, CompatibleID;
+        public uint ConfigManagerErrorCode, Status;
+    }
     [StructLayout(LayoutKind.Sequential)] struct Dev { public uint size; public Guid cls; public uint inst; public IntPtr reserved; }
     [StructLayout(LayoutKind.Sequential)] struct Prop { public uint size,func,state,scope,profile; }
     [StructLayout(LayoutKind.Sequential,CharSet=CharSet.Unicode)] struct Params {
@@ -28,6 +34,11 @@ public static class NoMoreBCADriverApi {
     [DllImport("newdev.dll",CharSet=CharSet.Unicode,SetLastError=true)]
     [return:MarshalAs(UnmanagedType.Bool)] static extern bool UpdateDriverForPlugAndPlayDevicesW(IntPtr hwnd,string id,string inf,uint flags,[MarshalAs(UnmanagedType.Bool)]out bool reboot);
     [DllImport("setupapi.dll",SetLastError=true)] static extern IntPtr SetupDiCreateDeviceInfoList(IntPtr cls,IntPtr hwnd);
+    [DllImport("setupapi.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern IntPtr SetupDiGetClassDevs(IntPtr cls,string enumerator,IntPtr hwnd,uint flags);
+    [DllImport("setupapi.dll",SetLastError=true)] static extern bool SetupDiEnumDeviceInfo(IntPtr set,uint index,ref Dev dev);
+    [DllImport("setupapi.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool SetupDiGetDeviceInstanceId(IntPtr set,ref Dev dev,StringBuilder id,uint count,out uint required);
+    [DllImport("setupapi.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool SetupDiGetDeviceRegistryProperty(IntPtr set,ref Dev dev,uint property,out uint type,byte[] data,uint count,out uint required);
+    [DllImport("cfgmgr32.dll")] static extern uint CM_Get_DevNode_Status(out uint status,out uint problem,uint devInst,uint flags);
     [DllImport("setupapi.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool SetupDiOpenDeviceInfo(IntPtr set,string id,IntPtr hwnd,uint flags,ref Dev dev);
     [DllImport("setupapi.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool SetupDiSetDeviceRegistryProperty(IntPtr set,ref Dev dev,uint prop,byte[] data,uint size);
     [DllImport("setupapi.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool SetupDiSetClassInstallParams(IntPtr set,ref Dev dev,ref Prop prop,uint size);
@@ -48,7 +59,59 @@ public static class NoMoreBCADriverApi {
         if(!SetupDiOpenDeviceInfo(set,id,IntPtr.Zero,0,ref d)){int error=Marshal.GetLastWin32Error();SetupDiDestroyDeviceInfoList(set);throw new Win32Exception(error);}return set;
     }
     public static bool Install(IntPtr hwnd,string id,string inf) {
-        bool reboot;Check(UpdateDriverForPlugAndPlayDevicesW(hwnd,id,inf,0,out reboot));return reboot;
+        bool reboot;
+        if(!UpdateDriverForPlugAndPlayDevicesW(hwnd,id,inf,0,out reboot)) {
+            int error=Marshal.GetLastWin32Error();
+            // Windows may retain an already installed, equally ranked or newer
+            // driver. The caller MUST inspect the resulting device status.
+            if(error!=259)throw new Win32Exception(error);
+        }
+        return reboot;
+    }
+    static string[] Property(IntPtr set,ref Dev d,uint property) {
+        uint type,required;byte[] b=new byte[65536];
+        if(!SetupDiGetDeviceRegistryProperty(set,ref d,property,out type,b,(uint)b.Length,out required)) {
+            int error=Marshal.GetLastWin32Error();if(error==13)return new string[0];throw new Win32Exception(error);
+        }
+        if((type!=1 && type!=7) || required>b.Length || required%2!=0)throw new InvalidOperationException("Invalid PnP property data");
+        return Encoding.Unicode.GetString(b,0,(int)required).Split(new char[]{'\0'},StringSplitOptions.RemoveEmptyEntries);
+    }
+    static string First(string[] values) {return values.Length==0?"":values[0];}
+    public static DeviceInfo[] Devices() {
+        // Present devices only; unlike WMI's Present property this works on 7.
+        IntPtr set=SetupDiGetClassDevs(IntPtr.Zero,null,IntPtr.Zero,6);
+        if(set==new IntPtr(-1))throw new Win32Exception(Marshal.GetLastWin32Error());
+        List<DeviceInfo> result=new List<DeviceInfo>();
+        try {
+            for(uint i=0;;i++) {
+                Dev d=new Dev();d.size=(uint)Marshal.SizeOf(typeof(Dev));
+                if(!SetupDiEnumDeviceInfo(set,i,ref d)) {
+                    int error=Marshal.GetLastWin32Error();if(error==259)break;throw new Win32Exception(error);
+                }
+                StringBuilder id=new StringBuilder(4096);uint required;
+                Check(SetupDiGetDeviceInstanceId(set,ref d,id,4096,out required));
+                DeviceInfo item=new DeviceInfo();item.PNPDeviceID=id.ToString();
+                item.HardwareID=Property(set,ref d,1);item.CompatibleID=Property(set,ref d,2);
+                item.Name=First(Property(set,ref d,12));if(item.Name=="")item.Name=First(Property(set,ref d,0));
+                item.Service=First(Property(set,ref d,4));
+                uint errorCode=CM_Get_DevNode_Status(out item.Status,out item.ConfigManagerErrorCode,d.inst,0);
+                if(errorCode!=0)throw new InvalidOperationException("Device status unavailable: "+errorCode);
+                result.Add(item);
+            }
+        } finally {SetupDiDestroyDeviceInfoList(set);}
+        return result.ToArray();
+    }
+    public static bool Matches(DeviceInfo device,string id) {
+        foreach(string value in device.HardwareID)if(String.Equals(value,id,StringComparison.OrdinalIgnoreCase))return true;
+        foreach(string value in device.CompatibleID)if(String.Equals(value,id,StringComparison.OrdinalIgnoreCase))return true;
+        return false;
+    }
+    public static string InstallationTarget(DeviceInfo device,string matchingId) {
+        if(!Matches(device,matchingId) || device.HardwareID.Length==0)throw new InvalidOperationException("No exact supported device match");
+        // UpdateDriverForPlugAndPlayDevices selects devices by *hardware* ID,
+        // even when the INF itself matches a compatible ID. Use the actual,
+        // most specific hardware ID instead of the recipe's generic PCI ID.
+        return device.HardwareID[0];
     }
     public static void SetLowerFilters(string id,string[] filters) {
         Dev d;IntPtr set=Open(id,out d);

@@ -26,11 +26,21 @@ function Trusted([string]$Path) {
 }
 function Note([string]$Message) {
  $line=(Get-Date -Format o)+' '+$Message
- $line|Out-File -FilePath (Join-Path $PackRoot 'setup.log') -Encoding utf8 -Append
- if($script:Log){$script:Log.AppendText($Message+"`r`n");[Windows.Forms.Application]::DoEvents()}
+ if($PackRoot){$line|Out-File -FilePath (Join-Path $PackRoot 'setup.log') -Encoding utf8 -Append}
+ [Console]::WriteLine($Message)
 }
 function Present([string]$HardwareID) {
- return @(Get-WmiObject Win32_PnPEntity|Where-Object {@($_.HardwareID) -contains $HardwareID})
+ return @([NoMoreBCADriverApi]::Devices()|Where-Object {[NoMoreBCADriverApi]::Matches($_,$HardwareID)})
+}
+function InstalledINF($Device) {
+ $key='HKLM:\SYSTEM\CurrentControlSet\Enum\'+$Device.PNPDeviceID
+ $props=Get-ItemProperty -LiteralPath $key
+ if(!$props.Driver){return ''}
+ $driver=Get-ItemProperty -LiteralPath ('HKLM:\SYSTEM\CurrentControlSet\Control\Class\'+$props.Driver)
+ if(!$driver.InfPath -or $driver.InfPath -match '[\\/:]'){return ''}
+ $path=Join-Path "$env:SystemRoot\inf" $driver.InfPath
+ if(!(Test-Path -LiteralPath $path)){return ''}
+ return Hash $path
 }
 function BackupDevice($Device,[string]$Directory) {
  [void][IO.Directory]::CreateDirectory($Directory)
@@ -54,16 +64,30 @@ function InstallINF($Component) {
  $inf=Original $Component.Inf;$catalog=Original $Component.Catalog
  [void](Trusted $catalog)
  $devices=@(Present $Component.HardwareID)
- if(!$devices.Count){Note ($Component.Name+': matching hardware is absent; skipped.');return}
+ if(!$devices.Count){$script:ComponentState='not-detected';Note ($Component.Name+': not detected in present hardware or compatible IDs. Not installed.');return}
+ $expected=Hash $inf
+ if(@($devices|Where-Object {($_.ConfigManagerErrorCode -ne 0) -or ((InstalledINF $_) -ne $expected)}).Count -eq 0){
+  $script:ComponentState='already-installed';Note ($Component.Name+': the expected driver is already selected and device status is 0.');return
+ }
  $backup=Join-Path $PackRoot ('backup-'+$Component.Name)
  if(Test-Path -LiteralPath $backup){throw 'This session already attempted the component. Close and rerun the EXE for a new verified session.'}
  $i=0;foreach($dev in $devices){BackupDevice $dev (Join-Path $backup ('device-'+$i));$i++}
  try {
-  $reboot=[NoMoreBCADriverApi]::Install($script:Form.Handle,$Component.HardwareID,$inf)
-  if($reboot){$script:RebootNeeded=$true}
+  $reboot=$false;$targets=@()
+  foreach($dev in $devices){
+   $target=[NoMoreBCADriverApi]::InstallationTarget($dev,$Component.HardwareID)
+   Note ('Matched '+$dev.PNPDeviceID+' using '+$Component.HardwareID+'; installation target '+$target)
+   if($targets -notcontains $target){$targets+=$target;if([NoMoreBCADriverApi]::Install([IntPtr]::Zero,$target,$inf)){$reboot=$true}}
+  }
+  if($reboot){$script:RebootNeeded=$true;$script:ComponentState='restart-required'}
   $after=@(Present $Component.HardwareID);$after|Export-Clixml -Path (Join-Path $backup 'devices-after.xml')
-  Note ($Component.Name+': Windows accepted installation. Restart required='+$reboot+'. Physical functions still require testing.')
-  foreach($dev in $after){Note ('  '+$dev.Name+': device status '+$dev.ConfigManagerErrorCode)}
+  if(!$after.Count){throw 'Device disappeared during installation; completion cannot be verified.'}
+  foreach($dev in $after){
+   Note ('  '+$dev.Name+': device status '+$dev.ConfigManagerErrorCode+'; service '+$dev.Service)
+   if((InstalledINF $dev) -ne (Hash $inf)){throw 'Windows did not select the supplied driver INF. The existing driver was retained; no forced replacement was used.'}
+   if($dev.ConfigManagerErrorCode -ne 0 -and !($reboot -and $dev.ConfigManagerErrorCode -eq 14)){throw ('Driver is registered but device reports problem code '+$dev.ConfigManagerErrorCode)}
+  }
+  Note ($Component.Name+': installed INF verified; restart required='+$reboot+'. Physical functions still require testing.')
  } catch {
   $_|Out-String|Out-File -FilePath (Join-Path $backup 'failure.txt') -Encoding utf8
   throw
@@ -72,7 +96,8 @@ function InstallINF($Component) {
  }
 }
 function InstallSigningUpdate {
- $installed=@(Get-WmiObject Win32_QuickFixEngineering|Where-Object {$_.HotFixID -eq 'KB3033929' -or $_.HotFixID -eq 'KB4474419'})
+ $packages='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages'
+ $installed=@(Get-ChildItem -LiteralPath $packages|Where-Object {$_.PSChildName -match '^Package_for_KB(3033929|4474419)[_~]' }|Where-Object {(Get-ItemProperty -LiteralPath $_.PSPath).CurrentState -eq 112})
  if($installed.Count){Note 'SHA-2 support update is already recorded.';return}
  $msu=Original 'Payload\Microsoft-SHA2-Update\Windows6.1-KB3033929-x64.msu'
  Note 'Installing the original Microsoft SHA-2 update. Windows servicing may take several minutes.'
@@ -80,9 +105,9 @@ function InstallSigningUpdate {
  $process.ExitCode|Out-File -FilePath (Join-Path $PackRoot 'sha2-servicing-exit.txt') -Encoding ascii
  # WUSA success/already installed; 3010 means do not attempt drivers until the
  # owner's ordinary reboot. Never create an elevated persistence task.
- if($process.ExitCode -eq 3010){$script:RebootNeeded=$true;throw 'The Microsoft update requires a restart. Restart normally when ready, then run driver setup again.'}
+ if($process.ExitCode -eq 3010){$script:RebootNeeded=$true;$script:ComponentState='restart-required';Note 'Signing prerequisite installed. Restart Windows before continuing driver installation.';return}
  if($process.ExitCode -ne 0 -and $process.ExitCode -ne 2359302){throw ('Microsoft update did not complete: '+$process.ExitCode)}
- if(Test-Path -LiteralPath "$env:SystemRoot\winsxs\pending.xml"){$script:RebootNeeded=$true;throw 'Windows servicing is pending. Restart normally, then rerun setup.'}
+ if(Test-Path -LiteralPath "$env:SystemRoot\winsxs\pending.xml"){$script:RebootNeeded=$true;$script:ComponentState='restart-required';Note 'Windows servicing requires a restart before drivers can be installed.';return}
  Note 'Microsoft update completed; no signing-policy change.'
 }
 function InstallTrackpad {
@@ -122,17 +147,17 @@ function InstallTrackpad {
   [NoMoreBCADriverApi]::SetLowerFilters($id,[string[]]@('applemtp'));$filterApplied=$true
   if([NoMoreBCADriverApi]::Restart($id)){$script:RebootNeeded=$true}
   @(Present 'USB\VID_05AC&PID_0274&MI_02')|Export-Clixml -Path (Join-Path $backup 'device-after.xml')
-  $driver=Get-WmiObject Win32_SystemDriver -Filter "Name='applemtp'"
-  $driver|Export-Clixml -Path (Join-Path $backup 'driver-after.xml')
-  if(!$script:RebootNeeded -and (!$driver -or $driver.State -ne 'Running' -or $driver.ExitCode -ne 0)){throw 'Trackpad filter did not start'}
+  $driver=New-Object System.ServiceProcess.ServiceController('applemtp')
+  $driver.Status.ToString()|Out-File -FilePath (Join-Path $backup 'driver-after.txt') -Encoding utf8
+  if(!$script:RebootNeeded -and $driver.Status.ToString() -ne 'Running'){throw 'Trackpad filter did not start'}
   New-Object PSObject -Property @{Device=$id;Catalog=$catPath;Driver=$destination;SHA256=(Hash $source);BeforeLowerFilters=@();OriginalServiceAbsent=$true}|Export-Clixml -Path (Join-Path $backup 'owned-changes.xml')
   Note 'Original Apple trackpad filter attached. Use Boot Camp Control Panel to enable tapping, secondary click and scrolling. No global mouse/keyboard filter changed.'
  } catch {
   $originalFailure=$_;$_|Out-String|Out-File -FilePath (Join-Path $backup 'failure.txt') -Encoding utf8
   try {
    if($filterApplied){$now=@((Get-ItemProperty -LiteralPath $key).LowerFilters|Where-Object {$_});if($now.Count -ne 1 -or $now[0] -ne 'applemtp'){throw 'Filter changed since installation; not overwriting it.'};[NoMoreBCADriverApi]::SetLowerFilters($id,[string[]]@());if([NoMoreBCADriverApi]::Restart($id)){$script:RebootNeeded=$true}}
-   $driver=Get-WmiObject Win32_SystemDriver -Filter "Name='applemtp'"
-   if($driver -and $driver.State -eq 'Running'){throw 'Basic input restored; the filter is still loaded. Restart before any owned-file cleanup.'}
+   $driver=New-Object System.ServiceProcess.ServiceController('applemtp')
+   if($serviceCreated -and $driver.Status.ToString() -eq 'Running'){throw 'Basic input restored; the filter is still loaded. Restart before any owned-file cleanup.'}
    if($serviceCreated){& "$env:SystemRoot\System32\sc.exe" delete applemtp|Out-Null;if($LASTEXITCODE -ne 0){throw 'Service rollback failed'}}
    if($fileCopied -and (Hash $destination) -eq (Hash $source)){[IO.File]::Delete($destination)}
    if($catPath -and (Hash $catPath) -eq (Hash $cat)){[void][NoMoreBCADriverApi]::Catalog($null,$catName,$true)}
@@ -238,6 +263,28 @@ function Components([string]$Model) {
  return $items
 }
 
+function RunPlan($Plan,[scriptblock]$Runner) {
+ $script:Results=@();$script:RebootNeeded=$false;$number=0
+ foreach($component in $Plan){
+  $number++;$script:ComponentState='installed';$detail=''
+  Note ('NMBCA_PROGRESS|'+($number-1)+'|'+$Plan.Count+'|'+$component.Title)
+  try {& $Runner $component} catch {
+   $script:ComponentState='failed';$detail=$_.ToString()
+   Note ('FAILED '+$component.Title+': '+$detail)
+   if($PackRoot){($_|Format-List * -Force|Out-String)|Out-File -FilePath (Join-Path $PackRoot ($component.Name+'-error.txt')) -Encoding utf8}
+  }
+  $script:Results+=New-Object PSObject -Property @{Name=$component.Name;Title=$component.Title;State=$script:ComponentState;Detail=$detail}
+  if($PackRoot){$script:Results|Export-Clixml -Path (Join-Path $PackRoot 'component-results.xml')}
+  # The signing prerequisite is the only mandatory mid-sequence boundary.
+  # A display-driver restart request does NOT skip HDMI, trackpad or the tray.
+  if($component.Kind -eq 'Update' -and ($script:RebootNeeded -or $script:ComponentState -eq 'failed')){break}
+ }
+ foreach($row in $script:Results){Note ($row.Title+': '+$row.State)}
+ if($script:RebootNeeded){return 3010}
+ if(@($script:Results|Where-Object {$_.State -eq 'failed' -or $_.State -eq 'not-detected'}).Count){return 2}
+ return 0
+}
+
 if($SelfTest){
  foreach($bad in @('','..\x','x\..\y','C:\x','\server\x','x:ads','x\\y','x\')){$threw=$false;try{[void](Relative $bad)}catch{$threw=$true};if(!$threw){throw 'Path test failed'}}
  if((Relative 'Payload\Apple-Keyboard\Keymagic.sys') -ne 'Payload\Apple-Keyboard\Keymagic.sys'){throw 'Valid relative path rejected'}
@@ -252,14 +299,30 @@ if($SelfTest){
  }
  Add-Type -Path (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) 'Native-Driver-Api.cs')
  if(![NoMoreBCADriverApi]::LayoutSelfTest()){throw 'Native structure layout mismatch'}
+ foreach($id in @('PCI\VEN_14E4&DEV_43BA','PCI\VEN_8086&DEV_8C3A')){
+  $dev=New-Object NoMoreBCADriverApi+DeviceInfo
+  $dev.HardwareID=[string[]]@(($id+'&SUBSYS_12345678&REV_01'),($id+'&CC_0280'));$dev.CompatibleID=[string[]]@($id)
+  if(![NoMoreBCADriverApi]::Matches($dev,$id.ToLowerInvariant())){throw 'Compatible-ID matching regression'}
+  if([NoMoreBCADriverApi]::InstallationTarget($dev,$id) -ne $dev.HardwareID[0]){throw 'Installation target must be a hardware ID'}
+  if([NoMoreBCADriverApi]::Matches($dev,($id+'0'))){throw 'Partial-ID matches must not be accepted'}
+ }
+ $plan=@(@{Name='GPU';Title='GPU';Kind='INF'},@{Name='HDMI';Title='HDMI';Kind='INF'},@{Name='Panel';Title='Panel';Kind='ControlPanel'})
+ $script:Seen=@();$code=RunPlan $plan {param($c);$script:Seen+=$c.Name;if($c.Name -eq 'GPU'){$script:RebootNeeded=$true}}
+ if($code -ne 3010 -or $script:Seen.Count -ne 3){throw 'GPU restart incorrectly skipped remaining drivers'}
+ $script:Seen=@();$code=RunPlan $plan {param($c);$script:Seen+=$c.Name;if($c.Name -eq 'GPU'){throw 'fixture failure'}}
+ if($code -ne 2 -or $script:Seen.Count -ne 3){throw 'Independent components must still run after a failure'}
+ $script:Seen=@();$code=RunPlan @(@{Name='SHA2';Title='SHA2';Kind='Update'},@{Name='After';Title='After';Kind='INF'}) {param($c);$script:Seen+=$c.Name;$script:RebootNeeded=$true}
+ if($code -ne 3010 -or $script:Seen.Count -ne 1){throw 'Signing update restart handling failed'}
  'PASS: pure policy/path tests and read-only native ABI checks. No driver, registry, UAC or device changes.';exit 0
 }
 
 try {
  if([IntPtr]::Size -ne 8 -or [Environment]::OSVersion.Version.ToString() -notlike '6.1.7601*'){throw 'Windows 7 SP1 x64 only'}
  if(!(New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)){throw 'Use the EXE and approve normal Windows UAC.'}
- $model=(Get-WmiObject Win32_ComputerSystem).Model
- if($model -ne $ExpectedModel -or @('MacBookPro11,5','MacBookPro11,4') -notcontains $model){throw 'Target hardware/model changed'}
+ # The native engine verifies the real SMBIOS model before staging. Avoid a
+ # second WMI dependency on a newly installed Windows instance.
+ $model=$ExpectedModel
+ if(@('MacBookPro11,5','MacBookPro11,4') -notcontains $model){throw 'Unsupported model'}
  $PackRoot=[IO.Path]::GetFullPath($PackRoot)
  if([IO.Path]::GetDirectoryName($PackRoot) -ne [Environment]::GetFolderPath('CommonApplicationData') -or [IO.Path]::GetFileName($PackRoot) -notlike 'NoMoreBCA-Driver-Setup-{*}'){throw 'Use the EXE-created protected staging directory.'}
  if((Get-Item -LiteralPath $PackRoot).Attributes -band [IO.FileAttributes]::ReparsePoint){throw 'Staging cannot be a link'}
@@ -267,40 +330,18 @@ try {
  foreach($row in $script:Inventory){if($row.AMD -eq '1' -and $model -eq 'MacBookPro11,4'){continue};[void](Original $row.Path)}
  Add-Type -Path (Join-Path $PackRoot 'Native-Driver-Api.cs')
  if(![NoMoreBCADriverApi]::LayoutSelfTest()){throw 'Native API layout mismatch'}
- Add-Type -AssemblyName System.Windows.Forms;Add-Type -AssemblyName System.Drawing
- [Windows.Forms.Application]::EnableVisualStyles()
- $script:Form=New-Object Windows.Forms.Form;$script:Form.Text='NoMoreBCA - Windows 7 driver setup';$script:Form.Size=New-Object Drawing.Size(790,760);$script:Form.StartPosition='CenterScreen'
- $intro=New-Object Windows.Forms.Label;$intro.Location=New-Object Drawing.Point(18,15);$intro.Size=New-Object Drawing.Size(740,90)
- $intro.Text=$model+" - original signed driver components.`r`nChoose what to install. No Internet connection is needed. UAC and driver-signature enforcement remain unchanged. This private combined installer still needs a fresh-install test."
- if($model -eq 'MacBookPro11,4'){$intro.Text+="`r`n11,4 is untested. No AMD driver is included; Intel graphics support is not established."}
- $script:Form.Controls.Add($intro)
- $script:Choices=New-Object Windows.Forms.CheckedListBox;$script:Choices.Location=New-Object Drawing.Point(18,110);$script:Choices.Size=New-Object Drawing.Size(740,205);$script:Choices.CheckOnClick=$true
- $script:Plan=@(Components $model)
- foreach($c in $script:Plan){$present=$true;if($c.Kind -eq 'INF'){$present=@(Present $c.HardwareID).Count -gt 0};$title=$c.Title;if(!$present){$title+=' (matching hardware not detected)'};[void]$script:Choices.Items.Add($title,$present)}
- $script:Form.Controls.Add($script:Choices)
- $script:Log=New-Object Windows.Forms.TextBox;$script:Log.Location=New-Object Drawing.Point(18,365);$script:Log.Size=New-Object Drawing.Size(740,300);$script:Log.Multiline=$true;$script:Log.ReadOnly=$true;$script:Log.ScrollBars='Vertical';$script:Form.Controls.Add($script:Log)
- $script:Start=New-Object Windows.Forms.Button;$script:Start.Text='Install selected components';$script:Start.Location=New-Object Drawing.Point(18,325);$script:Start.Size=New-Object Drawing.Size(250,30);$script:Form.Controls.Add($script:Start)
- $close=New-Object Windows.Forms.Button;$close.Text='Close';$close.Location=New-Object Drawing.Point(655,680);$close.Size=New-Object Drawing.Size(100,28);$close.Add_Click({$script:Form.Close()});$script:Form.Controls.Add($close)
- $script:Busy=$false;$script:RebootNeeded=$false
- $script:Form.Add_FormClosing({param($sender,$eventArgs);if($script:Busy){$eventArgs.Cancel=$true}})
- $script:Start.Add_Click({
-  if($script:Busy){return};$script:Busy=$true;$script:Start.Enabled=$false;$script:Choices.Enabled=$false
-  try {
-   if(Test-Path -LiteralPath "$env:SystemRoot\winsxs\pending.xml"){throw 'Windows servicing is pending. Restart normally before installing drivers.'}
-   $selected=@($script:Choices.CheckedIndices);if(!$selected.Count){Note 'Nothing selected; no driver changes.';return}
-   foreach($index in $selected){
-    $component=$script:Plan[[int]$index];Note ('Starting '+$component.Title)
-    switch($component.Kind){'Update'{InstallSigningUpdate};'INF'{InstallINF $component};'Trackpad'{InstallTrackpad};'ControlPanel'{InstallControlPanel};default{throw 'Unknown component'}}
-    if($script:RebootNeeded){Note 'A restart has been requested by Windows. Restart normally, then rerun setup to finish remaining components.';break}
-   }
-   Note ('Selected pass finished. Restart required='+$script:RebootNeeded+'. No automatic restart. Logs: '+$PackRoot)
-   Note 'Fn controls, keyboard backlight, camera and Thunderbolt Ethernet are not claimed fixed by this package. No fan/power settings were changed.'
-  } catch {Note ('STOPPED: '+$_);Note ('Prior component results and backups remain in '+$PackRoot+'. No signature/security workaround was applied.')}
-  finally {$script:Busy=$false}
- })
- Note 'Ready. Select components and click Install. Close cancels without installing drivers.'
- [void]$script:Form.ShowDialog();exit 0
+ Add-Type -AssemblyName System.ServiceProcess
+ Note ('Installing all applicable components for '+$model+'. No WMI dependency, no security-policy changes.')
+ if(Test-Path -LiteralPath "$env:SystemRoot\winsxs\pending.xml"){Note 'Windows servicing is pending. Restart before continuing.';exit 3010}
+ $code=RunPlan @(Components $model) {param($component)
+  Note ('Starting '+$component.Title)
+  switch($component.Kind){'Update'{InstallSigningUpdate};'INF'{InstallINF $component};'Trackpad'{InstallTrackpad};'ControlPanel'{InstallControlPanel};default{throw 'Unknown component'}}
+ }
+ Note 'Enable your preferred trackpad options in Boot Camp Control Panel after signing in.'
+ Note 'Fn/backlight, camera and Thunderbolt Ethernet are not claimed fixed. No fan, power, EFI or default-boot settings changed.'
+ Note ('Logs and rollback records: '+$PackRoot)
+ exit $code
 } catch {
- Add-Type -AssemblyName System.Windows.Forms
- [void][Windows.Forms.MessageBox]::Show($_.ToString(),'NoMoreBCA driver setup',0,16);exit 1
+ if($PackRoot -and (Test-Path -LiteralPath $PackRoot)){($_|Format-List * -Force|Out-String)|Out-File -FilePath (Join-Path $PackRoot 'fatal-error.txt') -Encoding utf8}
+ [Console]::WriteLine('FAILED: '+$_.ToString());exit 1
 }

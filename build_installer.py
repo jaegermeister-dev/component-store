@@ -1,6 +1,6 @@
 """Developer build only. No dependencies are required by the finished EXE.
 
-Usage: python build_installer.py /absolute/path/to/zig /new/output/directory
+Usage: python build_installer.py /absolute/path/to/zig /new/output/directory /absolute/path/to/ISCC.exe
 The recipe supplies file hashes, not vendor bytes. This never installs drivers.
 """
 import csv
@@ -20,14 +20,14 @@ def c_array(name, data):
 
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 4:
         raise SystemExit(__doc__)
     here = Path(__file__).resolve().parent
     zig = Path(sys.argv[1]).resolve(strict=True)
     output = Path(sys.argv[2]).resolve()
     output.mkdir(parents=False, exist_ok=False)
     source = here/'source'
-    files = {n:(source/n).read_bytes() for n in ('driver_setup.c','Driver-Setup.ps1','Native-Driver-Api.cs')}
+    files = {n:(source/n).read_bytes() for n in ('driver_setup.c','Driver-Setup.ps1','Native-Driver-Api.cs','Driver-Setup.iss')}
     recipe = json.loads((here/'driver-recipe-development.json').read_text())
     rows = recipe['files']
     entries = []; csvout = io.StringIO(newline=''); writer = csv.writer(csvout)
@@ -43,7 +43,7 @@ def main():
                       ('payload_csv',csvout.getvalue().encode('utf-8'))]:
         header += c_array(name,data)+'\n'
     (output/'embedded_pack.h').write_text(header)
-    exe = output/'NoMoreBCA-Driver-Setup.exe'
+    exe = output/'NoMoreBCA-Driver-Engine.exe'
     env = dict(os.environ, ZIG_LOCAL_CACHE_DIR=str(output/'cache-local'),
                ZIG_GLOBAL_CACHE_DIR=str(output/'cache-global'))
     subprocess.run([str(zig),'cc','-target','x86_64-windows.win7-gnu','-O2','-Wall','-Wextra','-Werror',
@@ -57,6 +57,8 @@ def main():
         fixture = output/'sha256-self-test-input.txt'; fixture.write_bytes(b'abc')
         subprocess.run([str(exe),'--self-test',str(fixture)],check=True,timeout=30)
         self_test = True
+    subprocess.run([sys.argv[3],'/Qp','/DEngine='+str(exe),'/DBuildOutput='+str(output),str(source/'Driver-Setup.iss')],check=True,timeout=180)
+    exe = output/'NoMoreBCA-Driver-Setup.exe'
     result = dict(bytes=exe.stat().st_size,sha256=hashlib.sha256(exe.read_bytes()).hexdigest(),
         source_sha256={n:hashlib.sha256(b).hexdigest() for n,b in files.items()},
         payload_files=len(rows),read_only_self_test_passed=self_test,drivers_installed=False)

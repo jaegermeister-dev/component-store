@@ -1,12 +1,21 @@
 {
   "schema": 1,
-  "version": "v0.1.0-dev.20261011",
-  "url": "https://github.com/jaegermeister-dev/component-store/releases/download/v0.1.0-dev.20261011/components-v0.1.0-dev.20261011.zip",
+  "version": "v0.2.0-dev.20261025",
+  "url": "https://github.com/jaegermeister-dev/component-store/releases/download/v0.2.0-dev.20261025/components-v0.2.0-dev.20261025.zip",
   "files": {
-    "driver-recipe.json": {"bytes": 103995, "sha256": "76e941996afd46273c4e409bc976e100ed247d2d53a09ed6fb3afdfa7bc9da50"},
-    "NoMoreBCA-Driver-Setup.exe": {"bytes": 124928, "sha256": "d3185d0e285143829c9cf946c4ee57213408b58057b21477f201436239b847d3"},
-    "READ-ME-FIRST.txt": {"bytes": 1907, "sha256": "54f86b3263f10cacfa453a2ada06397a344c2a12f1a2d1e3519c8fcad0b9c28c"}
+    "driver-recipe.json": {
+      "bytes": 103995,
+      "sha256": "76e941996afd46273c4e409bc976e100ed247d2d53a09ed6fb3afdfa7bc9da50"
+    },
+    "NoMoreBCA-Driver-Setup.exe": {
+      "bytes": 2133430,
+      "sha256": "bb5c6f12b51ddb69cb71bec550fbc8668c34687149d328b572c77ffc931a36f5"
+    },
+    "READ-ME-FIRST.txt": {
+      "bytes": 876,
+      "sha256": "814f71dfb204bdcb8d770ec8c72fe9c7399b06aa4cd8acc7ec439a513d22dad2"
+    }
   },
-  "bytes": 61258,
-  "sha256": "78dbb953388e53ce599e5c4e78281f52b80b70353bdf71232ba6a26ea5041879"
+  "bytes": 1586304,
+  "sha256": "5a51a28eadb2a3614add6fda2a97cd8c16b7cb8c2ea64035baa23131edf9fbe2"
 }

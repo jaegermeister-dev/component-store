@@ -22,7 +22,6 @@
 typedef struct { const wchar_t *path; ULONGLONG size; const char *sha; int amd; } PackFile;
 #include "embedded_pack.h"
 #define CAP 32768
-static HWND owner;
 static BYTE transfer_buffer[65536];
 /* No CRT bootstrap or redistributable dependency. The compiler may also emit
  * these basic memory helpers for structure copies. */
@@ -31,7 +30,14 @@ void *memset(void *dst,int value,size_t count) {BYTE *d=dst;while(count--)*d++=(
 static size_t alen(const char *p){size_t n=0;while(p[n])++n;return n;}
 static int acmp(const char *a,const char *b){while(*a&&*a==*b){++a;++b;}return (unsigned char)*a-(unsigned char)*b;}
 static int append(wchar_t *dst,const wchar_t *src){size_t a=(size_t)lstrlenW(dst),b=(size_t)lstrlenW(src);if(a+b>=CAP)return 0;for(size_t i=0;i<=b;++i)dst[a+i]=src[i];return 1;}
-static wchar_t *last_slash(wchar_t *p){wchar_t *last=NULL;for(;*p;++p)if(*p==L'\\')last=p;return last;}
+static void output(const wchar_t *line) {
+    static char bytes[CAP*3];DWORD written;
+    int n=WideCharToMultiByte(CP_UTF8,0,line,-1,bytes,sizeof(bytes)-3,NULL,NULL);
+    if(n>0){bytes[n-1]='\r';bytes[n]='\n';WriteFile(GetStdHandle(STD_OUTPUT_HANDLE),bytes,(DWORD)n+1,&written,NULL);}
+}
+static void progress(size_t current,size_t count,const wchar_t *phase) {
+    wchar_t line[240];wsprintfW(line,L"NMBCA_PROGRESS|%u|%u|%s",(UINT)current,(UINT)count,phase);output(line);
+}
 
 static int safe_relative(const wchar_t *p) {
     if (!p || !*p || *p==L'/' || *p==L'\\') return 0;
@@ -52,7 +58,7 @@ static int join(wchar_t *out, const wchar_t *root, const wchar_t *rel) {
     out[0]=0;return append(out,root)&&append(out,L"\\")&&append(out,rel);
 }
 static void fail(const wchar_t *message) {
-    MessageBoxW(owner,message,L"NoMoreBCA driver setup",MB_ICONERROR|MB_OK);
+    output(L"FAILED:");output(message);
 }
 static int sha_handle(HANDLE file, char out[65]) {
     BCRYPT_ALG_HANDLE alg=NULL; BCRYPT_HASH_HANDLE hash=NULL;
@@ -152,13 +158,18 @@ static int stage_and_run(const wchar_t *source,const wchar_t *model) {
     for(size_t i=0;i<count;++i)files[i]=INVALID_HANDLE_VALUE;
     /* Validate every required byte before creating any permanent output. */
     for(size_t i=0;i<count;++i){if(pack_files[i].amd && !lstrcmpW(model,L"MacBookPro11,4"))continue;
+        if(i%8==0)progress(i,count,L"Verifying driver files");
         if(!join(src,source,pack_files[i].path) || (files[i]=verified_file(src,&pack_files[i]))==INVALID_HANDLE_VALUE){fail(L"Driver payload is missing or has changed. No driver was installed.");goto done;}}
     if(FAILED(SHGetFolderPathW(NULL,CSIDL_COMMON_APPDATA,NULL,SHGFP_TYPE_CURRENT,base)) || FAILED(CoCreateGuid(&id)) || !StringFromGUID2(&id,guid,50))goto done;
     root[0]=0;if(!append(root,base)||!append(root,L"\\NoMoreBCA-Driver-Setup-")||!append(root,guid))goto done;
-    if(!ConvertStringSecurityDescriptorToSecurityDescriptorW(L"D:P(A;OICI;FA;;;SY)(A;OICI;FA;;;BA)",SDDL_REVISION_1,&sd,NULL))goto done;
+    /* Normal users may read/resume setup, but only administrators/SYSTEM may
+     * modify staged executables, scripts, drivers and rollback records. */
+    if(!ConvertStringSecurityDescriptorToSecurityDescriptorW(L"D:P(A;OICI;FA;;;SY)(A;OICI;FA;;;BA)(A;OICI;GRGX;;;BU)",SDDL_REVISION_1,&sd,NULL))goto done;
     sa.lpSecurityDescriptor=sd;
     if(!CreateDirectoryW(root,&sa))goto done;
+    static wchar_t sessionline[CAP];sessionline[0]=0;append(sessionline,L"NMBCA_SESSION|");append(sessionline,root);output(sessionline);
     for(size_t i=0;i<count;++i){if(files[i]==INVALID_HANDLE_VALUE)continue;
+        if(i%8==0)progress(i,count,L"Preparing verified driver files");
         if(!parents(root,pack_files[i].path)||!join(dst,root,pack_files[i].path)||!copy_locked(files[i],dst,&pack_files[i])){fail(L"Verified driver staging failed. No driver was installed; staging files were retained for inspection.");goto done;}}
     if(!join(dst,root,L"Driver-Setup.ps1") || !write_embedded(dst,backend_script,sizeof(backend_script)))goto done;
     if(!join(dst,root,L"Native-Driver-Api.cs") || !write_embedded(dst,native_api,sizeof(native_api)))goto done;
@@ -166,11 +177,16 @@ static int stage_and_run(const wchar_t *source,const wchar_t *model) {
     if(!GetSystemDirectoryW(system,MAX_PATH))goto done;
     if(!join(src,system,L"WindowsPowerShell\\v1.0\\powershell.exe"))goto done;
     command[0]=0;
-    if(!append(command,L"\"")||!append(command,src)||!append(command,L"\" -NoLogo -NoProfile -STA -ExecutionPolicy RemoteSigned -File \"")||
+    if(!append(command,L"\"")||!append(command,src)||!append(command,L"\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -File \"")||
        !append(command,root)||!append(command,L"\\Driver-Setup.ps1\" -PackRoot \"")||!append(command,root)||
        !append(command,L"\" -ExpectedModel \"")||!append(command,model)||!append(command,L"\""))goto done;
     STARTUPINFOW si;PROCESS_INFORMATION pi;ZeroMemory(&si,sizeof(si));ZeroMemory(&pi,sizeof(pi));si.cb=sizeof(si);
-    if(!CreateProcessW(src,command,NULL,NULL,FALSE,CREATE_NO_WINDOW,NULL,root,&si,&pi)){fail(L"Windows could not start its built-in driver-setup interface. No driver was installed.");goto done;}
+    SECURITY_ATTRIBUTES inputSa={sizeof(inputSa),NULL,TRUE};
+    HANDLE input=CreateFileW(L"NUL",GENERIC_READ,FILE_SHARE_READ|FILE_SHARE_WRITE,&inputSa,OPEN_EXISTING,0,NULL);
+    if(input==INVALID_HANDLE_VALUE)goto done;
+    si.dwFlags=STARTF_USESTDHANDLES;si.hStdInput=input;si.hStdOutput=GetStdHandle(STD_OUTPUT_HANDLE);si.hStdError=GetStdHandle(STD_ERROR_HANDLE);
+    if(!CreateProcessW(src,command,NULL,NULL,TRUE,CREATE_NO_WINDOW,NULL,root,&si,&pi)){CloseHandle(input);fail(L"Windows could not start its built-in driver engine. No driver was installed.");goto done;}
+    CloseHandle(input);
     CloseHandle(pi.hThread);WaitForSingleObject(pi.hProcess,INFINITE);DWORD code=1;GetExitCodeProcess(pi.hProcess,&code);CloseHandle(pi.hProcess);result=(int)code;
 done:
     for(size_t i=0;i<count;++i)if(files[i]!=INVALID_HANDLE_VALUE)CloseHandle(files[i]);
@@ -194,21 +210,42 @@ static int self_test(const wchar_t *fixture) {
     }
     return 0;
 }
+static int resume_action(const wchar_t *root,int registration) {
+    static wchar_t base[MAX_PATH],prefix[CAP],exe[CAP],params[CAP],command[CAP];
+    if(FAILED(SHGetFolderPathW(NULL,CSIDL_COMMON_APPDATA,NULL,SHGFP_TYPE_CURRENT,base)))return 10;
+    prefix[0]=0;append(prefix,base);append(prefix,L"\\NoMoreBCA-Driver-Setup-{");
+    if(CompareStringOrdinal(root,lstrlenW(prefix),prefix,lstrlenW(prefix),TRUE)!=CSTR_EQUAL || lstrlenW(root)!=lstrlenW(prefix)+37 || root[lstrlenW(root)-1]!=L'}')return 10;
+    GUID id;if(FAILED(CLSIDFromString((LPOLESTR)(root+lstrlenW(prefix)-1),&id)))return 10;
+    DWORD attrs=GetFileAttributesW(root);if(attrs==INVALID_FILE_ATTRIBUTES || !(attrs&FILE_ATTRIBUTE_DIRECTORY) || (attrs&FILE_ATTRIBUTE_REPARSE_POINT))return 10;
+    if(!join(exe,root,L"Continue-Driver-Setup.exe"))return 10;
+    attrs=GetFileAttributesW(exe);if(attrs==INVALID_FILE_ATTRIBUTES || (attrs&(FILE_ATTRIBUTE_DIRECTORY|FILE_ATTRIBUTE_REPARSE_POINT)))return 10;
+    if(registration){
+        if(!join(exe,root,L"NoMoreBCA-Resume.exe"))return 10;
+        command[0]=0;append(command,L"\"");append(command,exe);append(command,L"\" --continue \"");append(command,root);append(command,L"\"");
+        HKEY key;LSTATUS e=RegCreateKeyExW(HKEY_CURRENT_USER,L"Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce",0,NULL,0,KEY_QUERY_VALUE|KEY_SET_VALUE,NULL,&key,NULL);
+        if(e!=ERROR_SUCCESS)return 11;
+        /* Only this setup's specifically named, one-shot continuation. */
+        e=RegSetValueExW(key,L"NoMoreBCA-Driver-Continue",0,REG_SZ,(BYTE*)command,((DWORD)lstrlenW(command)+1)*sizeof(wchar_t));RegCloseKey(key);return e==ERROR_SUCCESS?0:11;
+    }
+    params[0]=0;append(params,L"/RESUME=\"");append(params,root);append(params,L"\"");
+    SHELLEXECUTEINFOW se;ZeroMemory(&se,sizeof(se));se.cbSize=sizeof(se);se.lpVerb=L"runas";se.lpFile=exe;se.lpParameters=params;se.lpDirectory=root;se.nShow=SW_SHOWNORMAL;
+    if(!ShellExecuteExW(&se))return GetLastError()==ERROR_CANCELLED?1223:12;
+    return 0;
+}
 static int app_main(void) {
     int argc=0;LPWSTR *argv=CommandLineToArgvW(GetCommandLineW(),&argc);if(!argv)return 1;
     if((argc==2||argc==3)&&!lstrcmpW(argv[1],L"--self-test")){int result=self_test(argc==3?argv[2]:NULL);LocalFree(argv);return result;}
-    int admin_mode=argc==2&&!lstrcmpW(argv[1],L"--elevated");
-    if(argc!=1&&!admin_mode){LocalFree(argv);return 2;}LocalFree(argv);
+    if(argc==3&&(!lstrcmpW(argv[1],L"--register-resume")||!lstrcmpW(argv[1],L"--continue"))){int result=resume_action(argv[2],!lstrcmpW(argv[1],L"--register-resume"));LocalFree(argv);return result;}
+    if(argc!=3||lstrcmpW(argv[1],L"--install")){LocalFree(argv);return 2;}
+    static wchar_t source[CAP];DWORD full=GetFullPathNameW(argv[2],CAP,source,NULL);
+    LocalFree(argv);if(!full||full>=CAP||source[1]!=L':'||source[2]!=L'\\')return 2;
     if(!supported_os()){fail(L"This optional driver installer is for Windows 7 SP1 x64 only. No changes were made.");return 3;}
-    static wchar_t model[80],exe[CAP],source[CAP];
+    static wchar_t model[80];
     if(!machine_model(model) || (lstrcmpW(model,L"MacBookPro11,5")&&lstrcmpW(model,L"MacBookPro11,4"))){fail(L"This pack is for MacBookPro11,5 and experimental MacBookPro11,4 only. No changes were made.");return 4;}
-    DWORD n=GetModuleFileNameW(NULL,exe,CAP);if(!n||n>=CAP)return 5;source[0]=0;if(!append(source,exe))return 5;wchar_t *sep=last_slash(source);if(!sep)return 5;*sep=0;
-    if(!elevated()){
-        if(admin_mode)return 6;
-        SHELLEXECUTEINFOW se;ZeroMemory(&se,sizeof(se));se.cbSize=sizeof(se);se.fMask=SEE_MASK_NOCLOSEPROCESS;se.lpVerb=L"runas";se.lpFile=exe;se.lpParameters=L"--elevated";se.lpDirectory=source;se.nShow=SW_SHOWNORMAL;
-        if(!ShellExecuteExW(&se))return GetLastError()==ERROR_CANCELLED?1223:7;
-        WaitForSingleObject(se.hProcess,INFINITE);DWORD status=1;GetExitCodeProcess(se.hProcess,&status);CloseHandle(se.hProcess);return (int)status;
-    }
-    return stage_and_run(source,model);
+    if(!elevated()){fail(L"Launch the setup wizard and approve normal Windows UAC.");return 6;}
+    HANDLE mutex=CreateMutexW(NULL,FALSE,L"Global\\NoMoreBCA-Windows7-Driver-Setup");
+    if(!mutex)return 8;
+    if(GetLastError()==ERROR_ALREADY_EXISTS){CloseHandle(mutex);fail(L"Another NoMoreBCA driver installation is running.");return 8;}
+    int result=stage_and_run(source,model);CloseHandle(mutex);return result;
 }
 void WINAPI NoMoreBCAEntry(void) {ExitProcess((UINT)app_main());}
