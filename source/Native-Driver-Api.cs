@@ -4,7 +4,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-public static class NoMoreBCADriverApi {
+public static class Windows7DriverApi {
     public sealed class DeviceInfo {
         public string PNPDeviceID, Name, Service;
         public string[] HardwareID, CompatibleID;

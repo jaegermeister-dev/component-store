@@ -1,12 +1,12 @@
 {
-  "bytes": 2133430,
-  "sha256": "bb5c6f12b51ddb69cb71bec550fbc8668c34687149d328b572c77ffc931a36f5",
-  "engine_sha256": "75cdc12bac819007c5988ceac671eea27262a9306c1789579a17eabbbf629d9e",
+  "bytes": 2133432,
+  "sha256": "afd0874afb23d7af1d842992342889dc763cd323097c79753162eae0f415f818",
+  "engine_sha256": "b66f398cecaa40dc85214f663afdd84744c9cc071b28e44a22aa5e95f203585f",
   "source_sha256": {
-    "driver_setup.c": "5817e5b4efdf90450c3027ddcd1cf4b779ce7d1aafaad07deba2807abbc34ffc",
-    "Driver-Setup.ps1": "121ea1f342230d91d176c219ff2f1885324450a663e4ca28a4dcee72e5dacfe2",
-    "Native-Driver-Api.cs": "f81774cf0ee2746de574da6d690f142febaf4229bc9fc6aa3956b3fcd55dd2a7",
-    "Driver-Setup.iss": "74bc0e8e119132a79e281df89ef8d4a210a65379e795b79a6adbe6b10b3f7d28"
+    "driver_setup.c": "c975cbade98e1375c7ee73758002c72b081aeafafed5b48be31a793f9064e3ce",
+    "Driver-Setup.ps1": "7c3c65f50f2c834e1143bed0a7bf34d2ad94da5c12a246a9d750e2770a250096",
+    "Native-Driver-Api.cs": "7e785e3aa9f4d9282cbe6c8109b9f3d256e6bb0e598a869a3c2454ce932ae86a",
+    "Driver-Setup.iss": "364b219a2642a679c5baab60e76944979c9216dce3ab795da43cd29fa0600276"
   },
   "wizard": "Inno Setup 6.7.3",
   "payload_files": 265,

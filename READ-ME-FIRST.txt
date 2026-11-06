@@ -1,6 +1,6 @@
 Development components - Windows 7 driver setup
 
-The setup wizard is used with the original publisher drivers prepared by NoMoreBCA.
+The setup wizard is used with the original publisher drivers prepared by the macOS deployment app.
 It automatically installs applicable components, preserves normal UAC and driver
 signature enforcement, and presents normal restart choices when necessary.
 After a required restart, setup reopens once at sign-in and requests normal UAC.

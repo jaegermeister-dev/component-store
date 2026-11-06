@@ -7,11 +7,11 @@
   #error BuildOutput is required
 #endif
 [Setup]
-AppId=NoMoreBCA-Community-Windows7-Drivers
-AppName=NoMoreBCA Windows 7 Drivers
+AppId=Windows7-Community-Windows7-Drivers
+AppName=Windows 7 Driver Setup
 AppVersion=0.2.0
-AppPublisher=NoMoreBCA
-DefaultDirName={autopf}\NoMoreBCA
+AppPublisher=jaegermeister-dev
+DefaultDirName={autopf}\Windows7
 CreateAppDir=no
 Uninstallable=no
 DisableDirPage=yes
@@ -37,16 +37,16 @@ OutputDir={#BuildOutput}
 #ifdef Preview
 OutputBaseFilename=Driver-Wizard-Preview
 #else
-OutputBaseFilename=NoMoreBCA-Driver-Setup
+OutputBaseFilename=Windows7-Driver-Setup
 #endif
 Compression=lzma2
 SolidCompression=yes
-VersionInfoDescription=NoMoreBCA Windows 7 Driver Setup
+VersionInfoDescription=Windows 7 Driver Setup
 [Files]
-Source: "{#Engine}"; DestName: "NoMoreBCA-Driver-Engine.exe"; Flags: dontcopy
+Source: "{#Engine}"; DestName: "Windows7-Driver-Engine.exe"; Flags: dontcopy
 [Messages]
-WelcomeLabel1=Welcome to NoMoreBCA Driver Setup
-WelcomeLabel2=This wizard installs the applicable Windows 7 drivers and Boot Camp Control Panel for your Mac.%n%nAll drivers are prepared by NoMoreBCA. No Internet connection is needed in Windows.%n%nSetup may need to restart Windows before finishing. Normal administrator approval and Windows driver-signature checks remain enabled.
+WelcomeLabel1=Welcome to Windows 7 Driver Setup
+WelcomeLabel2=This wizard installs the applicable Windows 7 drivers and Boot Camp Control Panel for your Mac.%n%nThe driver files were prepared by the macOS installation app. No Internet connection is needed in Windows.%n%nSetup may need to restart Windows before finishing. Normal administrator approval and Windows driver-signature checks remain enabled.
 ReadyLabel1=Setup is ready to install the applicable drivers.
 ReadyLabel2a=Click Install to begin. There is no need to select or install individual driver packages.
 FinishedHeadingLabel=Driver setup results
@@ -138,7 +138,7 @@ begin
   Result := '';
 #ifndef Preview
   if not FileExists(AddBackslash(PayloadRoot) + 'Payload\Microsoft-SHA2-Update\Windows6.1-KB3033929-x64.msu') then
-    Result := 'The downloaded driver files are missing. Keep this installer beside its Payload folder, as prepared by NoMoreBCA.';
+    Result := 'The downloaded driver files are missing. Keep this installer beside its Payload folder, as prepared by the macOS installation app.';
 #endif
 end;
 
@@ -157,8 +157,8 @@ begin
   ResultText := 'PREVIEW ONLY - no drivers installed.' + #13#10#13#10 +
     'All applicable driver stages completed. Open Boot Camp Control Panel to enable your preferred trackpad options. Its tray icon starts at your next Windows sign-in.';
 #else
-  ExtractTemporaryFile('NoMoreBCA-Driver-Engine.exe');
-  Engine := ExpandConstant('{tmp}\NoMoreBCA-Driver-Engine.exe');
+  ExtractTemporaryFile('Windows7-Driver-Engine.exe');
+  Engine := ExpandConstant('{tmp}\Windows7-Driver-Engine.exe');
   EngineCode := 1;
   EngineRan := True;
   WizardForm.StatusLabel.Caption := 'Checking hardware and driver files...';
@@ -173,10 +173,10 @@ begin
   RestartRequired := EngineCode = 3010;
   ResumeRegistered := False;
   if RestartRequired and (ResumeCount < 3) and
-    (Pos(AddBackslash(ExpandConstant('{commonappdata}')) + 'NoMoreBCA-Driver-Setup-{', SessionRoot) = 1) and
+    (Pos(AddBackslash(ExpandConstant('{commonappdata}')) + 'Windows7-Driver-Setup-{', SessionRoot) = 1) and
     FileExists(AddBackslash(SessionRoot) + 'expected-files.csv') then begin
     ContinueExe := AddBackslash(SessionRoot) + 'Continue-Driver-Setup.exe';
-    ResumeExe := AddBackslash(SessionRoot) + 'NoMoreBCA-Resume.exe';
+    ResumeExe := AddBackslash(SessionRoot) + 'Windows7-Resume.exe';
     if FileCopy(ExpandConstant('{srcexe}'), ContinueExe, True) and
       FileCopy(Engine, ResumeExe, True) and
       SaveStringToFile(AddBackslash(SessionRoot) + 'resume-count.txt', IntToStr(ResumeCount + 1), False) then begin
@@ -191,7 +191,7 @@ begin
     if ResumeRegistered then ResultText := ResultText + #13#10#13#10 +
       'Setup will reopen after sign-in. Approve Windows UAC and click Install to continue.'
     else ResultText := ResultText + #13#10#13#10 +
-      'After restarting, run NoMoreBCA-Driver-Setup.exe again. Automatic continuation is unavailable.';
+      'After restarting, run Windows7-Driver-Setup.exe again. Automatic continuation is unavailable.';
   end else if EngineCode = 0 then begin
     ResultText := 'All applicable driver stages completed. Physical functions still need testing.' + #13#10#13#10 +
       'Enable trackpad options in Boot Camp Control Panel. Its tray starts at your next sign-in.';

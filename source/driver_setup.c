@@ -161,7 +161,7 @@ static int stage_and_run(const wchar_t *source,const wchar_t *model) {
         if(i%8==0)progress(i,count,L"Verifying driver files");
         if(!join(src,source,pack_files[i].path) || (files[i]=verified_file(src,&pack_files[i]))==INVALID_HANDLE_VALUE){fail(L"Driver payload is missing or has changed. No driver was installed.");goto done;}}
     if(FAILED(SHGetFolderPathW(NULL,CSIDL_COMMON_APPDATA,NULL,SHGFP_TYPE_CURRENT,base)) || FAILED(CoCreateGuid(&id)) || !StringFromGUID2(&id,guid,50))goto done;
-    root[0]=0;if(!append(root,base)||!append(root,L"\\NoMoreBCA-Driver-Setup-")||!append(root,guid))goto done;
+    root[0]=0;if(!append(root,base)||!append(root,L"\\Windows7-Driver-Setup-")||!append(root,guid))goto done;
     /* Normal users may read/resume setup, but only administrators/SYSTEM may
      * modify staged executables, scripts, drivers and rollback records. */
     if(!ConvertStringSecurityDescriptorToSecurityDescriptorW(L"D:P(A;OICI;FA;;;SY)(A;OICI;FA;;;BA)(A;OICI;GRGX;;;BU)",SDDL_REVISION_1,&sd,NULL))goto done;
@@ -213,19 +213,19 @@ static int self_test(const wchar_t *fixture) {
 static int resume_action(const wchar_t *root,int registration) {
     static wchar_t base[MAX_PATH],prefix[CAP],exe[CAP],params[CAP],command[CAP];
     if(FAILED(SHGetFolderPathW(NULL,CSIDL_COMMON_APPDATA,NULL,SHGFP_TYPE_CURRENT,base)))return 10;
-    prefix[0]=0;append(prefix,base);append(prefix,L"\\NoMoreBCA-Driver-Setup-{");
+    prefix[0]=0;append(prefix,base);append(prefix,L"\\Windows7-Driver-Setup-{");
     if(CompareStringOrdinal(root,lstrlenW(prefix),prefix,lstrlenW(prefix),TRUE)!=CSTR_EQUAL || lstrlenW(root)!=lstrlenW(prefix)+37 || root[lstrlenW(root)-1]!=L'}')return 10;
     GUID id;if(FAILED(CLSIDFromString((LPOLESTR)(root+lstrlenW(prefix)-1),&id)))return 10;
     DWORD attrs=GetFileAttributesW(root);if(attrs==INVALID_FILE_ATTRIBUTES || !(attrs&FILE_ATTRIBUTE_DIRECTORY) || (attrs&FILE_ATTRIBUTE_REPARSE_POINT))return 10;
     if(!join(exe,root,L"Continue-Driver-Setup.exe"))return 10;
     attrs=GetFileAttributesW(exe);if(attrs==INVALID_FILE_ATTRIBUTES || (attrs&(FILE_ATTRIBUTE_DIRECTORY|FILE_ATTRIBUTE_REPARSE_POINT)))return 10;
     if(registration){
-        if(!join(exe,root,L"NoMoreBCA-Resume.exe"))return 10;
+        if(!join(exe,root,L"Windows7-Resume.exe"))return 10;
         command[0]=0;append(command,L"\"");append(command,exe);append(command,L"\" --continue \"");append(command,root);append(command,L"\"");
         HKEY key;LSTATUS e=RegCreateKeyExW(HKEY_CURRENT_USER,L"Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce",0,NULL,0,KEY_QUERY_VALUE|KEY_SET_VALUE,NULL,&key,NULL);
         if(e!=ERROR_SUCCESS)return 11;
         /* Only this setup's specifically named, one-shot continuation. */
-        e=RegSetValueExW(key,L"NoMoreBCA-Driver-Continue",0,REG_SZ,(BYTE*)command,((DWORD)lstrlenW(command)+1)*sizeof(wchar_t));RegCloseKey(key);return e==ERROR_SUCCESS?0:11;
+        e=RegSetValueExW(key,L"Windows7-Driver-Continue",0,REG_SZ,(BYTE*)command,((DWORD)lstrlenW(command)+1)*sizeof(wchar_t));RegCloseKey(key);return e==ERROR_SUCCESS?0:11;
     }
     params[0]=0;append(params,L"/RESUME=\"");append(params,root);append(params,L"\"");
     SHELLEXECUTEINFOW se;ZeroMemory(&se,sizeof(se));se.cbSize=sizeof(se);se.lpVerb=L"runas";se.lpFile=exe;se.lpParameters=params;se.lpDirectory=root;se.nShow=SW_SHOWNORMAL;
@@ -243,9 +243,9 @@ static int app_main(void) {
     static wchar_t model[80];
     if(!machine_model(model) || (lstrcmpW(model,L"MacBookPro11,5")&&lstrcmpW(model,L"MacBookPro11,4"))){fail(L"This pack is for MacBookPro11,5 and experimental MacBookPro11,4 only. No changes were made.");return 4;}
     if(!elevated()){fail(L"Launch the setup wizard and approve normal Windows UAC.");return 6;}
-    HANDLE mutex=CreateMutexW(NULL,FALSE,L"Global\\NoMoreBCA-Windows7-Driver-Setup");
+    HANDLE mutex=CreateMutexW(NULL,FALSE,L"Global\\Windows7-Windows7-Driver-Setup");
     if(!mutex)return 8;
-    if(GetLastError()==ERROR_ALREADY_EXISTS){CloseHandle(mutex);fail(L"Another NoMoreBCA driver installation is running.");return 8;}
+    if(GetLastError()==ERROR_ALREADY_EXISTS){CloseHandle(mutex);fail(L"Another Windows 7 driver installation is running.");return 8;}
     int result=stage_and_run(source,model);CloseHandle(mutex);return result;
 }
-void WINAPI NoMoreBCAEntry(void) {ExitProcess((UINT)app_main());}
+void WINAPI Windows7Entry(void) {ExitProcess((UINT)app_main());}

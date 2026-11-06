@@ -43,12 +43,12 @@ def main():
                       ('payload_csv',csvout.getvalue().encode('utf-8'))]:
         header += c_array(name,data)+'\n'
     (output/'embedded_pack.h').write_text(header)
-    exe = output/'NoMoreBCA-Driver-Engine.exe'
+    exe = output/'Windows7-Driver-Engine.exe'
     env = dict(os.environ, ZIG_LOCAL_CACHE_DIR=str(output/'cache-local'),
                ZIG_GLOBAL_CACHE_DIR=str(output/'cache-global'))
     subprocess.run([str(zig),'cc','-target','x86_64-windows.win7-gnu','-O2','-Wall','-Wextra','-Werror',
         '-nostdlib','-fno-builtin','-isystem',str(zig.parent/'lib/libc/include/any-windows-any'),
-        '-Wl,-e,NoMoreBCAEntry','-Wl,--subsystem,windows','-I'+str(output),str(source/'driver_setup.c'),
+        '-Wl,-e,Windows7Entry','-Wl,--subsystem,windows','-I'+str(output),str(source/'driver_setup.c'),
         '-lkernel32','-lbcrypt','-lshell32','-ladvapi32','-lole32','-luser32',
         '-Wl,--major-subsystem-version,6','-Wl,--minor-subsystem-version,1','-o',str(exe)],
         check=True, env=env, timeout=600)
@@ -58,7 +58,7 @@ def main():
         subprocess.run([str(exe),'--self-test',str(fixture)],check=True,timeout=30)
         self_test = True
     subprocess.run([sys.argv[3],'/Qp','/DEngine='+str(exe),'/DBuildOutput='+str(output),str(source/'Driver-Setup.iss')],check=True,timeout=180)
-    exe = output/'NoMoreBCA-Driver-Setup.exe'
+    exe = output/'Windows7-Driver-Setup.exe'
     result = dict(bytes=exe.stat().st_size,sha256=hashlib.sha256(exe.read_bytes()).hexdigest(),
         source_sha256={n:hashlib.sha256(b).hexdigest() for n,b in files.items()},
         payload_files=len(rows),read_only_self_test_passed=self_test,drivers_installed=False)

@@ -30,7 +30,7 @@ function Note([string]$Message) {
  [Console]::WriteLine($Message)
 }
 function Present([string]$HardwareID) {
- return @([NoMoreBCADriverApi]::Devices()|Where-Object {[NoMoreBCADriverApi]::Matches($_,$HardwareID)})
+ return @([Windows7DriverApi]::Devices()|Where-Object {[Windows7DriverApi]::Matches($_,$HardwareID)})
 }
 function InstalledINF($Device) {
  $key='HKLM:\SYSTEM\CurrentControlSet\Enum\'+$Device.PNPDeviceID
@@ -75,9 +75,9 @@ function InstallINF($Component) {
  try {
   $reboot=$false;$targets=@()
   foreach($dev in $devices){
-   $target=[NoMoreBCADriverApi]::InstallationTarget($dev,$Component.HardwareID)
+   $target=[Windows7DriverApi]::InstallationTarget($dev,$Component.HardwareID)
    Note ('Matched '+$dev.PNPDeviceID+' using '+$Component.HardwareID+'; installation target '+$target)
-   if($targets -notcontains $target){$targets+=$target;if([NoMoreBCADriverApi]::Install([IntPtr]::Zero,$target,$inf)){$reboot=$true}}
+   if($targets -notcontains $target){$targets+=$target;if([Windows7DriverApi]::Install([IntPtr]::Zero,$target,$inf)){$reboot=$true}}
   }
   if($reboot){$script:RebootNeeded=$true;$script:ComponentState='restart-required'}
   $after=@(Present $Component.HardwareID);$after|Export-Clixml -Path (Join-Path $backup 'devices-after.xml')
@@ -118,7 +118,7 @@ function InstallTrackpad {
  $inf=Original 'Payload\Apple-Trackpad\AppleMTP64.inf'
  $cat=Original 'Payload\Apple-Trackpad\AppleMTP64.cat';[void](Trusted $cat)
  foreach($item in @(@($source,'6B2F843AE6CA1069F020A8DEFD683251C339A63AEE8AB5179D416EDA7C1EE54C'),@($inf,'29216B4C8DAFBA55FF4D6635A4BE1F58E78402309817C0D8736E86262D2B07EC'))){
-  if([NoMoreBCADriverApi]::VerifyMember($cat,$item[0],$item[1]) -ne 0){throw 'Original Apple trackpad catalog-member validation failed.'}
+  if([Windows7DriverApi]::VerifyMember($cat,$item[0],$item[1]) -ne 0){throw 'Original Apple trackpad catalog-member validation failed.'}
  }
  $destination="$env:SystemRoot\System32\drivers\AppleMTP.sys"
  $svc='HKLM:\SYSTEM\CurrentControlSet\Services\applemtp'
@@ -130,22 +130,22 @@ function InstallTrackpad {
  $wdf=(Get-Item -LiteralPath "$env:SystemRoot\System32\drivers\Wdf01000.sys").VersionInfo
  if($wdf.FileMajorPart -ne 1 -or $wdf.FileMinorPart -lt 11){throw 'KMDF 1.11 is not present yet. Install the selected Apple keyboard driver first and restart if requested.'}
  $backup=Join-Path $PackRoot 'backup-Apple-Trackpad';BackupDevice $dev $backup
- $catName='nomorebca-applemtp-'+[Guid]::NewGuid().ToString()+'.cat'
+ $catName='windows7-applemtp-'+[Guid]::NewGuid().ToString()+'.cat'
  $catPath=$null;$fileCopied=$false;$serviceCreated=$false;$filterApplied=$false
  try {
-  $catPath=[NoMoreBCADriverApi]::Catalog($cat,$catName,$false)
+  $catPath=[Windows7DriverApi]::Catalog($cat,$catName,$false)
   if((Hash $catPath) -ne (Hash $cat)){throw 'Registered catalog readback failed'}
   [IO.File]::Copy($source,$destination,$false);$fileCopied=$true
   if((Hash $destination) -ne (Hash $source)){throw 'Trackpad driver readback failed'}
   & "$env:SystemRoot\System32\sc.exe" create applemtp type= kernel start= demand error= normal binPath= '\SystemRoot\System32\drivers\AppleMTP.sys' DisplayName= 'Apple Multi-Touch'|Out-Null
   if($LASTEXITCODE -ne 0){throw 'Trackpad service creation failed'};$serviceCreated=$true
-  & "$env:SystemRoot\System32\sc.exe" description applemtp 'NoMoreBCA verified Apple trackpad package 1'|Out-Null
+  & "$env:SystemRoot\System32\sc.exe" description applemtp 'Windows7 verified Apple trackpad package 1'|Out-Null
   if($LASTEXITCODE -ne 0){throw 'Trackpad service receipt failed'}
   [void](New-ItemProperty -LiteralPath $svc -Name HotspringTrackpads -PropertyType MultiString -Value @('VID_05AC&PID_0273','VID_05AC&PID_0274','VID_05AC&PID_0290','VID_05AC&PID_0291'))
   [void](New-Item -Path ($svc+'\Parameters\Wdf') -Force)
   [void](New-ItemProperty -LiteralPath ($svc+'\Parameters\Wdf') -Name KmdfLibraryVersion -PropertyType String -Value '1.11')
-  [NoMoreBCADriverApi]::SetLowerFilters($id,[string[]]@('applemtp'));$filterApplied=$true
-  if([NoMoreBCADriverApi]::Restart($id)){$script:RebootNeeded=$true}
+  [Windows7DriverApi]::SetLowerFilters($id,[string[]]@('applemtp'));$filterApplied=$true
+  if([Windows7DriverApi]::Restart($id)){$script:RebootNeeded=$true}
   @(Present 'USB\VID_05AC&PID_0274&MI_02')|Export-Clixml -Path (Join-Path $backup 'device-after.xml')
   $driver=New-Object System.ServiceProcess.ServiceController('applemtp')
   $driver.Status.ToString()|Out-File -FilePath (Join-Path $backup 'driver-after.txt') -Encoding utf8
@@ -155,12 +155,12 @@ function InstallTrackpad {
  } catch {
   $originalFailure=$_;$_|Out-String|Out-File -FilePath (Join-Path $backup 'failure.txt') -Encoding utf8
   try {
-   if($filterApplied){$now=@((Get-ItemProperty -LiteralPath $key).LowerFilters|Where-Object {$_});if($now.Count -ne 1 -or $now[0] -ne 'applemtp'){throw 'Filter changed since installation; not overwriting it.'};[NoMoreBCADriverApi]::SetLowerFilters($id,[string[]]@());if([NoMoreBCADriverApi]::Restart($id)){$script:RebootNeeded=$true}}
+   if($filterApplied){$now=@((Get-ItemProperty -LiteralPath $key).LowerFilters|Where-Object {$_});if($now.Count -ne 1 -or $now[0] -ne 'applemtp'){throw 'Filter changed since installation; not overwriting it.'};[Windows7DriverApi]::SetLowerFilters($id,[string[]]@());if([Windows7DriverApi]::Restart($id)){$script:RebootNeeded=$true}}
    $driver=New-Object System.ServiceProcess.ServiceController('applemtp')
    if($serviceCreated -and $driver.Status.ToString() -eq 'Running'){throw 'Basic input restored; the filter is still loaded. Restart before any owned-file cleanup.'}
    if($serviceCreated){& "$env:SystemRoot\System32\sc.exe" delete applemtp|Out-Null;if($LASTEXITCODE -ne 0){throw 'Service rollback failed'}}
    if($fileCopied -and (Hash $destination) -eq (Hash $source)){[IO.File]::Delete($destination)}
-   if($catPath -and (Hash $catPath) -eq (Hash $cat)){[void][NoMoreBCADriverApi]::Catalog($null,$catName,$true)}
+   if($catPath -and (Hash $catPath) -eq (Hash $cat)){[void][Windows7DriverApi]::Catalog($null,$catName,$true)}
    Note 'Failed trackpad attempt rolled back to the original basic HID input.'
   } catch {$_|Out-String|Out-File -FilePath (Join-Path $backup 'rollback-attention.txt') -Encoding utf8;Note ('Rollback needs attention: '+$_)}
   throw $originalFailure
@@ -298,13 +298,13 @@ if($SelfTest){
   $threw=$false;try{[void](RegistryDisposition $true 'Unrelated existing value' $entry.Kind $entry)}catch{$threw=$true};if(!$threw){throw 'Existing registration protection failed'}
  }
  Add-Type -Path (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) 'Native-Driver-Api.cs')
- if(![NoMoreBCADriverApi]::LayoutSelfTest()){throw 'Native structure layout mismatch'}
+ if(![Windows7DriverApi]::LayoutSelfTest()){throw 'Native structure layout mismatch'}
  foreach($id in @('PCI\VEN_14E4&DEV_43BA','PCI\VEN_8086&DEV_8C3A')){
-  $dev=New-Object NoMoreBCADriverApi+DeviceInfo
+  $dev=New-Object Windows7DriverApi+DeviceInfo
   $dev.HardwareID=[string[]]@(($id+'&SUBSYS_12345678&REV_01'),($id+'&CC_0280'));$dev.CompatibleID=[string[]]@($id)
-  if(![NoMoreBCADriverApi]::Matches($dev,$id.ToLowerInvariant())){throw 'Compatible-ID matching regression'}
-  if([NoMoreBCADriverApi]::InstallationTarget($dev,$id) -ne $dev.HardwareID[0]){throw 'Installation target must be a hardware ID'}
-  if([NoMoreBCADriverApi]::Matches($dev,($id+'0'))){throw 'Partial-ID matches must not be accepted'}
+  if(![Windows7DriverApi]::Matches($dev,$id.ToLowerInvariant())){throw 'Compatible-ID matching regression'}
+  if([Windows7DriverApi]::InstallationTarget($dev,$id) -ne $dev.HardwareID[0]){throw 'Installation target must be a hardware ID'}
+  if([Windows7DriverApi]::Matches($dev,($id+'0'))){throw 'Partial-ID matches must not be accepted'}
  }
  $plan=@(@{Name='GPU';Title='GPU';Kind='INF'},@{Name='HDMI';Title='HDMI';Kind='INF'},@{Name='Panel';Title='Panel';Kind='ControlPanel'})
  $script:Seen=@();$code=RunPlan $plan {param($c);$script:Seen+=$c.Name;if($c.Name -eq 'GPU'){$script:RebootNeeded=$true}}
@@ -324,12 +324,12 @@ try {
  $model=$ExpectedModel
  if(@('MacBookPro11,5','MacBookPro11,4') -notcontains $model){throw 'Unsupported model'}
  $PackRoot=[IO.Path]::GetFullPath($PackRoot)
- if([IO.Path]::GetDirectoryName($PackRoot) -ne [Environment]::GetFolderPath('CommonApplicationData') -or [IO.Path]::GetFileName($PackRoot) -notlike 'NoMoreBCA-Driver-Setup-{*}'){throw 'Use the EXE-created protected staging directory.'}
+ if([IO.Path]::GetDirectoryName($PackRoot) -ne [Environment]::GetFolderPath('CommonApplicationData') -or [IO.Path]::GetFileName($PackRoot) -notlike 'Windows7-Driver-Setup-{*}'){throw 'Use the EXE-created protected staging directory.'}
  if((Get-Item -LiteralPath $PackRoot).Attributes -band [IO.FileAttributes]::ReparsePoint){throw 'Staging cannot be a link'}
  $script:Inventory=@(Import-Csv -Path (Join-Path $PackRoot 'expected-files.csv'))
  foreach($row in $script:Inventory){if($row.AMD -eq '1' -and $model -eq 'MacBookPro11,4'){continue};[void](Original $row.Path)}
  Add-Type -Path (Join-Path $PackRoot 'Native-Driver-Api.cs')
- if(![NoMoreBCADriverApi]::LayoutSelfTest()){throw 'Native API layout mismatch'}
+ if(![Windows7DriverApi]::LayoutSelfTest()){throw 'Native API layout mismatch'}
  Add-Type -AssemblyName System.ServiceProcess
  Note ('Installing all applicable components for '+$model+'. No WMI dependency, no security-policy changes.')
  if(Test-Path -LiteralPath "$env:SystemRoot\winsxs\pending.xml"){Note 'Windows servicing is pending. Restart before continuing.';exit 3010}
