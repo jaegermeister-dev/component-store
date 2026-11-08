@@ -20,9 +20,9 @@ function Original([string]$Relative) {
 }
 function Trusted([string]$Path) {
  # PowerShell 2 has FilePath only (verified against the stock Win7 assembly).
- $s=Get-AuthenticodeSignature -FilePath $Path
- if($s.Status -ne 'Valid'){throw ('Windows did not trust the original signature: '+$Path+'. No signature bypass will be used.')}
- return $s
+ $status=[AppleOfflineSignature]::Verify($Path)
+ if($status-ne'0x00000000'){throw ('Windows did not trust the original signature: '+$Path+' ('+$status+'). No signature bypass will be used.')}
+ return $status
 }
 function Note([string]$Message) {
  $line=(Get-Date -Format o)+' '+$Message
@@ -30,7 +30,11 @@ function Note([string]$Message) {
  [Console]::WriteLine($Message)
 }
 function Present([string]$HardwareID) {
- return @([Windows7DriverApi]::Devices()|Where-Object {[Windows7DriverApi]::Matches($_,$HardwareID)})
+ # Keep enumeration and exact-ID matching together in native typed code. Use
+ # array Length, not the PowerShell extended Count alias, for device results.
+ $found=[Windows7DriverApi]::FindPresent($HardwareID)
+ Note ('Device query '+$HardwareID+': '+$found.Length+' matching present device(s).')
+ return $found
 }
 function InstalledINF($Device) {
  $key='HKLM:\SYSTEM\CurrentControlSet\Enum\'+$Device.PNPDeviceID
@@ -64,9 +68,10 @@ function InstallINF($Component) {
  $inf=Original $Component.Inf;$catalog=Original $Component.Catalog
  [void](Trusted $catalog)
  $devices=@(Present $Component.HardwareID)
- if(!$devices.Count){$script:ComponentState='not-detected';Note ($Component.Name+': not detected in present hardware or compatible IDs. Not installed.');return}
+ if(!$devices.Length){$script:ComponentState='not-detected';Note ($Component.Name+': not detected in present hardware or compatible IDs. Not installed.');return}
  $expected=Hash $inf
- if(@($devices|Where-Object {($_.ConfigManagerErrorCode -ne 0) -or ((InstalledINF $_) -ne $expected)}).Count -eq 0){
+ if(@($devices|Where-Object {(InstalledINF $_) -ne $expected}).Count -eq 0){
+  foreach($dev in $devices){if($dev.ConfigManagerErrorCode-eq43-and$script:GraphicsBootRepaired-and$Component.Name-eq'AMD-M370X'){$script:ComponentState='restart-required';Note 'Restart required to activate the repaired graphics EFI route.';return};if($dev.ConfigManagerErrorCode-ne0){throw ('Expected driver already selected; device problem '+$dev.ConfigManagerErrorCode+'. Reinstalling it repeatedly will not fix its boot or hardware state.')}}
   $script:ComponentState='already-installed';Note ($Component.Name+': the expected driver is already selected and device status is 0.');return
  }
  $backup=Join-Path $PackRoot ('backup-'+$Component.Name)
@@ -81,11 +86,11 @@ function InstallINF($Component) {
   }
   if($reboot){$script:RebootNeeded=$true;$script:ComponentState='restart-required'}
   $after=@(Present $Component.HardwareID);$after|Export-Clixml -Path (Join-Path $backup 'devices-after.xml')
-  if(!$after.Count){throw 'Device disappeared during installation; completion cannot be verified.'}
+  if(!$after.Length){throw 'Device disappeared during installation; completion cannot be verified.'}
   foreach($dev in $after){
    Note ('  '+$dev.Name+': device status '+$dev.ConfigManagerErrorCode+'; service '+$dev.Service)
    if((InstalledINF $dev) -ne (Hash $inf)){throw 'Windows did not select the supplied driver INF. The existing driver was retained; no forced replacement was used.'}
-   if($dev.ConfigManagerErrorCode -ne 0 -and !($reboot -and $dev.ConfigManagerErrorCode -eq 14)){throw ('Driver is registered but device reports problem code '+$dev.ConfigManagerErrorCode)}
+   if($dev.ConfigManagerErrorCode -ne 0 -and !($reboot -and $dev.ConfigManagerErrorCode -eq 14) -and !($script:GraphicsBootRepaired -and $Component.Name-eq'AMD-M370X' -and $dev.ConfigManagerErrorCode-eq43)){throw ('Driver is registered but device reports problem code '+$dev.ConfigManagerErrorCode)}
   }
   Note ($Component.Name+': installed INF verified; restart required='+$reboot+'. Physical functions still require testing.')
  } catch {
@@ -112,7 +117,7 @@ function InstallSigningUpdate {
 }
 function InstallTrackpad {
  $devices=@(Present 'USB\VID_05AC&PID_0274&MI_02')
- if($devices.Count -ne 1){throw 'Expected one supported Apple trackpad interface; no filter changed.'}
+ if($devices.Length -ne 1){throw 'Expected one supported Apple trackpad interface; no filter changed.'}
  $dev=$devices[0];$id=$dev.PNPDeviceID;$key='HKLM:\SYSTEM\CurrentControlSet\Enum\'+$id
  $source=Original 'Payload\Apple-Trackpad\AppleMTP.sys'
  $inf=Original 'Payload\Apple-Trackpad\AppleMTP64.inf'
@@ -166,7 +171,8 @@ function InstallTrackpad {
   throw $originalFailure
  }
 }
-function ControlPanelRegistryPlan([string]$Folder) {
+function ControlPanelRegistryPlan([string]$RunPath,[string]$OriginalPath) {
+ if(!$RunPath -or $RunPath -match '[\s"]' -or $RunPath -notmatch '^[A-Za-z]:\\.*\\Bootcamp\.exe$'){throw 'Unsafe Apple utility startup path'}
  $clsid='SOFTWARE\Classes\CLSID\{4d0f8110-1de4-11dc-8314-0800200c9a66}'
  $namespace='SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{4d0f8110-1de4-11dc-8314-0800200c9a66}'
  $items=@(
@@ -178,13 +184,17 @@ function ControlPanelRegistryPlan([string]$Folder) {
   @(($clsid+'\DefaultIcon'),'','%SystemRoot%\System32\AppleControlPanel.exe,-128','ExpandString'),
   @(($clsid+'\Shell\Open\Command'),'','"%SystemRoot%\System32\AppleControlPanel.exe"','ExpandString'),
   @($namespace,'','Apple Control Panel','String'),
-  @('SOFTWARE\Microsoft\Windows\CurrentVersion\Run','Apple_KbdMgr',('"'+(Join-Path $Folder 'Bootcamp.exe')+'"'),'String')
+  @('SOFTWARE\Microsoft\Windows\CurrentVersion\Run','Apple_KbdMgr',$RunPath,'String')
  )
- foreach($item in $items){New-Object PSObject -Property @{Key=$item[0];Name=$item[1];Value=$item[2];Kind=$item[3]}}
+ foreach($item in $items){
+  $legacy=$null;if($item[1]-eq'Apple_KbdMgr' -and $OriginalPath){$legacy='"'+$OriginalPath+'"'}
+  New-Object PSObject -Property @{Key=$item[0];Name=$item[1];Value=$item[2];Kind=$item[3];LegacyQuotedValue=$legacy}
+ }
 }
 function RegistryDisposition([bool]$Exists,$Value,[string]$Kind,$Expected) {
  if(!$Exists){return 'missing'}
  if($Value -eq $Expected.Value -and $Kind -eq $Expected.Kind){return 'retain'}
+ if($Expected.Name-eq'Apple_KbdMgr' -and $Expected.Key-eq'SOFTWARE\Microsoft\Windows\CurrentVersion\Run' -and $Expected.LegacyQuotedValue -and $Value-eq$Expected.LegacyQuotedValue -and $Kind-eq'String'){return 'repair-quoted'}
  throw ('Different existing Boot Camp registration retained: '+$Expected.Key+' / '+$Expected.Name)
 }
 function ReadPlannedRegistry($Expected) {
@@ -200,15 +210,13 @@ function InstallControlPanel {
  foreach($p in @($exe,$resource,$panel)){[void](Trusted $p)}
  $programs=[Environment]::GetFolderPath('ProgramFiles');$folder=Join-Path $programs 'Boot Camp'
  $targetPanel="$env:SystemRoot\System32\AppleControlPanel.exe"
- $plan=@(ControlPanelRegistryPlan $folder)
  $backup=Join-Path $PackRoot 'backup-BootCamp-ControlPanel'
  if(Test-Path -LiteralPath $backup){throw 'Rerun the EXE for a new verified session before retrying this component.'}
  [void][IO.Directory]::CreateDirectory($backup)
  $map=@(@($exe,(Join-Path $folder 'Bootcamp.exe')),@($resource,(Join-Path $folder 'Boot Camp.Resources\en.lproj\Resources.dll')),@($panel,$targetPanel))
- foreach($pair in $map){if((Test-Path -LiteralPath $pair[1]) -and (Hash $pair[1]) -ne (Hash $pair[0])){throw ('Different existing Boot Camp file retained: '+$pair[1])}}
- $before=@();foreach($entry in $plan){$before+=New-Object PSObject -Property @{Entry=$entry;State=(ReadPlannedRegistry $entry)}}
- New-Object PSObject -Property @{Files=$map;Registry=$before}|Export-Clixml -Path (Join-Path $backup 'before.xml')
- $ownedFiles=@();$ownedValues=@()
+ foreach($pair in $map){if((Test-Path -LiteralPath $pair[1]) -and (Hash $pair[1]) -ne (Hash $pair[0]) -and !($ExpectedModel-eq'MacBookPro11,5'-and$pair[1]-eq(Join-Path $folder 'Bootcamp.exe')-and(Hash $pair[1])-eq'97051c55d0155197b02060a7f10323464c7954f09660ef9ecb346b60be7a0eb2')){throw ('Different existing Boot Camp file retained: '+$pair[1])}}
+ New-Object PSObject -Property @{Files=$map}|Export-Clixml -Path (Join-Path $backup 'before-files.xml')
+ $ownedFiles=@();$ownedValues=@();$repairedValues=@()
  try {
   foreach($pair in $map){
    if(!(Test-Path -LiteralPath $pair[1])){
@@ -216,20 +224,38 @@ function InstallControlPanel {
     [IO.File]::Copy($pair[0],$pair[1],$false);$ownedFiles+=,$pair
     $ownedFiles|Export-Clixml -Path (Join-Path $backup 'created-files.xml')
    }
-   if((Hash $pair[1]) -ne (Hash $pair[0])){throw 'Boot Camp file verification failed'}
+   if((Hash $pair[1]) -ne (Hash $pair[0]) -and !($ExpectedModel-eq'MacBookPro11,5'-and$pair[1]-eq(Join-Path $folder 'Bootcamp.exe')-and(Hash $pair[1])-eq'97051c55d0155197b02060a7f10323464c7954f09660ef9ecb346b60be7a0eb2')){throw 'Boot Camp file verification failed'}
   }
+  $runPath=[Windows7DriverApi]::ResourceSafeExecutablePath($map[0][1])
+  $derivedResource=Join-Path ([IO.Path]::GetDirectoryName($runPath)) 'Boot Camp.Resources\en.lproj\Resources.dll'
+  if((Hash $runPath)-ne(Hash $map[0][1]) -or (Hash $derivedResource)-ne(Hash $resource)){throw 'Apple startup resource lookup failed validation'}
+  $plan=@(ControlPanelRegistryPlan $runPath $map[0][1])
+  $before=@();foreach($entry in $plan){$before+=New-Object PSObject -Property @{Entry=$entry;State=(ReadPlannedRegistry $entry)}}
+  New-Object PSObject -Property @{Files=$map;Registry=$before}|Export-Clixml -Path (Join-Path $backup 'before.xml')
   foreach($entry in $plan){
-   if((ReadPlannedRegistry $entry) -eq 'retain'){continue}
+   $state=ReadPlannedRegistry $entry
+   if($state -eq 'retain'){continue}
    $key=[Microsoft.Win32.Registry]::LocalMachine.CreateSubKey($entry.Key)
    try {
-    if(@($key.GetValueNames()) -contains $entry.Name){throw 'Registry changed during installation; no existing value overwritten.'}
+    if($state-eq'repair-quoted'){
+     if((ReadPlannedRegistry $entry)-ne'repair-quoted'){throw 'Legacy startup value changed during repair'}
+     $repairedValues+=,$entry;$repairedValues|Export-Clixml -Path (Join-Path $backup 'repaired-values.xml')
+    }elseif(@($key.GetValueNames()) -contains $entry.Name){throw 'Registry changed during installation; no existing value overwritten.'}
     $key.SetValue($entry.Name,$entry.Value,[Enum]::Parse([Microsoft.Win32.RegistryValueKind],$entry.Kind))
-    $ownedValues+=,$entry;$ownedValues|Export-Clixml -Path (Join-Path $backup 'created-values.xml')
+    if($state-ne'repair-quoted'){$ownedValues+=,$entry;$ownedValues|Export-Clixml -Path (Join-Path $backup 'created-values.xml')}
    }finally{$key.Close()}
    if((ReadPlannedRegistry $entry) -ne 'retain'){throw 'Boot Camp registration readback failed'}
   }
  } catch {
   $originalFailure=$_;$failures=@()
+  foreach($entry in $repairedValues){
+   try {
+    if((ReadPlannedRegistry $entry)-eq'retain'){
+     $key=[Microsoft.Win32.Registry]::LocalMachine.OpenSubKey($entry.Key,$true)
+     try{$key.SetValue($entry.Name,$entry.LegacyQuotedValue,[Microsoft.Win32.RegistryValueKind]::String)}finally{$key.Close()}
+    }
+   }catch{$failures+=$_.ToString()}
+  }
   for($i=$ownedValues.Count-1;$i -ge 0;$i--){
    $entry=$ownedValues[$i]
    try {
@@ -239,7 +265,7 @@ function InstallControlPanel {
     }
    }catch{$failures+=$_.ToString()}
   }
-  foreach($pair in $ownedFiles){try {if(Test-Path -LiteralPath $pair[1]){if((Hash $pair[1]) -ne (Hash $pair[0])){throw ('Created file changed; retained '+$pair[1])};[IO.File]::Delete($pair[1])}}catch{$failures+=$_.ToString()}}
+  foreach($pair in $ownedFiles){try {if(Test-Path -LiteralPath $pair[1]){if((Hash $pair[1]) -ne (Hash $pair[0]) -and !($ExpectedModel-eq'MacBookPro11,5'-and$pair[1]-eq(Join-Path $folder 'Bootcamp.exe')-and(Hash $pair[1])-eq'97051c55d0155197b02060a7f10323464c7954f09660ef9ecb346b60be7a0eb2')){throw ('Created file changed; retained '+$pair[1])};[IO.File]::Delete($pair[1])}}catch{$failures+=$_.ToString()}}
   @('Only values/files created by this attempt were considered for rollback. Existing registrations and empty keys/directories were retained.')+$failures|Out-File -FilePath (Join-Path $backup 'rollback.txt') -Encoding utf8
   throw $originalFailure
  }
@@ -249,6 +275,8 @@ function InstallControlPanel {
 function Components([string]$Model) {
  $items=@(
   @{Name='Microsoft-SHA2-Update';Title='Microsoft SHA-2 signing support (restart may be needed)';Kind='Update'},
+  @{Name='Graphics-Boot';Title='Verify the installed model-specific graphics boot path';Kind='GraphicsBoot'},
+  @{Name='BootCamp-Dependencies';Title='Original Apple Fn and keyboard-backlight services';Kind='AppleDependencies'},
   @{Name='Apple-Keyboard';Title='Apple internal keyboard';Kind='INF';HardwareID='USB\VID_05AC&PID_0274&MI_01';Inf='Payload\Apple-Keyboard\Keymagic64.inf';Catalog='Payload\Apple-Keyboard\Keymagic64.cat'},
   @{Name='Broadcom-WiFi';Title='Broadcom Wi-Fi';Kind='INF';HardwareID='PCI\VEN_14E4&DEV_43BA';Inf='Payload\Broadcom-WiFi\bcmpciedhd6.inf';Catalog='Payload\Broadcom-WiFi\bcmpciedhd6.cat'},
   @{Name='Apple-Bluetooth';Title='Apple Bluetooth';Kind='INF';HardwareID='USB\VID_05AC&PID_8290';Inf='Payload\Apple-Bluetooth\AppleBTBC.inf';Catalog='Payload\Apple-Bluetooth\AppleBTBC.cat'},
@@ -259,15 +287,30 @@ function Components([string]$Model) {
   @{Name='AMD-M370X';Title='AMD Radeon R9 M370X graphics';Kind='INF';HardwareID='PCI\VEN_1002&DEV_6821&SUBSYS_0149106B&REV_83';Inf='Payload\AMD-M370X\C7303160.inf';Catalog='Payload\AMD-M370X\C7303160.cat'},
   @{Name='AMD-HDMI-Audio';Title='AMD HDMI audio';Kind='INF';HardwareID='HDAUDIO\FUNC_01&VEN_1002&DEV_AA01&SUBSYS_00AA0100&REV_1003';Inf='Payload\AMD-HDMI-Audio\AtihdW76.inf';Catalog='Payload\AMD-HDMI-Audio\atihdw76.cat'}
  )}
- $items+=@(@{Name='Apple-Trackpad';Title='Apple trackpad (Boot Camp options)';Kind='Trackpad'},@{Name='BootCamp-ControlPanel';Title='Boot Camp Control Panel and tray utility';Kind='ControlPanel'})
+ if($Model -eq 'MacBookPro11,4'){$items+=@(
+  @{Name='Intel-Iris';Title='Intel Iris Pro 5200 graphics';Kind='INF';HardwareID='PCI\VEN_8086&DEV_0D26';Inf='Payload\Intel-Iris\igdlh64.inf';Catalog='Payload\Intel-Iris\igdlh.cat'},
+  @{Name='Intel-HDMI-Audio';Title='Intel HDMI display audio';Kind='INF';HardwareID='HDAUDIO\FUNC_01&VEN_8086&DEV_2807';Inf='Payload\Intel-HDMI-Audio\IntcDAud.inf';Catalog='Payload\Intel-HDMI-Audio\IntcDAud.cat'}
+ )}
+ foreach($id in @('ACPI\APP0001','ACPI\APP0002','ACPI\APP000B')){$items+=@{Name=('Apple-Identification-'+$id.Split('\')[-1]);Title=('Apple hardware identification '+$id);Kind='INF';HardwareID=$id;Inf='Payload\Apple-Identification\AppleNull64.inf';Catalog='Payload\Apple-Identification\AppleNull64.cat'}}
+ foreach($row in @(@('8C22','SMBus'),@('8C24','Thermal'))){$items+=@{Name=('Intel-Identification-'+$row[1]);Title=('Intel '+$row[1]+' identification');Kind='INF';HardwareID=('PCI\VEN_8086&DEV_'+$row[0]);Inf=('Payload\Intel-Identification\Chipset_'+$row[1]+'.inf');Catalog='Payload\Intel-Identification\Chipset.cat'}}
+ if($Model-eq'MacBookPro11,5'){$items+=@{Name='Apple-Thunderbolt-Identification';Title='Apple Thunderbolt identification (not Ethernet repair)';Kind='INF';HardwareID='PCI\VEN_8086&DEV_156C&CC_0880';Inf='Payload\Apple-Identification\AppleNull64.inf';Catalog='Payload\Apple-Identification\AppleNull64.cat'}}
+ $items+=@(@{Name='Apple-Trackpad';Title='Apple trackpad (Boot Camp options)';Kind='Trackpad'},@{Name='BootCamp-ControlPanel';Title='Boot Camp Control Panel and tray utility';Kind='ControlPanel'},@{Name='Apple-Keyboard-Layouts';Title='Apple keyboard layouts (automatically selected for your keyboard language)';Kind='KeyboardLayouts'})
+ $items+=@(@{Name='Trackpad-Startup';Title='Automatic trackpad scrolling';Kind='TrackpadStartup'},@{Name='Backlight-Response';Title='Keyboard-backlight response';Kind='Backlight'})
  return $items
+}
+function InstallKeyboardLayouts {
+ # Machine registration is elevated; the wizard then applies the preference
+ # as its ORIGINAL user, including when UAC used another admin's credentials.
+ & "$env:WINDIR\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -File (Join-Path $PackRoot 'Apple-Keyboard-Layout.ps1') -Mode Register -PackRoot $PackRoot
+ if($LASTEXITCODE-ne0){throw 'Original Apple keyboard layout installation failed'}
+ Note 'Original Apple keyboard layouts registered. Setup will automatically select the matching layout for the signed-in user.'
 }
 
 function RunPlan($Plan,[scriptblock]$Runner) {
  $script:Results=@();$script:RebootNeeded=$false;$number=0
  foreach($component in $Plan){
   $number++;$script:ComponentState='installed';$detail=''
-  Note ('NMBCA_PROGRESS|'+($number-1)+'|'+$Plan.Count+'|'+$component.Title)
+  Note ('W7DEP_PROGRESS|'+($number-1)+'|'+$Plan.Count+'|'+$component.Title)
   try {& $Runner $component} catch {
    $script:ComponentState='failed';$detail=$_.ToString()
    Note ('FAILED '+$component.Title+': '+$detail)
@@ -285,20 +328,30 @@ function RunPlan($Plan,[scriptblock]$Runner) {
  return 0
 }
 
+. (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) 'Apple-Timestamp-Trust.ps1')
+. (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) 'Accepted-Hardware.ps1')
+. (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) 'Repair-Graphics-Boot.ps1')
+
 if($SelfTest){
  foreach($bad in @('','..\x','x\..\y','C:\x','\server\x','x:ads','x\\y','x\')){$threw=$false;try{[void](Relative $bad)}catch{$threw=$true};if(!$threw){throw 'Path test failed'}}
  if((Relative 'Payload\Apple-Keyboard\Keymagic.sys') -ne 'Payload\Apple-Keyboard\Keymagic.sys'){throw 'Valid relative path rejected'}
  if(@(Components 'MacBookPro11,4'|Where-Object {$_.Name -like 'AMD-*'}).Count){throw '11,4 AMD exclusion failed'}
  if(@(Components 'MacBookPro11,5'|Where-Object {$_.Name -like 'AMD-*'}).Count -ne 2){throw '11,5 AMD components missing'}
- $panelPlan=@(ControlPanelRegistryPlan 'C:\Program Files\Boot Camp')
+ foreach($m in @('MacBookPro11,4','MacBookPro11,5')){if(@(Components $m|Where-Object {$_.Kind-eq'KeyboardLayouts'}).Count-ne1){throw 'Automatic Apple keyboard layout stage missing'}}
+ $panelPlan=@(ControlPanelRegistryPlan 'C:\PROGRA~1\BOOTCA~1\Bootcamp.exe' 'C:\Program Files\Boot Camp\Bootcamp.exe')
  if($panelPlan.Count -ne 9){throw 'Control panel registration plan incomplete'}
  foreach($entry in $panelPlan){
   if((RegistryDisposition $false $null '' $entry) -ne 'missing'){throw 'Missing registration test failed'}
   if((RegistryDisposition $true $entry.Value $entry.Kind $entry) -ne 'retain'){throw 'Idempotent registration test failed'}
   $threw=$false;try{[void](RegistryDisposition $true 'Unrelated existing value' $entry.Kind $entry)}catch{$threw=$true};if(!$threw){throw 'Existing registration protection failed'}
  }
+ $runEntry=@($panelPlan|Where-Object {$_.Name-eq'Apple_KbdMgr'})[0]
+ if((RegistryDisposition $true '"C:\Program Files\Boot Camp\Bootcamp.exe"' 'String' $runEntry)-ne'repair-quoted'){throw 'Quoted legacy Run repair test failed'}
+ foreach($badRun in @('"C:\Program Files\Boot Camp\Bootcamp.exe"','C:\Program Files\Boot Camp\Bootcamp.exe','C:\PROGRA~1\BOOTCA~1\Bootcamp.exe /extra')){
+  $threw=$false;try{[void](ControlPanelRegistryPlan $badRun '')}catch{$threw=$true};if(!$threw){throw 'Unsafe startup path accepted'}
+ }
  Add-Type -Path (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) 'Native-Driver-Api.cs')
- if(![Windows7DriverApi]::LayoutSelfTest()){throw 'Native structure layout mismatch'}
+ if(![Windows7DriverApi]::LayoutSelfTest() -or ![Windows7DriverApi]::PropertyReaderSelfTest()){throw 'Native structure/property query self-test failed'}
  foreach($id in @('PCI\VEN_14E4&DEV_43BA','PCI\VEN_8086&DEV_8C3A')){
   $dev=New-Object Windows7DriverApi+DeviceInfo
   $dev.HardwareID=[string[]]@(($id+'&SUBSYS_12345678&REV_01'),($id+'&CC_0280'));$dev.CompatibleID=[string[]]@($id)
@@ -327,21 +380,27 @@ try {
  if([IO.Path]::GetDirectoryName($PackRoot) -ne [Environment]::GetFolderPath('CommonApplicationData') -or [IO.Path]::GetFileName($PackRoot) -notlike 'Windows7-Driver-Setup-{*}'){throw 'Use the EXE-created protected staging directory.'}
  if((Get-Item -LiteralPath $PackRoot).Attributes -band [IO.FileAttributes]::ReparsePoint){throw 'Staging cannot be a link'}
  $script:Inventory=@(Import-Csv -Path (Join-Path $PackRoot 'expected-files.csv'))
- foreach($row in $script:Inventory){if($row.AMD -eq '1' -and $model -eq 'MacBookPro11,4'){continue};[void](Original $row.Path)}
+ foreach($row in $script:Inventory){if(($row.AMD -eq '1' -and $model -eq 'MacBookPro11,4') -or ($row.AMD -eq '2' -and $model -eq 'MacBookPro11,5')){continue};[void](Original $row.Path)}
  Add-Type -Path (Join-Path $PackRoot 'Native-Driver-Api.cs')
  if(![Windows7DriverApi]::LayoutSelfTest()){throw 'Native API layout mismatch'}
  Add-Type -AssemblyName System.ServiceProcess
+ Note ('Driver setup 0.3.0; Windows '+[Environment]::OSVersion.Version+'; CLR '+[Environment]::Version+'. Reading present-device properties using size-probed native queries.')
+ $deviceSnapshot=[Windows7DriverApi]::Devices()
+ $deviceSnapshot|Export-Clixml -Path (Join-Path $PackRoot 'devices-before.xml')
+ $ids=0;foreach($device in $deviceSnapshot){$ids+=$device.HardwareID.Length}
+ Note ('Device inventory: '+$deviceSnapshot.Length+' present devices, '+$ids+' hardware IDs. Saved devices-before.xml.')
+ if($deviceSnapshot.Length -eq 0 -or $ids -eq 0){throw 'Hardware inventory is empty; no driver changes will be attempted.'}
  Note ('Installing all applicable components for '+$model+'. No WMI dependency, no security-policy changes.')
  if(Test-Path -LiteralPath "$env:SystemRoot\winsxs\pending.xml"){Note 'Windows servicing is pending. Restart before continuing.';exit 3010}
  $code=RunPlan @(Components $model) {param($component)
   Note ('Starting '+$component.Title)
-  switch($component.Kind){'Update'{InstallSigningUpdate};'INF'{InstallINF $component};'Trackpad'{InstallTrackpad};'ControlPanel'{InstallControlPanel};default{throw 'Unknown component'}}
+  switch($component.Kind){'Update'{InstallSigningUpdate};'INF'{InstallINF $component};'Trackpad'{InstallTrackpad};'ControlPanel'{InstallControlPanel};'KeyboardLayouts'{InstallKeyboardLayouts};'GraphicsBoot'{RepairGraphicsBoot};'AppleDependencies'{InstallAppleDependencies};'TrackpadStartup'{InstallTrackpadStartup};'Backlight'{InstallBacklightResponse};default{throw 'Unknown component'}}
  }
  Note 'Enable your preferred trackpad options in Boot Camp Control Panel after signing in.'
- Note 'Fn/backlight, camera and Thunderbolt Ethernet are not claimed fixed. No fan, power, EFI or default-boot settings changed.'
+ Note 'Camera, sleep/resume and dock Ethernet remain deferred. No fan, power or default-boot settings changed.'
  Note ('Logs and rollback records: '+$PackRoot)
  exit $code
 } catch {
- if($PackRoot -and (Test-Path -LiteralPath $PackRoot)){($_|Format-List * -Force|Out-String)|Out-File -FilePath (Join-Path $PackRoot 'fatal-error.txt') -Encoding utf8}
+ if($PackRoot -and (Test-Path -LiteralPath $PackRoot)){($_|Format-List * -Force|Out-String)|Out-File -FilePath (Join-Path $PackRoot 'fatal-error.txt') -Encoding utf8;Note ('FAILED: '+$_.ToString())}
  [Console]::WriteLine('FAILED: '+$_.ToString());exit 1
 }

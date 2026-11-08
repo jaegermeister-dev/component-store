@@ -9,7 +9,7 @@
 [Setup]
 AppId=Windows7-Community-Windows7-Drivers
 AppName=Windows 7 Driver Setup
-AppVersion=0.2.0
+AppVersion=0.3.0
 AppPublisher=jaegermeister-dev
 DefaultDirName={autopf}\Windows7
 CreateAppDir=no
@@ -59,6 +59,13 @@ var
   RestartRequired, ResumeRegistered, EngineRan: Boolean;
   ResultText, PlanText: String;
 
+procedure UpdateRestartButton(Sender: TObject);
+begin
+  if RestartRequired and WizardForm.YesRadio.Checked then
+    WizardForm.NextButton.Caption := 'Restart now'
+  else WizardForm.NextButton.Caption := 'Finish';
+end;
+
 procedure OpenResults(Sender: TObject);
 var
   Path: String;
@@ -80,11 +87,11 @@ begin
     Details.Lines.Add('Output capture error: ' + S);
     Exit;
   end;
-  if Pos('NMBCA_SESSION|', S) = 1 then begin
+  if Pos('W7DEP_SESSION|', S) = 1 then begin
     SessionRoot := Copy(S, 15, MaxInt);
     Exit;
   end;
-  if Pos('NMBCA_PROGRESS|', S) = 1 then begin
+  if Pos('W7DEP_PROGRESS|', S) = 1 then begin
     Parts := StringSplit(S, ['|'], stAll);
     if GetArrayLength(Parts) = 4 then begin
       Current := StrToIntDef(Parts[1], 0);
@@ -128,8 +135,8 @@ begin
   ViewLog.Height := ScaleY(25);
   ViewLog.OnClick := @OpenResults;
   PlanText := 'Automatically detects and installs the applicable signed drivers.' + #13#10#13#10 +
-    'Includes Wi-Fi, keyboard, Bluetooth, Intel Management Engine, audio, graphics (11,5 only), trackpad and Boot Camp Control Panel.' + #13#10#13#10 +
-    'MacBookPro11,4 remains experimental and receives no AMD drivers. Internal Fn/backlight and dock Ethernet are not fixed by this package.' + #13#10#13#10 +
+    'Includes Wi-Fi, keyboard, Bluetooth, Intel Management Engine, audio, model-specific graphics and HDMI audio, trackpad and Boot Camp Control Panel.' + #13#10#13#10 +
+    'Both models include Fn controls, keyboard backlight and automatic trackpad scrolling. Cameras, sleep/resume and dock Ethernet remain deferred.' + #13#10#13#10 +
     'If a restart is required, setup will offer to restart and resume after sign-in. You may need to approve UAC again.';
 end;
 
@@ -145,7 +152,8 @@ end;
 procedure CurStepChanged(CurStep: TSetupStep);
 var
   ContinueExe, ResumeExe, Engine: String;
-  Code: Integer;
+  Code, LayoutCode: Integer;
+  LayoutResult: String;
 begin
   if CurStep <> ssPostInstall then Exit;
 #ifdef Preview
@@ -153,7 +161,7 @@ begin
     continuation registration. This binary is never delivered to users. }
   EngineRan := True;
   EngineCode := 0;
-  EngineLog('NMBCA_PROGRESS|10|10|Driver setup complete', False, True);
+  EngineLog('W7DEP_PROGRESS|10|10|Driver setup complete', False, True);
   ResultText := 'PREVIEW ONLY - no drivers installed.' + #13#10#13#10 +
     'All applicable driver stages completed. Open Boot Camp Control Panel to enable your preferred trackpad options. Its tray icon starts at your next Windows sign-in.';
 #else
@@ -169,6 +177,34 @@ begin
   except
     Details.Lines.Add(GetExceptionMessage);
     EngineCode := 1;
+  end;
+  LayoutResult := '';
+  if (SessionRoot <> '') and FileExists(AddBackslash(SessionRoot) + 'apple-layouts-ready.txt') then begin
+    Details.Lines.Add('Automatically selecting the Apple keyboard layout for your input language...');
+    LayoutCode := -1;
+    if not ExecAsOriginalUser(ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe'),
+      '-NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -File "' +
+      AddBackslash(SessionRoot) + 'Apple-Keyboard-Layout.ps1" -Mode Apply',
+      SessionRoot, SW_HIDE, ewWaitUntilTerminated, LayoutCode) then LayoutCode := -1;
+    if LayoutCode = 0 then
+      LayoutResult := 'Apple keyboard layout installed and automatically selected. Your previous layouts remain available.'
+    else begin
+      LayoutResult := 'The Apple keyboard layouts are installed, but automatic selection needs attention. Check Control Panel > Region and Language > Change keyboards. Your previous layout is retained.';
+      if EngineCode = 0 then EngineCode := 2;
+    end;
+    Details.Lines.Add(LayoutResult);
+    Log(LayoutResult + ' User-layout exit code: ' + IntToStr(LayoutCode));
+  end;
+  if (SessionRoot <> '') and FileExists(AddBackslash(SessionRoot) + 'trackpad-settings-ready.txt') then begin
+    LayoutCode := -1;
+    if not ExecAsOriginalUser(ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe'),
+      '-NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -File "' + AddBackslash(SessionRoot) +
+      'Apply-Trackpad-Settings.ps1" -SessionRoot "' + SessionRoot + '"',
+      SessionRoot, SW_HIDE, ewWaitUntilTerminated, LayoutCode) then LayoutCode := -1;
+    if LayoutCode <> 0 then begin
+      Details.Lines.Add('Automatic trackpad preferences need attention. See the saved setup log.');
+      if EngineCode = 0 then EngineCode := 2;
+    end;
   end;
   RestartRequired := EngineCode = 3010;
   ResumeRegistered := False;
@@ -189,16 +225,17 @@ begin
   if RestartRequired then begin
     ResultText := 'Windows needs a restart to finish installing drivers.';
     if ResumeRegistered then ResultText := ResultText + #13#10#13#10 +
-      'Setup will reopen after sign-in. Approve Windows UAC and click Install to continue.'
+      'Setup will reopen automatically after sign-in and show a UAC prompt. Approve it and click Install to continue. Do not start a second copy manually.'
     else ResultText := ResultText + #13#10#13#10 +
       'After restarting, run Windows7-Driver-Setup.exe again. Automatic continuation is unavailable.';
   end else if EngineCode = 0 then begin
     ResultText := 'All applicable driver stages completed. Physical functions still need testing.' + #13#10#13#10 +
-      'Enable trackpad options in Boot Camp Control Panel. Its tray starts at your next sign-in.';
+      'Trackpad scrolling and Apple keyboard settings are applied automatically. Boot Camp Control Panel remains available for your preferences; its tray starts at sign-in.';
     WizardForm.ProgressGauge.Position := WizardForm.ProgressGauge.Max;
   end else begin
     ResultText := 'Some driver stages did not complete. Click View results log for the per-driver results before retrying.';
   end;
+  if LayoutResult <> '' then ResultText := ResultText + #13#10#13#10 + LayoutResult;
   if SessionRoot <> '' then Log('Results and rollback records: ' + SessionRoot);
   Log(ResultText);
 #endif
@@ -214,6 +251,11 @@ begin
   if CurPageID = wpReady then WizardForm.ReadyMemo.Lines.Text := PlanText;
   if (CurPageID = wpFinished) and EngineRan then begin
     WizardForm.FinishedLabel.Caption := ResultText;
+    if RestartRequired then begin
+      WizardForm.YesRadio.OnClick := @UpdateRestartButton;
+      WizardForm.NoRadio.OnClick := @UpdateRestartButton;
+      UpdateRestartButton(WizardForm);
+    end;
     if (EngineCode <> 0) and not RestartRequired then
       WizardForm.FinishedHeadingLabel.Caption := 'Driver setup needs attention';
   end;
@@ -223,4 +265,19 @@ function GetCustomSetupExitCode: Integer;
 begin
   Result := 0;
   if EngineRan and (EngineCode <> 0) and (EngineCode <> 3010) then Result := EngineCode;
+end;
+
+function NextButtonClick(CurPageID: Integer): Boolean;
+var Code: Integer;
+begin
+  Result := True;
+#ifndef Preview
+  if (CurPageID = wpFinished) and RestartRequired and WizardForm.YesRadio.Checked then begin
+    if not Exec(ExpandConstant('{sys}\shutdown.exe'), '/r /t 0', '', SW_HIDE, ewWaitUntilTerminated, Code) then Code := -1;
+    if Code <> 0 then begin
+      MsgBox('Windows did not accept the restart request. Save your work and restart from the Start menu. Setup logs are preserved.', mbError, MB_OK);
+      Result := False;
+    end else RestartRequired := False;
+  end;
+#endif
 end;

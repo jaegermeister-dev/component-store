@@ -36,7 +36,7 @@ static void output(const wchar_t *line) {
     if(n>0){bytes[n-1]='\r';bytes[n]='\n';WriteFile(GetStdHandle(STD_OUTPUT_HANDLE),bytes,(DWORD)n+1,&written,NULL);}
 }
 static void progress(size_t current,size_t count,const wchar_t *phase) {
-    wchar_t line[240];wsprintfW(line,L"NMBCA_PROGRESS|%u|%u|%s",(UINT)current,(UINT)count,phase);output(line);
+    wchar_t line[240];wsprintfW(line,L"W7DEP_PROGRESS|%u|%u|%s",(UINT)current,(UINT)count,phase);output(line);
 }
 
 static int safe_relative(const wchar_t *p) {
@@ -154,10 +154,10 @@ static int write_embedded(const wchar_t *path,const unsigned char *data,size_t s
 static int stage_and_run(const wchar_t *source,const wchar_t *model) {
     static wchar_t base[MAX_PATH],root[CAP],src[CAP],dst[CAP],system[MAX_PATH],command[CAP];
     GUID id;wchar_t guid[50];PSECURITY_DESCRIPTOR sd=NULL;SECURITY_ATTRIBUTES sa={sizeof(sa),NULL,FALSE};
-    HANDLE files[sizeof(pack_files)/sizeof(pack_files[0])];size_t count=sizeof(pack_files)/sizeof(pack_files[0]);int result=1;
+    static HANDLE files[sizeof(pack_files)/sizeof(pack_files[0])];size_t count=sizeof(pack_files)/sizeof(pack_files[0]);int result=1;
     for(size_t i=0;i<count;++i)files[i]=INVALID_HANDLE_VALUE;
     /* Validate every required byte before creating any permanent output. */
-    for(size_t i=0;i<count;++i){if(pack_files[i].amd && !lstrcmpW(model,L"MacBookPro11,4"))continue;
+    for(size_t i=0;i<count;++i){if(((pack_files[i].amd==1 && !lstrcmpW(model,L"MacBookPro11,4")) || (pack_files[i].amd==2 && !lstrcmpW(model,L"MacBookPro11,5"))))continue;
         if(i%8==0)progress(i,count,L"Verifying driver files");
         if(!join(src,source,pack_files[i].path) || (files[i]=verified_file(src,&pack_files[i]))==INVALID_HANDLE_VALUE){fail(L"Driver payload is missing or has changed. No driver was installed.");goto done;}}
     if(FAILED(SHGetFolderPathW(NULL,CSIDL_COMMON_APPDATA,NULL,SHGFP_TYPE_CURRENT,base)) || FAILED(CoCreateGuid(&id)) || !StringFromGUID2(&id,guid,50))goto done;
@@ -167,12 +167,23 @@ static int stage_and_run(const wchar_t *source,const wchar_t *model) {
     if(!ConvertStringSecurityDescriptorToSecurityDescriptorW(L"D:P(A;OICI;FA;;;SY)(A;OICI;FA;;;BA)(A;OICI;GRGX;;;BU)",SDDL_REVISION_1,&sd,NULL))goto done;
     sa.lpSecurityDescriptor=sd;
     if(!CreateDirectoryW(root,&sa))goto done;
-    static wchar_t sessionline[CAP];sessionline[0]=0;append(sessionline,L"NMBCA_SESSION|");append(sessionline,root);output(sessionline);
+    static wchar_t sessionline[CAP];sessionline[0]=0;append(sessionline,L"W7DEP_SESSION|");append(sessionline,root);output(sessionline);
     for(size_t i=0;i<count;++i){if(files[i]==INVALID_HANDLE_VALUE)continue;
         if(i%8==0)progress(i,count,L"Preparing verified driver files");
         if(!parents(root,pack_files[i].path)||!join(dst,root,pack_files[i].path)||!copy_locked(files[i],dst,&pack_files[i])){fail(L"Verified driver staging failed. No driver was installed; staging files were retained for inspection.");goto done;}}
     if(!join(dst,root,L"Driver-Setup.ps1") || !write_embedded(dst,backend_script,sizeof(backend_script)))goto done;
     if(!join(dst,root,L"Native-Driver-Api.cs") || !write_embedded(dst,native_api,sizeof(native_api)))goto done;
+    if(!join(dst,root,L"Apple-Keyboard-Layout.ps1") || !write_embedded(dst,apple_layout_script,sizeof(apple_layout_script)))goto done;
+    if(!join(dst,root,L"Accepted-Hardware.ps1") || !write_embedded(dst,accepted_hardware,sizeof(accepted_hardware)))goto done;
+    if(!join(dst,root,L"Apple-Timestamp-Trust.ps1") || !write_embedded(dst,timestamp_trust,sizeof(timestamp_trust)))goto done;
+    if(!join(dst,root,L"Apple-Timestamp-Root.crt") || !write_embedded(dst,timestamp_root,sizeof(timestamp_root)))goto done;
+    if(!join(dst,root,L"BootCamp-Backlight-Response.ps1") || !write_embedded(dst,backlight_script,sizeof(backlight_script)))goto done;
+    if(!join(dst,root,L"Apply-Trackpad-Settings.ps1") || !write_embedded(dst,trackpad_script,sizeof(trackpad_script)))goto done;
+    if(!join(dst,root,L"BackToSeven-Trackpad-Preferences.exe") || !write_embedded(dst,trackpad_helper,sizeof(trackpad_helper)))goto done;
+    if(!join(dst,root,L"Repair-Graphics-Boot.ps1") || !write_embedded(dst,graphics_boot_script,sizeof(graphics_boot_script)))goto done;
+    if(!join(dst,root,L"Boot-Partition-Identity.cs") || !write_embedded(dst,boot_partition_api,sizeof(boot_partition_api)))goto done;
+    if(!join(dst,root,L"Boot-Store-Guard.cs") || !write_embedded(dst,boot_store_guard,sizeof(boot_store_guard)))goto done;
+    if(!join(dst,root,L"Menu-Store-Guard.cs") || !write_embedded(dst,menu_store_guard,sizeof(menu_store_guard)))goto done;
     if(!join(dst,root,L"expected-files.csv") || !write_embedded(dst,payload_csv,sizeof(payload_csv)))goto done;
     if(!GetSystemDirectoryW(system,MAX_PATH))goto done;
     if(!join(src,system,L"WindowsPowerShell\\v1.0\\powershell.exe"))goto done;

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "id": "win7-115-development-20261011",
+  "id": "win7-114-115-accepted-20261108",
   "family": "Windows 7",
   "models": [
     "MacBookPro11,5",
@@ -88,6 +88,42 @@
       "kind": "7zip",
       "bytes": 3512232,
       "sha256": "d948bd6a580af9c6ec61b4ce362696a04a77f9774e998f3d3befd9c0945ce580"
+    },
+    "apple-null": {
+      "parent": "apple",
+      "member": "BootCamp/Drivers/Apple/AppleNullDriver64.exe",
+      "kind": "7zip",
+      "bytes": 508528,
+      "sha256": "0079ce120c897d278aeedddce74da3171dd60fefcb53e7552e5b33398f26aaa2"
+    },
+    "chipset-setup": {
+      "parent": "apple",
+      "member": "BootCamp/Drivers/Intel/Chipset/SetupChipset.exe",
+      "kind": "7zip",
+      "bytes": 2915104,
+      "sha256": "1897f6ef81f9272fa38b0c565e606ffebfd233a3dc232acf23b3356a510a1cdb"
+    },
+    "chipset-attached": {
+      "parent": "chipset-setup",
+      "member": "attached.cab",
+      "kind": "7zip",
+      "byte_offset": 1953264,
+      "bytes": 951316,
+      "sha256": "a0907d4b1c38a8c7812c781b4ad4dc860b9aa05d60a314b9fd30e0475aeb0030"
+    },
+    "chipset-msi": {
+      "parent": "chipset-attached",
+      "member": "a1",
+      "kind": "7zip",
+      "bytes": 1101824,
+      "sha256": "c96ac04eb233f04e4d2b95aa5e120d0083296e8e0ae8eec0e9556170451c2b0a"
+    },
+    "chipset-cab": {
+      "parent": "chipset-msi",
+      "member": "NullDrivers.cab",
+      "kind": "7zip",
+      "bytes": 16931,
+      "sha256": "7c0ce7bdda07eb320422f4abc343cea0106a36f76fe7f5502b9bdafc70f0bfb0"
     }
   },
   "files": [
@@ -3120,9 +3156,3195 @@
         "MacBookPro11,5",
         "MacBookPro11,4"
       ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/CzechA.dll",
+      "bytes": 13752,
+      "sha256": "e780ce0ba85ceccad97a1fe837074d00ca34e15d2460be916c25c04bf5e717b4",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "CzechA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/DanishA.dll",
+      "bytes": 13240,
+      "sha256": "f6a08175dc15242409a31dae1fcaf4e05572c129cb9f12a5b6b45b7c217d0378",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "DanishA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/GermanA.dll",
+      "bytes": 12728,
+      "sha256": "8db73a634e1a8a69369e63654beef7fdc9ffcaa00173b4fa403f513fa51e5654",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "GermanA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/USA.dll",
+      "bytes": 12216,
+      "sha256": "52d8fb00d0d84fee3c77932f3d3d6c38f2c91ded3bfcd04dc7082c952fe12a11",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "USA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/SpanishA.dll",
+      "bytes": 13240,
+      "sha256": "3ba84bf71a7fc15318c478298b590a04bd3d6c882fa5c223e2d5eabcca47bbba",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "SpanishA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/FinnishA.dll",
+      "bytes": 13240,
+      "sha256": "aae71bcb00a26edc542118bb8b429191732fa5ff557ad6cb0128c34e358a5c9d",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "FinnishA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/FrenchA.dll",
+      "bytes": 13240,
+      "sha256": "95624f459522112b20848c60a0e0b2bc9721d7ce6a9c28aeffa2a91424bcc935",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "FrenchA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/HungaryA.dll",
+      "bytes": 13752,
+      "sha256": "3636145c4f1949f093e7a2118ef5aef78d9836bc20d8906663fab40032dc5dc8",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "HungaryA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/ItalianA.dll",
+      "bytes": 12728,
+      "sha256": "73fc96a4f68c772255c97d80a1053b357f70d9a95b200e90434ce668c0a5ed36",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "ItalianA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/DutchA.dll",
+      "bytes": 13240,
+      "sha256": "e3a49b6736954918c9808b70aac857e7df3d8f94ee295cfe9fd8063939c0612e",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "DutchA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/NorwayA.dll",
+      "bytes": 13240,
+      "sha256": "12e15afd8af66281e7a8f41f6635123138cf48b3d79220eff8d904b110e89d91",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "NorwayA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/PolishA.dll",
+      "bytes": 14264,
+      "sha256": "d2345bda3029fb4f9213fe43c7174ecf4725b9a91690f7abc2ff8f7edebb7731",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "PolishA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/PortuguA.dll",
+      "bytes": 13240,
+      "sha256": "3dd3ff17d48c2893d0e5609eb755db5b453dc29cf83ee41656fcc6147083e19a",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "PortuguA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/RussianA.dll",
+      "bytes": 12728,
+      "sha256": "e9ed275af21ec14d288549ede1c1ab009b0ff06ab393d36c89f5245092cf4795",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "RussianA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/SwedishA.dll",
+      "bytes": 13240,
+      "sha256": "ada9f088325390e5c18888a0ef01143377c11b328857a2aa93541e2443758197",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "SwedishA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/TurkeyQA.dll",
+      "bytes": 13240,
+      "sha256": "d367c6b3718ad40526e2c4b52dc65211b838a0150509b660a1dab1b5ea914094",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "TurkeyQA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/BritishA.dll",
+      "bytes": 12728,
+      "sha256": "805020fdce3798472fd6245f2e3ed9828dc2461aa568bd14362403f0ef39c476",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "BritishA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/BelgiumA.dll",
+      "bytes": 13752,
+      "sha256": "c0861af76fe0dd3779eefe55dad1c12e61e8c0cbf829b67f8ba099bf2e79098e",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "BelgiumA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/CanadaA.dll",
+      "bytes": 13752,
+      "sha256": "8852d99e2379c4e0bb99598a75f65717a81332af06f3dd266d48b769d178cf06",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "CanadaA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/SwissA.dll",
+      "bytes": 13240,
+      "sha256": "5bbbb553703c0ab8ba30aaeca3e6bb48e042c806a1f7d808229df19167229808",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "SwissA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/IntlEngA.dll",
+      "bytes": 12728,
+      "sha256": "d0929f8a7f3f7289da5a7e75f4aecca5f2ddb8cdb40b91b8264bf36861caaec0",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "IntlEngA.dll"
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/TurkeyA.dll",
+      "bytes": 13240,
+      "sha256": "7fcaaf86f9efcb3ae1f9ee094d2d4f4db910d4a18c3014b46cf231efff919744",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "component": "Apple-Keyboard-Layouts",
+      "parent": "bootcamp",
+      "member": "TurkeyA.dll"
+    },
+    {
+      "path": "Payload/Intel-Iris/c_32.cpa",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/c_32.cpa",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 846855,
+      "sha256": "c14607907f4d7a7c921c48f05c8ce8fdc500a1f8677e629e1141fa644fb096f7"
+    },
+    {
+      "path": "Payload/Intel-Iris/c_64.cpa",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/c_64.cpa",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1519616,
+      "sha256": "b434dd072e15145a5dcb25941b222b134f2d4fc23bd04ad28c6193f8440800d1"
+    },
+    {
+      "path": "Payload/Intel-Iris/c_w7_32.cpa",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/c_w7_32.cpa",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 846855,
+      "sha256": "c14607907f4d7a7c921c48f05c8ce8fdc500a1f8677e629e1141fa644fb096f7"
+    },
+    {
+      "path": "Payload/Intel-Iris/c_w7_64.cpa",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/c_w7_64.cpa",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1519616,
+      "sha256": "b434dd072e15145a5dcb25941b222b134f2d4fc23bd04ad28c6193f8440800d1"
+    },
+    {
+      "path": "Payload/Intel-Iris/ColorImageEnhancement.wmv",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ColorImageEnhancement.wmv",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 375173,
+      "sha256": "df8dbd54a1328cc79dd14d8b3f485ffd738a8a4ddab85432de36e10f17744a7c"
+    },
+    {
+      "path": "Payload/Intel-Iris/cpa_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/cpa_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 993,
+      "sha256": "962deb6de59898f9e422c3afaa62d9292c89fca1b736db69c04ded76d7b7e68b"
+    },
+    {
+      "path": "Payload/Intel-Iris/cpa_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/cpa_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 993,
+      "sha256": "297aaf403e85e202ce684c9426e19c37f05ed0845e7e1cc50cab7976ad0b56e6"
+    },
+    {
+      "path": "Payload/Intel-Iris/cpa_w7_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/cpa_w7_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 993,
+      "sha256": "f1d07deb8a5ec852aadea042c13af432400f83bd01b362a15217246754d887f3"
+    },
+    {
+      "path": "Payload/Intel-Iris/cpa_w7_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/cpa_w7_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 993,
+      "sha256": "3bdf1599951aaa217a76d7aeab532e2812168b09cfa2c9e40c84e7fd9e5fc7e1"
+    },
+    {
+      "path": "Payload/Intel-Iris/dev_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/dev_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 21523,
+      "sha256": "5c8e11faf3a937226e28499c81085f7b74b51b31af1748d20e0a1f436f03c0bd"
+    },
+    {
+      "path": "Payload/Intel-Iris/dev_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/dev_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 21523,
+      "sha256": "186a75f9d048943553f53737a4ab650c6fe426a00654368d3c2aacb55c27c8e8"
+    },
+    {
+      "path": "Payload/Intel-Iris/dev_w7_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/dev_w7_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 21523,
+      "sha256": "72da68de8278eb4b9dcbae16fb27692ad145cf48a7dd516987b2152341cc2019"
+    },
+    {
+      "path": "Payload/Intel-Iris/dev_w7_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/dev_w7_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 21523,
+      "sha256": "812b40a044440a0c1e4e67664c4392a3f6088101aa3fcd69f06d65a6d3c97503"
+    },
+    {
+      "path": "Payload/Intel-Iris/difx32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/difx32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 319456,
+      "sha256": "b3c28941ceb057de44d9c322a38bb0f63c62d7ffbd91cf7970964413978f8eb7"
+    },
+    {
+      "path": "Payload/Intel-Iris/difx64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/difx64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 525792,
+      "sha256": "83c43d65084cd202aa9982af6d87c963a05035f1e2cdac48304fa299584e3242"
+    },
+    {
+      "path": "Payload/Intel-Iris/difx64.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/difx64.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 156264,
+      "sha256": "d33d101df2c25fc375770de68fe96212d5b368a45e67919b3f80bbb09a1e01e5"
+    },
+    {
+      "path": "Payload/Intel-Iris/DPTopologyApp.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/DPTopologyApp.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 338536,
+      "sha256": "d720636bca62576ce8aca36bb3f4118fe0afb557930040a476adc155e491ee44"
+    },
+    {
+      "path": "Payload/Intel-Iris/DPTopologyApp.exe.config",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/DPTopologyApp.exe.config",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 935,
+      "sha256": "b258f5316dc316bd254bdf213dfb19b8316d7eb68f630dfb70185d17066162cc"
+    },
+    {
+      "path": "Payload/Intel-Iris/DPTopologyAppv2_0.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/DPTopologyAppv2_0.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 338024,
+      "sha256": "acbfe642bb3ab87a7c7ea780ce635de733e7fc7ef284641419babee9d4fc80ff"
+    },
+    {
+      "path": "Payload/Intel-Iris/DPTopologyAppv2_0.exe.config",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/DPTopologyAppv2_0.exe.config",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 895,
+      "sha256": "7e9a52f9bd9ed519b87d5419ccd97d9927feeecef2b904abf04abe4b62a786f0"
+    },
+    {
+      "path": "Payload/Intel-Iris/FilmModeDetection.wmv",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/FilmModeDetection.wmv",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 641530,
+      "sha256": "78b03d3037adac75f92734ccd20298deb4846cd4c6c4917de128865ff0d07c68"
+    },
+    {
+      "path": "Payload/Intel-Iris/GfxResources.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/GfxResources.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1131008,
+      "sha256": "25e7117ffc2322c97bfc6ac5a24fb77c3e856c232ff30ccf76d5dc2ca0b744ae"
+    },
+    {
+      "path": "Payload/Intel-Iris/GfxUIEx.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/GfxUIEx.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 448104,
+      "sha256": "8ddfa4834a55387ea35a277c51f58b2fedf9bb8cd557d315b0ffcbaf2cc4e780"
+    },
+    {
+      "path": "Payload/Intel-Iris/Gfxv2_0.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Gfxv2_0.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1033320,
+      "sha256": "52e31586edbe8dc30c6069129ab1b48f71399446cd28a045426aa06f8e8f8f9c"
+    },
+    {
+      "path": "Payload/Intel-Iris/Gfxv2_0.exe.config",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Gfxv2_0.exe.config",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 895,
+      "sha256": "7e9a52f9bd9ed519b87d5419ccd97d9927feeecef2b904abf04abe4b62a786f0"
+    },
+    {
+      "path": "Payload/Intel-Iris/Gfxv4_0.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Gfxv4_0.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1036904,
+      "sha256": "50315f87f30c42279da76f9813e59163857741f395c17b353907a299582f6cf3"
+    },
+    {
+      "path": "Payload/Intel-Iris/Gfxv4_0.exe.config",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Gfxv4_0.exe.config",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 935,
+      "sha256": "b258f5316dc316bd254bdf213dfb19b8316d7eb68f630dfb70185d17066162cc"
+    },
+    {
+      "path": "Payload/Intel-Iris/h_w7_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/h_w7_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 15768,
+      "sha256": "22036db40dd98dd7f59d6e2a7d2590b7e3978e62d1175831b2fd59361c8bcef0"
+    },
+    {
+      "path": "Payload/Intel-Iris/h_w7_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/h_w7_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 4016,
+      "sha256": "b4f1c430f226f83cffffc242c638088414e287cd95cca25febe8abe4ea3f9c59"
+    },
+    {
+      "path": "Payload/Intel-Iris/he_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/he_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 38629,
+      "sha256": "71f3387a11180c37d6e93b9a4e7ee83bf5a85dfe258247c41e3f0712001ae687"
+    },
+    {
+      "path": "Payload/Intel-Iris/he_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/he_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 9329,
+      "sha256": "474b2035f4764f7f147a8703318ae35a9dfb40ebfa757880ad8f90adcd7a967d"
+    },
+    {
+      "path": "Payload/Intel-Iris/he_w7_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/he_w7_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 16040,
+      "sha256": "9768b26d03ff42c3a24ca3d0073cbdb170d7d45747d8b7ed306cb6fb0c1da752"
+    },
+    {
+      "path": "Payload/Intel-Iris/he_w7_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/he_w7_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 4016,
+      "sha256": "b3fee3aff8fd1724aa1199a2b9422943ff8b650f05ba5a917658eafd1e3c6e34"
+    },
+    {
+      "path": "Payload/Intel-Iris/IccLibDll_x64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IccLibDll_x64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 94208,
+      "sha256": "ba21f40cdbf159ee4eaccbfb2a7d20eb9e1c2758883af089a8e53ee478002e83"
+    },
+    {
+      "path": "Payload/Intel-Iris/ig75icd32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ig75icd32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 7502336,
+      "sha256": "d1f5d177c9515424155a0bb016b395252d3dd9a1d17d9dcd9a951d638b878335"
+    },
+    {
+      "path": "Payload/Intel-Iris/ig75icd64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ig75icd64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 9530368,
+      "sha256": "e9e3a3b2c47d51096d2d3650684fa69bc714a28c944ea7880e1965f73e5d67b6"
+    },
+    {
+      "path": "Payload/Intel-Iris/ig8icd32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ig8icd32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 7487488,
+      "sha256": "727f38a4b83be1a95c2ba32ac47546b09cef522634b22d00f0c65fc3ca8f98e9"
+    },
+    {
+      "path": "Payload/Intel-Iris/ig8icd64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ig8icd64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 9501184,
+      "sha256": "ea58060e5c085ec494fa4db813bda419f8f5fa79bd96d22517c447fb4de1747b"
+    },
+    {
+      "path": "Payload/Intel-Iris/igd10idpp32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igd10idpp32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 263120,
+      "sha256": "97476351f8c0b6e2742259251d433f7a2c141501e6acd0ddfe50f2ab973a1c87"
+    },
+    {
+      "path": "Payload/Intel-Iris/igd10idpp64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igd10idpp64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 282696,
+      "sha256": "592782aa7b895944f0e577fe0db5afa391576c71225e169056c344cf0a2fff44"
+    },
+    {
+      "path": "Payload/Intel-Iris/igd10iumd32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igd10iumd32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 8636008,
+      "sha256": "69b1ef64f3cef9aae13f6e964b3f4745ca8cff742b2164ef51cd140724520fa9"
+    },
+    {
+      "path": "Payload/Intel-Iris/igd10iumd64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igd10iumd64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 9426024,
+      "sha256": "aea9f8fa325143338dac4eb12ebd6f7a2f32420dbc3751fdc04ff71d66968f68"
+    },
+    {
+      "path": "Payload/Intel-Iris/igd11dxva32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igd11dxva32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 17330248,
+      "sha256": "aadcfade0ccc75d4cf9bae420e0f6c8f9a4c1d39e1b2553136f392680c01740d"
+    },
+    {
+      "path": "Payload/Intel-Iris/igd11dxva64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igd11dxva64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 17805632,
+      "sha256": "c932b4a3376def12f60426da2e83f61313a10e9b1e3bac49029a7a4fc8d07446"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdail32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdail32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 152064,
+      "sha256": "fc113956efc51931ac05dab017b286e7287f40c62114fd721b2112e0ce09ece3"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdail64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdail64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 169984,
+      "sha256": "a82418cc498eb51889dc230d717f0557a37f04e0ec88966f5c7a0ecb05fc5b77"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdbcl32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdbcl32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 373760,
+      "sha256": "809f1396f112084213c94c7876ccf7b56f999748f9366786f68a9d860e1ede19"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdbcl64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdbcl64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 424960,
+      "sha256": "98e5bd0972e23963c375f2ff883608da1fd6948b142c2eb6811df9270de08b24"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdclbif.bin",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdclbif.bin",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 6725162,
+      "sha256": "00b292c6d0ab945dfed649f14a07bf427a78f9e679bb9949364926e9b042ba31"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdde32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdde32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 153088,
+      "sha256": "ef056ebebb6dc36fa3ba5cffacdd9a6c15e3a4ac21f3a821ef961c7a389e6cd1"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdde64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdde64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 192000,
+      "sha256": "ac5c8534f6355e45ea367ffad24bb616ae9bfcd623c0cac15fb4fd0726a7402e"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdfcl32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdfcl32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 10851840,
+      "sha256": "0dbfdee7219144cc0c1f1afaa48c2d4414075d8701d9b260e585d04a993b1ad1"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdfcl64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdfcl64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 15981056,
+      "sha256": "4dbf71fe453346a48d211252d957a6a7e9cf7c92d5bd2aa43e6df496dd6b919e"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdkmd64.sys",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdkmd64.sys",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 4911544,
+      "sha256": "f2ed9d864a731068f9b5ba052e8417b9e28939822070d477690fbbb54c7cdf2c"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdlh.cat",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdlh.cat",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 790577,
+      "sha256": "58fd9b034308a74e4d9e96c863281c880585c2d917d7b265a9df157852e85af2"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdlh64.inf",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdlh64.inf",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 563202,
+      "sha256": "bd6adfb854b257f1aadf96b84eb194be802bc9191db8ca8f3cd6d50a57cd38c3"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdmd32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdmd32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1196848,
+      "sha256": "ae2bc215050a340a94263473f0257d466db5cd7f43e2b82d85eb5ae55acc1fed"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdmd64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdmd64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1541416,
+      "sha256": "080e021f2db07d153b341fdc2c18e4955729435a29efa5476773fb90d5bd7aa1"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdrcl32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdrcl32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 3318272,
+      "sha256": "046afb1449b2fd8aff124f7ca3233d02b155a34b86b52d19ab7126660f1ca16d"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdrcl64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdrcl64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 3584512,
+      "sha256": "3b5ce097b4a0ebda5fd218dcdb5aa450d07660961044218f35ef8d0c870d170f"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdumdim32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdumdim32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 24048968,
+      "sha256": "55c5acc5264448776e6c742d15e6b2ec29517d09bd729b1d4cbe0399bb064089"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdumdim64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdumdim64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 24847224,
+      "sha256": "628e3c3920ee04647046c18ca9812f255cca87f1aba705b6f9e6d509742a66c3"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdusc32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdusc32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 4852360,
+      "sha256": "29c524b0ada585dc53a99dcee9671ad223a632b3df890bdeaed2ff158d6cade2"
+    },
+    {
+      "path": "Payload/Intel-Iris/igdusc64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igdusc64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 6160960,
+      "sha256": "9eab298f7b4a76072d9238ac3ff9132c65edee4ba0bee057ac92717c7563525f"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfx11cmrt32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfx11cmrt32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 179200,
+      "sha256": "e2b8c2cb555a2cdd33f4a9aa279c0f29750e90fa1bbee2953279dbc85a4290f9"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfx11cmrt64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfx11cmrt64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 213504,
+      "sha256": "901415a2cbb745c8b9af1d9c12a60360c0486310029efe742c8299103ae4c7d4"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxcmjit32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxcmjit32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1064448,
+      "sha256": "d72251b6da24f387b25e2327f4476d8d31ff2ed37cb83263ac599f7589cb91c4"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxcmjit64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxcmjit64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1370624,
+      "sha256": "387bc93468be2dfe789eff537bf6b9ff04cf6fff9425e4edadb7899ccfa0de39"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxcmrt32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxcmrt32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 178672,
+      "sha256": "c43cf24b85d5493a183eb1798589265c07127abe1d3547a8288336a3e50bf620"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxcmrt64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxcmrt64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 213192,
+      "sha256": "85fead557d5cbaad969c2836bfe4095c965ad48d2750462d1b22f2950e6fd074"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxCPL.cpl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxCPL.cpl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 256000,
+      "sha256": "fbc051da0f095e3febacd87a49aee1ed14f2b7a5c674aff536edfbf3357f4c02"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxCUIService.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxCUIService.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 344168,
+      "sha256": "260bc24ade04c5c480c96e30a5fe0d0a7a6853d852e63f009afb4e992d0b76d1"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxCUIServicePS.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxCUIServicePS.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 86528,
+      "sha256": "80c03395597a5384dd357bd46fb36fa991227b767c774436f5430ab3f0adf5fb"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDH.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxDH.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 698880,
+      "sha256": "06a1fd857dd407ac0fd34fd35dbb20eea022080be0b5f1e9eed85a182f57b195"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDHLib.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxDHLib.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 60928,
+      "sha256": "2611a97fe1fe4c2218d5448d5e6dde623746656413ff534e56294837e3dc5a4b"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDHLibv2_0.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxDHLibv2_0.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 73728,
+      "sha256": "7a5dc9dd6aba3511a56f202873c803a87ddca7bb0b01ceb960312ac8f71844ab"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDI.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxDI.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 286208,
+      "sha256": "91e53f6a418115b45a5b9e0686b2a2582fb27ee3aebcbfd647e747eeb8cbd1bc"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDILib.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxDILib.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 11264,
+      "sha256": "2500b4bfbc8da84310cecc672112a98cc8eca6be5b888619b0c8ad6e5e0741f3"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDILibv2_0.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxDILibv2_0.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 10752,
+      "sha256": "48f3645fdb9643906324e381dd00fa3567fb9b57a1807dedafd8de32d3319d64"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDTCM.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxDTCM.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 231424,
+      "sha256": "3f715d8928aa9ed2441b11498f8260d13dff530513968abb4feb6473234cf0e3"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxEM.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxEM.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 313448,
+      "sha256": "59c1d3b88a0640a499bd3bc0f48e8b819769580a9249f1ad6ffd1047e7fcdb98"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxEMLib.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxEMLib.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 10240,
+      "sha256": "44b7c846475a4b75f6d9a9d998c148cef7c31574bb08a8a7dcaeefcaba9e50ab"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxEMLibv2_0.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxEMLibv2_0.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 10240,
+      "sha256": "3f0bea18c1d5ec88a37eebcbf34ee0073d15dd4a99da44d04c72ba1eff08be13"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxexps.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxexps.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 36616,
+      "sha256": "552e0ff00e86d76510f02842a4b224444305406eb41d108cd6d3b111b233c893"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxexps32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxexps32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 35328,
+      "sha256": "26ec279a082693656a5a9244e55de1429e05c9b9c4bb685b8d4f7ed3b8e0c3b3"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxext.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxext.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 218728,
+      "sha256": "f2053822d5eb39ede59b0a5d163459b7e1850893440e353b22f1289927c301ec"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxHK.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxHK.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 248424,
+      "sha256": "9e7f7739e5109f4c9f7553bf4b33515c8ea44a930806b8b91a790dfbd08d5aca"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxLHM.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxLHM.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 2039808,
+      "sha256": "f9ea97fe458ae8871f674a99d55f9523dee7633d1a45c2c9bef17bb4a2780b2b"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxLHMLib.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxLHMLib.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 5120,
+      "sha256": "d27896a7681dd60fa26c1086f7f5c5155ea67d32131a897b3e881b4b3215b4f0"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxLHMLibv2_0.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxLHMLibv2_0.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 5120,
+      "sha256": "d953c16b09cf9fb8bb4cbd91844a4768dfd7cecbe3d6d67b59fee834d7e986b1"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxOSP.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxOSP.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 385024,
+      "sha256": "e9052db4599e16381fbde37b1fd2a32d5f6cc9d14e9247c0a300d65cdcdb4139"
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxTray.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igfxTray.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 393320,
+      "sha256": "b1817a9863c8bc002fccd58934fc1bc785393a79ce6c2b8f4a9e9c7bc6af118d"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhcp32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhcp32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 184352,
+      "sha256": "db5915b8263dd9541130076e7716b37d699cb5858b917f4a7f904ed04a7b94fa"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhcp64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhcp64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 220432,
+      "sha256": "b47c10e509da91f7d578ec71a5982585b066caf88faca04758027427b459165e"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhsip32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhsip32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1399240,
+      "sha256": "4cff84302d67d227a5b25badf40383de66119d848faceeb008a854337973a571"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhsip64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhsip64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1402336,
+      "sha256": "8498c8336c0e305fc68afb33175e4367d0de70d188733824c8e81e564503bfe5"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxa64.cpa",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxa64.cpa",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 2813952,
+      "sha256": "fdf4eba3126d1f9a217f7f8be83b125033fb027c19ec79f45f833f8c09c98560"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxa64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxa64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1125,
+      "sha256": "22c85fcf5f75a4ab6447f9086c53b6a5dfd008d73d7e4a2f3052e9bff123e2ac"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxc64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxc64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 43494,
+      "sha256": "454989e3d1c1d39ff597825eb31439250fdd0b1af163bdf9fc3945540a8032c1"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxc64_dev.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxc64_dev.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 43816,
+      "sha256": "0b28fae4a7fe0b043199a8be132d5d076ef42d99245c75ec9e6feb713c2602ec"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxg64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxg64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 43256,
+      "sha256": "cf84a96868bc0af0c292ead23a4b439fa2fa85c7c228e6ba5f73dbcf4073b903"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxg64_dev.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxg64_dev.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 43298,
+      "sha256": "bb4248402c28ec5ebd9bb55b767f14089ddaca05ef1ffaa1c636a1ecab8c05d5"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxo64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxo64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 44025,
+      "sha256": "ee2d74e219d61bc28c989405eef16827d5a3bcefdf5ebd05a5d572b70ad898a7"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxo64_dev.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxo64_dev.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 42079,
+      "sha256": "044a3ae4f1e716329e91eee48eb5fcc9d47b929e6c84b5918397469934627329"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxs64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxs64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 4020,
+      "sha256": "06740927e0d3954cc5af86661d738c0ec797797fe27f5d43d109d2f52fb94923"
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxs64lp.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/iglhxs64lp.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 2048,
+      "sha256": "fd40c0714410e6b96f1c3903e6c5d23e949659f4e2b690d91058febbe8199e35"
+    },
+    {
+      "path": "Payload/Intel-Iris/igxpco64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igxpco64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 183296,
+      "sha256": "759518a85e4f4cdfa5cd763113af855c989fbab6df7b6575a0a5e24a89580cca"
+    },
+    {
+      "path": "Payload/Intel-Iris/igxpun.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/igxpun.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 997480,
+      "sha256": "0bf40d41f1c932b0b1445297bba71736190222403d12cf8c4d82fa49ee35e4c3"
+    },
+    {
+      "path": "Payload/Intel-Iris/ImageStabilization.wmv",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ImageStabilization.wmv",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 403671,
+      "sha256": "262ffa4ccc5d44f83c3054f24cd4cb97eeb88cdbd90f9e21d5080ac58d0b2430"
+    },
+    {
+      "path": "Payload/Intel-Iris/Intel_OpenCL_ICD32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Intel_OpenCL_ICD32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 86528,
+      "sha256": "836540ba767aff62751b7a0bee47fd7e32273d403d5587a225c97d54a822cda6"
+    },
+    {
+      "path": "Payload/Intel-Iris/Intel_OpenCL_ICD64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Intel_OpenCL_ICD64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 82432,
+      "sha256": "e2e19e3ddb163e1473f042dd310e427795207ddf30589652352df41b4b11b85b"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelCpHeciSvc.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelCpHeciSvc.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 279144,
+      "sha256": "242386b3516892216556a88be8d3977431b692b8734f5bb6adb50f0c392d0251"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelOpenCL32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelOpenCL32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 304128,
+      "sha256": "050c95bdf35cc04ebdf657feb89b67fecf29879181f5fca31c8f3af01f9e5ba8"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelOpenCL64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelOpenCL64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 372224,
+      "sha256": "84e9d81960b83535d2ec481abd11edd3c75b874ebf1f9fcb90e47694e8e4f165"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiAAC64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiAAC64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 2777120,
+      "sha256": "9e13618c5b978970b24ae9f458cb37d44fdb568079761fc1a8bd6e3ef0a13569"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiAudioFilter64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiAudioFilter64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 672800,
+      "sha256": "db61d99fe7f60ddb82249468d1f26d1ed3c5a19625c5d49279fc0d25000ed044"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiDDEAgent64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiDDEAgent64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 198176,
+      "sha256": "dc2ea9e6b5d13aa7475e6b0f5067e90cbbf3ed2d6035a2eea8e5fdc56310e965"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiLogServer64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiLogServer64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 128032,
+      "sha256": "284396a4d7de2e667293cbb7b23f8ba06015754e40d70c0297808fae2f59f46f"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiMCUMD64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiMCUMD64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 135712,
+      "sha256": "b0bdca2d2728949f3c49e1acbd079559ded111f49f119112e2b6d33aee05dff9"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiMux64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiMux64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 616992,
+      "sha256": "93e84f2de06b11ff2b1b0b3bac489d6a0c6226aba0691316ae44782fb1f01cdd"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiSecureSourceFilter64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiSecureSourceFilter64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1514016,
+      "sha256": "85e89da1cef1d1fb71280fd6317717bed675527eab290de0f8e58a1e325f35ae"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiSilenceFilter64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiSilenceFilter64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 354848,
+      "sha256": "f0046b712de47ec60c58d705ad8b18a149b41c792e6f7e3323dd737ac9ae565d"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiUMS64.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiUMS64.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 472168,
+      "sha256": "ae81dddb59a077c16c6506a43d62f27c62872d74294681411e66bb02ee045626"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiUtils64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiUtils64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 268832,
+      "sha256": "692c6d6725fe56b9bf67c8c0ba6647da42cbc055b36ad084964774adb91acc49"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiVAD64.exe",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiVAD64.exe",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 2946688,
+      "sha256": "bdc88b82483d2676edf3bc6d59fdcdb732d760740eeed0f333351ce7ecd6a90d"
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiWinNextAgent64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/IntelWiDiWinNextAgent64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1015840,
+      "sha256": "c57e9806b4c8a869932f6f96a270eaa29dc29865c461e5f2f12d9373c7b3cae3"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ar-SA/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ar-SA/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 40408,
+      "sha256": "43a92df3b4ebb6854ca8b990f4d7c7c7bdb6a2591c75ecfaa89e0d37e211ad31"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ar-SA/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ar-SA/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 28160,
+      "sha256": "a084dbb4e922089abc64e57603ed6da36a8e7e3fedb7c97a56b836ef8a737ce5"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/cs-CZ/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/cs-CZ/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 46378,
+      "sha256": "c4b944cedfddd2570a4151c65a75e77b32a5dc55f5dbf4eae8386b4d04f9c41c"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/cs-CZ/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/cs-CZ/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 31232,
+      "sha256": "30b8f2041881a4158b5d75a442776264a8d0da67220b0ee4fa78efbdce39fe32"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/da-DK/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/da-DK/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 47718,
+      "sha256": "5a61815446603bd8ff69d9558b18781457481bb505dc3b59954bc0c773a71978"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/da-DK/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/da-DK/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 31744,
+      "sha256": "12cdcc82f90633414300bc255ad3d4dba72a9f29af5982d5a984d786ec9c6657"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/de-DE/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/de-DE/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 50692,
+      "sha256": "4a5b864f5cc4faf291a4e8b9f23fbafcb353f33cb27a4cab3364293e36249608"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/de-DE/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/de-DE/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 33792,
+      "sha256": "acb6785eee19e3011244936b43157fa69dcb0138a95217753ab40c1d531baf01"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/el-GR/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/el-GR/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 51072,
+      "sha256": "0d6910240197185f69998e6c205570584dcb512759488e3535046d6327fcebfe"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/el-GR/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/el-GR/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 35328,
+      "sha256": "d1f3beb4a7339e8f5b3867a94ab6aa24f26b6466c86a3566ebcb74b78b42a98f"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/en-US/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/en-US/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 22644,
+      "sha256": "90b020441fb3f2a8787408c8feccd5385188856cb132a645d65a4b3e0b0f22ba"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/en-US/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/en-US/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 19456,
+      "sha256": "c5571ec9595a66f41d68f7a76e8ab2b638412a8f220f067fa5f8039c69ea0dcd"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/es-ES/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/es-ES/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 48130,
+      "sha256": "f732b8ac7ff688ff723d367d8d8fed818eefff19aec4ac8a217c0a0833c4ec11"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/es-ES/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/es-ES/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 33792,
+      "sha256": "c8186c2630a97a32387a0d447501815f36afdb7c210c8fe8778074dce2972fc0"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/fi-FI/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/fi-FI/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 46872,
+      "sha256": "10c4b32ac10009351037c81614cdb0dac83c7eb3efe4c87a25ed28616e4e49e5"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/fi-FI/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/fi-FI/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 30208,
+      "sha256": "f5401ecc1f391c39db83241b31a3c6512f7dc5ece8c84ef63924f82ea0e92017"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/fr-FR/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/fr-FR/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 49020,
+      "sha256": "0d43db81bd2d44fff6a9948517efaddc2d6bd48b60edab402e9d84be1e062f73"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/fr-FR/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/fr-FR/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 35328,
+      "sha256": "35d54bb34bc71219b883137cd5339d81551725155eaabd026fea8cedd42d54a2"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/he-IL/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/he-IL/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 39676,
+      "sha256": "ac7b0fd4868a3fa32463ca47930163481b3e33276d2ce06be16f33669a9833af"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/he-IL/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/he-IL/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 26112,
+      "sha256": "129e4d2372a4bfe12e36eef7ec1378dfa184de6348a709d54aa524d2be723642"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/hr-HR/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/hr-HR/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 45930,
+      "sha256": "a07ed579a5c89ceeeafc07aa8491e99c857fceeaf78120c02ffdf645ae27f9f1"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/hr-HR/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/hr-HR/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 32768,
+      "sha256": "4c82c71aa57e0fa1523b3746093747b7c67aa9ed5883713a2e7817abb64b9da3"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/hu-HU/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/hu-HU/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 48874,
+      "sha256": "d5a0a255ba97756924e2b89b89b33c4ba6e215b1d0104a258f5b79e3c79ad4c4"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/hu-HU/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/hu-HU/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 32256,
+      "sha256": "93e988448b8dc79d7fef22726e4ce52d8f2c8f49e37fce08619f122a1595c26f"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/it-IT/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/it-IT/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 49306,
+      "sha256": "22446c6e168cf281ee475a578fcf5fb519dfa9b1a4823ed5fed05aa15358b02d"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/it-IT/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/it-IT/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 33280,
+      "sha256": "563be1ccb3a43953b91d39793f51f2fb42f8c87507e626c7bc8309cf8a61559d"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ja-JP/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ja-JP/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 33058,
+      "sha256": "65d18987e7280e78698626e48a44519e62fac0a6d8af7873be1977f605bc90bc"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ja-JP/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ja-JP/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 22528,
+      "sha256": "2f9ce2568cb046820667612013a66b1c3a777a27750b632cf6928105a64f3c99"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ko-KR/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ko-KR/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 35086,
+      "sha256": "e049a00c20dc83cecfac2e0d9aa76368a7c26fba82d72d95ffc123a0f2ddf54b"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ko-KR/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ko-KR/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 21504,
+      "sha256": "c7cbef481afc3dc61670471c1b954c245a6b02c035435292817448251ddcca0f"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/nb-NO/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/nb-NO/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 46620,
+      "sha256": "ee0eb3783c276dbe12314dcdfd1eaca74d3b55baa2043663d0ce3d4ee37a20b5"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/nb-NO/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/nb-NO/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 31232,
+      "sha256": "41137c9230ef780c8c357c8d3424e356fdc426c59dc3cdf95b8f68204232a092"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/nl-NL/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/nl-NL/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 49392,
+      "sha256": "e4e9db98bfea89256c60ce396b8577031eceaa3dfdf4e04e7a3c5cdfd1e15eea"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/nl-NL/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/nl-NL/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 34304,
+      "sha256": "2e1140734a0087b5bb2e9defd99725d085eabbc508458eeba47bb1c3fa5253bc"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pl-PL/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/pl-PL/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 50908,
+      "sha256": "c09e45f8fb31ba3248e93483b36123a2e686019de92b935c9cde5c2bd12c971b"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pl-PL/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/pl-PL/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 32768,
+      "sha256": "dcf506c2a9c6cb96e5ba20bfd366e36638b55a4a614864192dd963455e972567"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pt-BR/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/pt-BR/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 46976,
+      "sha256": "00696bbab1e14e0ae9b1ec2520f0a1cda7053566e70f5a1b603e4e4a24dfb0c3"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pt-BR/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/pt-BR/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 32256,
+      "sha256": "0a6c7ca8fb2292fb08fcdeaa91864bcb0c811b1931454e1e60f78c5a8c25df7c"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pt-PT/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/pt-PT/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 48188,
+      "sha256": "608e11d997c21e4730d74665f65a2a3b0dcbcf8e07ecbe33e80537c03ed81137"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pt-PT/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/pt-PT/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 33792,
+      "sha256": "04ea0d15c9f6221b329775fd4eb30b2f0e8709f91e02fed21d1e09ddca1e8e89"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ro-RO/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ro-RO/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 46956,
+      "sha256": "7c5d1dc05dd5431ccfc47b9b5e0aae79e1293b4dde750a534a9a386531f3736d"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ro-RO/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ro-RO/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 33280,
+      "sha256": "dbd1b90afd17abde217f534abda40b2dab0c4e39d7926eb7d18c30539ab4206c"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ru-RU/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ru-RU/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 50020,
+      "sha256": "d121bf4d439208451b27c169264a3ff87030170bbef852f1ae988dacd0d7965f"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ru-RU/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/ru-RU/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 30720,
+      "sha256": "62df3ad3777535c9136b24d42592d8082e69599ce24302d9d788b136d16a049e"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sk-SK/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/sk-SK/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 47124,
+      "sha256": "bff0103a8342eb724fce9268f36cc62d3b91f825dbbdb4180433546787b96056"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sk-SK/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/sk-SK/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 32256,
+      "sha256": "eb79846d51f4baae7ba7e9d621793e4b2377d2ac2647045444d1441cadcbed60"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sl-SI/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/sl-SI/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 44970,
+      "sha256": "e3ebdbe80c7edc233655354e608256f7f637b3071ba72feae4c2eebdef598a65"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sl-SI/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/sl-SI/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 31744,
+      "sha256": "75cf6badc623af5243b68ccfb22d4367e41ca28e2c43c8ec2223d38d7380c1b5"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sv-SE/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/sv-SE/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 47326,
+      "sha256": "14ee60bffbfe496ad7e71412f4acced6063c86eed0e9b7a0281f2da4fde2835f"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sv-SE/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/sv-SE/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 30720,
+      "sha256": "0e9bf68c17903096a3af6de5403493cd887e656349c9549220339c247bb9f4ef"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/th-TH/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/th-TH/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 45824,
+      "sha256": "fe198b364edec30ed0f5dd6530a114ebf1b9dd9db5b0dbee79b84f44433d427d"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/th-TH/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/th-TH/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 29696,
+      "sha256": "9fc97fc2b2a2fd2afd2d1c1ff24ae096c31f0f16ce132b392f8ba50e39904d54"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/tr-TR/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/tr-TR/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 48008,
+      "sha256": "71865b6fd0b8fb260fb1c55b800a99060cd49dbc6426e8ef7dd8027dc2bb17bf"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/tr-TR/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/tr-TR/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 31744,
+      "sha256": "bfe11e50fbc59d9125f854c74d06d87a09f63758e56d0571b194f9c4a0c0e749"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/zh-CN/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/zh-CN/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 30360,
+      "sha256": "8bf40d54ede27d3441507f75408cad374934d154a1b74ffa5a35bdf23aa1736d"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/zh-CN/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/zh-CN/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 18432,
+      "sha256": "4eeaa09013565475122ec16f64f082fc5b4182524957ab723674c4bc6454b678"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/zh-TW/license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/zh-TW/license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 30572,
+      "sha256": "5e9fa8952f146723009ff54254318ae0e3f36677ba94666275a5f04d4e8d6528"
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/zh-TW/setup.exe.mui",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/Lang/zh-TW/setup.exe.mui",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 18944,
+      "sha256": "30a0a30d25cbfe56b5cc9a29478ff4e4cfd031296674392aaa7341a0de235704"
+    },
+    {
+      "path": "Payload/Intel-Iris/libmfxhw32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/libmfxhw32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 8684696,
+      "sha256": "ce529e4edc61205a18c7fe9d3cd8ef919941716f4eb3498ff03ccad6c35c2bb5"
+    },
+    {
+      "path": "Payload/Intel-Iris/libmfxhw64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/libmfxhw64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 9563800,
+      "sha256": "feb40c42431ef668ed3812f16e23c4f8a4be61c65ec4a60b6dfcf6a47fe98382"
+    },
+    {
+      "path": "Payload/Intel-Iris/m_w7_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/m_w7_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 15771,
+      "sha256": "1ae9ac3fe99ed48816cd458371a3114f860b738b4fe8bd8ebaa2fe486f998777"
+    },
+    {
+      "path": "Payload/Intel-Iris/m_w7_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/m_w7_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 4015,
+      "sha256": "2bcb268331c6e0e711b705e4b4212c3d569e89a5a6fc3baced7a6015c3edcb13"
+    },
+    {
+      "path": "Payload/Intel-Iris/MetroIntelGenericUIFramework.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/MetroIntelGenericUIFramework.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 623616,
+      "sha256": "517f8a2cf46ca6edc833e9625dce6cb44f6029fcd46d515b11dc1f941bdd20d6"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264vd_w7_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_h264vd_w7_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 465824,
+      "sha256": "ed1e7a99c50e7d6630d76be747c34f629335f629334d8b3b4d44f7bfdea9fc64"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264vd_w7_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_h264vd_w7_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 553888,
+      "sha256": "68a1128da0cb9033e12b7f36063cbf92c2b3a1ff6c3d3d089cf11d953abed64a"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264ve_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_h264ve_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1095848,
+      "sha256": "96802a6eb0ab79cf5374da053db6f555607dae427cadce5cec62dac7e20ee021"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264ve_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_h264ve_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1356704,
+      "sha256": "dca517ecbe6386c4bd18e57502f509046e3f1ed5c5d48090077432e4dac5f0a1"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264ve_w7_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_h264ve_w7_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 470944,
+      "sha256": "c9763f98c4d99dd17ae23a19819f2abd8af87c5b2b7a66ccd97699a573eb1726"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264ve_w7_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_h264ve_w7_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 559008,
+      "sha256": "3e67c54589bd11ca9a492e37aa7fa7edc621d4e18c6e5e2eb3ff66892fd03175"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mjpgvd_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_mjpgvd_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1022120,
+      "sha256": "f03d19570316b898699d62eac004808094e0e7272094dc86d10499374ad9fcb2"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mjpgvd_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_mjpgvd_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1267104,
+      "sha256": "820ec8941f52c6eddfdb09910d7b3fdc03607fc8d99a0c2d75fe62d4790dfe24"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mjpgvd_w7_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_mjpgvd_w7_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 465824,
+      "sha256": "ea576fa79d731a15adbc1a823495bd3b1a451521a63474db0aa739bf96248492"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mjpgvd_w7_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_mjpgvd_w7_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 554400,
+      "sha256": "691c12288e2b16f322858a536e631787d5271bd2fcd752867393cccaae9c025d"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mp2vd_w7_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_mp2vd_w7_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 465824,
+      "sha256": "98a715bc834f3d14e48e243740c822bb9a1a99d9f866e304fe33a3d6f68e77a9"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mp2vd_w7_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_mp2vd_w7_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 553888,
+      "sha256": "433d43f5b6b0f7a1d00ecaaf858eeb5249c1db9ca57050ae827ea8aeeabfa24b"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vc1vd_w7_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_vc1vd_w7_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 465824,
+      "sha256": "626c048ca608a3ab4731daced251b24bcfc103a6b7758ca486e979537097f560"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vc1vd_w7_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_vc1vd_w7_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 553888,
+      "sha256": "35a206ad7f636c0913a06f1cff1bf13633c50b42bf9360189f20c26d02ca384f"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vp8vd_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_vp8vd_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1027752,
+      "sha256": "7366d8117df9822dbea236ce55e40d2a18827244ce0ba366eb63ebfebef8df8e"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vp8vd_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_vp8vd_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1273248,
+      "sha256": "a7a70151d2f760d83179b6fbd2ae2ab273d5f3a879a1897d1fe3caf0327f7fc9"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vp9vd_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_vp9vd_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1027752,
+      "sha256": "b6e8930c93cdf80b7f2862b59698b82220f8ff4149ad3a8698443496889645b3"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vp9vd_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_vp9vd_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1273248,
+      "sha256": "806dcc9bfd505fdd51e49c293cf5d139910ee7f6bea67e3f365a4dcbe6aae4dd"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vpp_w7_32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_vpp_w7_32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 450464,
+      "sha256": "103a3845f20d4a3ee7805569884e03bdefb3dffb068a465e193a07db62db9562"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vpp_w7_64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfx_mft_vpp_w7_64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 533920,
+      "sha256": "04584c7b57d0a2568549c8295d891582dd162d6765f872f42f8057e1feaf7ec7"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfxplugin32_hw.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfxplugin32_hw.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 734872,
+      "sha256": "2fd1881c5a24ac56d859605f7d6b693072c1baf1d7807ec76b479e6bea508289"
+    },
+    {
+      "path": "Payload/Intel-Iris/mfxplugin64_hw.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mfxplugin64_hw.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 866968,
+      "sha256": "c00c414c0b95237e0236aaccc01087590a268a809b7090ab0a8df90dec7cece8"
+    },
+    {
+      "path": "Payload/Intel-Iris/mj_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mj_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 35753,
+      "sha256": "645665a571cd864b8217df40da68bdb8243ea7cac65040bea51faa91c8af408e"
+    },
+    {
+      "path": "Payload/Intel-Iris/mj_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mj_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 8973,
+      "sha256": "701cddca644c7990f639c9cf7b92bdf666c4f9623e42fb854283ef2c54173fb0"
+    },
+    {
+      "path": "Payload/Intel-Iris/mj_w7_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mj_w7_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 15748,
+      "sha256": "c42d5d33906653d67fcbda296532513ea3bb460524c633a0a7927990ece22a99"
+    },
+    {
+      "path": "Payload/Intel-Iris/mj_w7_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/mj_w7_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 4020,
+      "sha256": "8088a5ec09abb9e955236355bbb7ae7e2f69c7b233f22a3eeb74e813d4447489"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu___ocl_svml_h8.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu___ocl_svml_h8.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 5255680,
+      "sha256": "4f2cf1a72803bf43c03ec4288918fcf6ce05cff692cf82b33b6f2159444c781f"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu___ocl_svml_l9.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu___ocl_svml_l9.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 5770240,
+      "sha256": "783597e9e30b521889718e06c7dc9eaacc50a4d522f57ee1f919cd8ba0af5cf4"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu___ocl_svml_n8.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu___ocl_svml_n8.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 5047808,
+      "sha256": "cb3302c8ef2657944b19a0324b751e61395e503f9dc97021b242d8cf7939360f"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu___ocl_svml_s9.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu___ocl_svml_s9.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 5244928,
+      "sha256": "1512739e1ce0ac1c1df30cabf2ace5430b879353eccac79bf2664c84c446f981"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clang_compiler32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clang_compiler32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 6908928,
+      "sha256": "ba68ef6b8d3e44f6ce635e7023edb4a802026f1a91a06a88a40017d85e419a6f"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clang_compiler64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clang_compiler64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 7138304,
+      "sha256": "a69da6fdc2eca127f4b8ae02f712614cc9bafc4bb3fd49c7d3b4df6a39280dc5"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnh8.rtl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnh8.rtl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 2457604,
+      "sha256": "4ca9d1bc966c984aa8583cda813ed795c87867685d297016b377260c6953be43"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnh8_img_cbk.o",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnh8_img_cbk.o",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 361592,
+      "sha256": "88381ba483e5d2185c0a4cf8f3876e0e7853e362d2c85c0304a656fa94675310"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnh8_img_cbk.rtl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnh8_img_cbk.rtl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 407380,
+      "sha256": "cf955ca78db2ab48dfa09a8f82933fad568fcda24a62b415454817ff16a4a971"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnl9.rtl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnl9.rtl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1881888,
+      "sha256": "6015712853fc6b8883a2bd245d5dcc31aafb3912c8b79fc816df471fbb7443de"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnl9_img_cbk.o",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnl9_img_cbk.o",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 293576,
+      "sha256": "d82541723d6506ea6885f290e7cc2609ddc903a18a819c0f0f9646a69673ac52"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnl9_img_cbk.rtl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnl9_img_cbk.rtl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 367948,
+      "sha256": "83757bfd2148e670ffcfd11e5437f2e84aaf7f67cb139cdab04e2d6062005cbf"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnn8.rtl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnn8.rtl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 2455960,
+      "sha256": "4e17fd17b15a830cb62ac5269fbe47ecc41c360104a4b4aa0da9526aff117b4a"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnn8_img_cbk.o",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnn8_img_cbk.o",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 295420,
+      "sha256": "02e2e9fc05c1dd974e5ce0d09d4990c55154135453166366be61bd11d156e30e"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnn8_img_cbk.rtl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfnn8_img_cbk.rtl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 393976,
+      "sha256": "7c123188f1b259965419ba9b8b750a2c12a4eb153108607fad2c1b37250c9377"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfns9.rtl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfns9.rtl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1880124,
+      "sha256": "0d5dfd88c7f51d1b10eb8b97b52da8b0776c4def24591da84fd63f7d5af92781"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfns9_img_cbk.o",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfns9_img_cbk.o",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 249668,
+      "sha256": "be687ac1d47a37a8fcf4ce01d368f099dac724937a1480c2a5026920aaee514d"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfns9_img_cbk.rtl",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_clbltfns9_img_cbk.rtl",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 354492,
+      "sha256": "aa6438fa4d8c269a91ab979447d9f936b8d7b7446e92610ddf88eb174e4aa34c"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_cpu_device32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_cpu_device32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 493568,
+      "sha256": "72ba643d488e358afd859fc3eda0e3db413002bfbc77fc285e772329dfe1c053"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_cpu_device64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_cpu_device64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 641536,
+      "sha256": "1b8f69d35dc5e98110745fc1c6aaeb895543f3cc3439b7936d59908ac0aeba5b"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_intelocl32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_intelocl32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1153024,
+      "sha256": "4b70659401703817f5222e1c9f21f100e8efbd49d64237de0d582b8548b964b1"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_intelocl64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_intelocl64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1396736,
+      "sha256": "95e1f7a846d8f605920e4634fc3b382590dc31f9e3ee04e8a61ab4ea82980006"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_IntelOpenCL32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_IntelOpenCL32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 290816,
+      "sha256": "7c3f811eb21e4f0ead60928b47706df2fe1f3e417314d784bd518c186868bde9"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_IntelOpenCL64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_IntelOpenCL64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 355328,
+      "sha256": "86941a43857d996bdb01dec9df5d07c8607c4d721d58168fd9e4337a73e55e39"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_llvm_release_license.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_llvm_release_license.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1981,
+      "sha256": "5098ae5b13f2beca662f782b61eba500dc46e0e7d98c392465d9b35bbc46d669"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_OclCpuBackend32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_OclCpuBackend32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 8022016,
+      "sha256": "42f6f8a25b3338bc1593b3565bc21d11314fca2eb9e5efd9c23ff8e5244e38bf"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_OclCpuBackend64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_OclCpuBackend64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 10621952,
+      "sha256": "833aed1f65f767e72529be92991cfb4ee02b0550696085ddbbe5aeec46ad7898"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_readme.txt",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_readme.txt",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 9788,
+      "sha256": "edd5a21e9678a20d627ba03db7569f22e3f22ee5ead3aaff2cea7c42ecf7e6ee"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_task_executor32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_task_executor32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 285696,
+      "sha256": "c5eb58dab8a1eec4c2a293b66bf8c5ee5fc4abb8bbd851e558266957420821d9"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_task_executor64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_task_executor64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 331776,
+      "sha256": "043cdcb8c3bc1686d80d80ff3c6807856459f43faf616a5d35afdb36e3f64336"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_tbb32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_tbb32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 338576,
+      "sha256": "683b808c0e1bcf9cc72265d414f5e4b2762ceea21b2a827206bef98f50bff5a9"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_tbb64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_tbb64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 416400,
+      "sha256": "cf89e93dd40c7997cb9a9eacb3f84db5e3629c044b33490d42bf6d3c23d1a8a9"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_tbbmalloc32.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_tbbmalloc32.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 186000,
+      "sha256": "b4dcd36de3da01dd096794a19ffae63d9e8a2139f2e88d67ae2cdefc39c41d46"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_tbbmalloc64.dll",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_tbbmalloc64.dll",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 222352,
+      "sha256": "37e62f8df7d286e553a663a9607bbd50de2046022ab59f6a22a7bf8ca8c8f594"
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_version.ini",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/ocl_cpu_version.ini",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 28,
+      "sha256": "99359cc4e3fec5ad084c214a522e8a2ded28fc19f88ece673ced76b5ae43bcf8"
+    },
+    {
+      "path": "Payload/Intel-Iris/v1_w7_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/v1_w7_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 15755,
+      "sha256": "1d2973705e4715b0d1661ed5bfa501ecdab8deeee6fd0f9e32c3415022d37f1a"
+    },
+    {
+      "path": "Payload/Intel-Iris/v1_w7_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/v1_w7_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 4019,
+      "sha256": "b081e981a2f10edb0b564aca3590f2f51b92e6fb996f44a5e2c98abca29c71d2"
+    },
+    {
+      "path": "Payload/Intel-Iris/vp_w7_32.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/vp_w7_32.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 15229,
+      "sha256": "23b0929e9ef2ba55fe432f98356312ccbe4c88e2217f929d80a51da6831cc3e8"
+    },
+    {
+      "path": "Payload/Intel-Iris/vp_w7_64.vp",
+      "component": "Intel-Iris",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/Graphics/vp_w7_64.vp",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 3949,
+      "sha256": "b0f89dd7d89a3b10728ba2b513f78d595118152618a7bd4064b3cd1726112cad"
+    },
+    {
+      "path": "Payload/Intel-HDMI-Audio/intcdaud.cat",
+      "component": "Intel-HDMI-Audio",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/DisplayAudio/intcdaud.cat",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 11805,
+      "sha256": "35a7ac42ca14810044b6666989004d4dcae748a3fc92f96abd5fb1bdd0fb9f5e"
+    },
+    {
+      "path": "Payload/Intel-HDMI-Audio/IntcDAud.inf",
+      "component": "Intel-HDMI-Audio",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/DisplayAudio/IntcDAud.inf",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 1564924,
+      "sha256": "fb4f8656a85ce65f121d35f5183b883e162814666ae6c4c0f61fe3ab6196815c"
+    },
+    {
+      "path": "Payload/Intel-HDMI-Audio/IntcDAud.sys",
+      "component": "Intel-HDMI-Audio",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/DisplayAudio/IntcDAud.sys",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 460048,
+      "sha256": "c575dc65275bea8558a855c7dc6cfa84bd7f48d24bb0c522084e89ddc5cb02a7"
+    },
+    {
+      "path": "Payload/Intel-HDMI-Audio/version.ini",
+      "component": "Intel-HDMI-Audio",
+      "parent": "apple",
+      "member": "$WinPEDriver$/IntelHswBdwGfx64/DisplayAudio/version.ini",
+      "models": [
+        "MacBookPro11,4"
+      ],
+      "bytes": 33,
+      "sha256": "5e1f2caf59164bae4b22af725e30e6a6ebee9cf918f85deb0207a70752511848"
+    },
+    {
+      "path": "Payload/BootCamp-Dependencies/MacHALDriver.sys",
+      "component": "BootCamp-Dependencies",
+      "parent": "bootcamp",
+      "member": "MacHALDriver.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "bytes": 33568,
+      "sha256": "04a70324139e09a9a580de3f67b000bcae63eade4cd68c32374df9ead84bca45"
+    },
+    {
+      "path": "Payload/BootCamp-Dependencies/KeyAgent.sys",
+      "component": "BootCamp-Dependencies",
+      "parent": "bootcamp",
+      "member": "KeyAgent.sys",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "bytes": 18720,
+      "sha256": "e1a9b54c157f07674a611197324103f90a6d072ca478beb48ce4982eb1c42baa"
+    },
+    {
+      "path": "Payload/Apple-Identification/AppleNull64.inf",
+      "component": "Apple-Identification",
+      "parent": "apple-null",
+      "member": "AppleNull64.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "bytes": 4256,
+      "sha256": "6ec9704a5581c923befd840769968bb82debaec7bd841223d5bdd328df2c3578"
+    },
+    {
+      "path": "Payload/Apple-Identification/AppleNull64.cat",
+      "component": "Apple-Identification",
+      "parent": "apple-null",
+      "member": "AppleNull64.cat",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "bytes": 11303,
+      "sha256": "33ab6f884d10ecccc82b5a1860955250bb8457e7b4adbdb9d9f1670bcc51bccc"
+    },
+    {
+      "path": "Payload/Intel-Identification/Chipset_SMBus.inf",
+      "component": "Intel-Identification",
+      "parent": "chipset-cab",
+      "member": "Chipset_SMBus.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "bytes": 15368,
+      "sha256": "4fd1701c3c5d1bc53ac0284ea1e859bf52cb99c78bafd7981453e9699c461ec1"
+    },
+    {
+      "path": "Payload/Intel-Identification/Chipset_Thermal.inf",
+      "component": "Intel-Identification",
+      "parent": "chipset-cab",
+      "member": "Chipset_Thermal.inf",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "bytes": 9438,
+      "sha256": "7d58bf0ce17beba6e68850b0379ced1edd6dbba2aa50c7eb0990fa39191082a8"
+    },
+    {
+      "path": "Payload/Intel-Identification/Chipset.cat",
+      "component": "Intel-Identification",
+      "parent": "chipset-cab",
+      "member": "Chipset.cat",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ],
+      "bytes": 59218,
+      "sha256": "a8922245f34ee128c7c69f9f7a0af4f83fdd25f19e349d79f05928c98197774f"
     }
   ],
-  "hardware_status": "11,5 individual components tested; fresh combined installer not yet accepted. 11,4 untested.",
+  "hardware_status": "Individual fixes accepted on both models; combined fresh-install test pending.",
   "ready_for_release": false,
   "vendor_binaries_hosted": false
 }

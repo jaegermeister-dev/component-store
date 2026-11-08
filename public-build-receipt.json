@@ -1,16 +1,28 @@
 {
-  "bytes": 2133432,
-  "sha256": "afd0874afb23d7af1d842992342889dc763cd323097c79753162eae0f415f818",
-  "engine_sha256": "b66f398cecaa40dc85214f663afdd84744c9cc071b28e44a22aa5e95f203585f",
+  "bytes": 2169743,
+  "sha256": "f2676c6da1a84037e259a1e254aa7b6ef92e06c1c0bd8ae1b39162fe7ae30527",
+  "engine_sha256": "41ccb62b0d1df8d5e4c8eac880243ffe57afe61cf766bc5644e6cea3cd11c854",
   "source_sha256": {
-    "driver_setup.c": "c975cbade98e1375c7ee73758002c72b081aeafafed5b48be31a793f9064e3ce",
-    "Driver-Setup.ps1": "7c3c65f50f2c834e1143bed0a7bf34d2ad94da5c12a246a9d750e2770a250096",
-    "Native-Driver-Api.cs": "7e785e3aa9f4d9282cbe6c8109b9f3d256e6bb0e598a869a3c2454ce932ae86a",
-    "Driver-Setup.iss": "364b219a2642a679c5baab60e76944979c9216dce3ab795da43cd29fa0600276"
+    "driver_setup.c": "2e2b9ba819e2caaa00406e5f59d0b941db6c32166f3b8689b639417c9a15941a",
+    "Driver-Setup.ps1": "f5d53d62683cb6b2a64032d64f3952b3dfe469d0231bcfa0e301fccfaafaeaf4",
+    "Native-Driver-Api.cs": "69b84d49e3b03444ae7e6d1494f0c1d0d8abd28166597756db4207050004889e",
+    "Driver-Setup.iss": "51b655c58d938a4faffaee0dea9ff63c3e488af3e57a2cdd726f6ce8ec63071d",
+    "Apple-Keyboard-Layout.ps1": "2a907fadef4c8c3c3a3e446a92f73762f9a505d39d32339d82aeef4d363489ad",
+    "Accepted-Hardware.ps1": "6a144d14fb719a6fe34d9f3d8ea97dc3c6b373358e047fd10b22cde7b916429a",
+    "Apple-Timestamp-Trust.ps1": "35beae995f80fc71ce58c5a551f018c4bf6e62372f76746b97b06885f2462e7b",
+    "Apple-Timestamp-Root.crt": "2399561127a57125de8cefea610ddf2fa078b5c8067f4e828290bfb860e84b3c",
+    "BootCamp-Backlight-Response.ps1": "fa09b1ba79d1dd71b44c22ea6ecd0694db48f93cec7415c05440a7377615848b",
+    "Apply-Trackpad-Settings.ps1": "13637c91388fe4d42938fc9e5e46433dd34bebc0b5a92b9991b4b6f39177060b",
+    "BackToSeven-Trackpad-Preferences.exe": "7077e492368cfac6e1c86aeceee5c0806bfb3bb1990176f6e8e1f1964be594b0",
+    "trackpad_preferences.c": "12b4e01dbc655ef31c73a9bbc9619b05f008aa93b441f0feadadade6d7664cb5",
+    "Repair-Graphics-Boot.ps1": "e77a2242a21b950319a3aab23556f624e5d945c4a32be59056b6ab8a89a0af65",
+    "Boot-Partition-Identity.cs": "2fa4db515260308e1e7553dee0c6b3fa9c66a7912bc3fcffde6694a8fe112d13",
+    "Boot-Store-Guard.cs": "e1d0b3c46ca4a6bc7f84d76ffa7ca5d496fecf4455d37d65479fb37c96dc1e67",
+    "Menu-Store-Guard.cs": "d3393216d480a3be0e2c87b9f19bac088fc32c79a5a7ebafae21fabb4d749dec"
   },
   "wizard": "Inno Setup 6.7.3",
-  "payload_files": 265,
+  "payload_files": 552,
   "windows7_runtime_tested": false,
   "vendor_binaries_in_asset": false,
-  "drivers_installed": false
+  "physical_acceptance_pending": true
 }

@@ -1,0 +1,4566 @@
+{
+  "status": "PASS",
+  "private_engineering_only": true,
+  "files": [
+    {
+      "path": "Payload/AMD-M370X/C0303160.cat",
+      "bytes": 122389,
+      "sha256": "ed422b9c1351baa1721a72659da7907b611441cbda1584abe319153b2d624ad2",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/C0303160.inf",
+      "bytes": 231680,
+      "sha256": "4b401b11b1a4f681be17dec15008e98e4b9bf58fc7708237d16f138ea5290aff",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/C0303160.msi",
+      "bytes": 99328,
+      "sha256": "15052f110b65be94aada91e62a55c41e90aa298ab1ea2699c7d55c7bad62dc95",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/c7303160.cat",
+      "bytes": 120287,
+      "sha256": "c9155d7b0b8f0ef0a16fa6a8c15386fb956e3d70275c35c8678fbf501dacd75b",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/C7303160.inf",
+      "bytes": 204265,
+      "sha256": "616a091e65088d8f3ab1ed9184c11fb9c165a8059285aa273f227e6ec71e76ff",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/C7303160.msi",
+      "bytes": 97792,
+      "sha256": "185e74b4060673bcbe13082119cd344c5a2b36290d3fe0b517bb81eee3d2108d",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/cu303160.cat",
+      "bytes": 119866,
+      "sha256": "f817f18a664530d361d310c760b3093e3c4f72300267e051ef86b8efefc9e26c",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/CU303160.inf",
+      "bytes": 205565,
+      "sha256": "1317c8b5b2c98bdbf5db02872c177ba0797535862519b16cb7a3ae94f1f45042",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/CU303160.msi",
+      "bytes": 97792,
+      "sha256": "76c8bc6235bf4497b144ee81cbf88c5e68d2309f360f7563d4787fd1352be8d5",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amd_opencl32.dll",
+      "bytes": 87040,
+      "sha256": "f058ca49ac84e61e1a2e6ca2788a39cf363979e3ba9f782a778edb96c3e1d519",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amd_opencl64.dll",
+      "bytes": 96256,
+      "sha256": "f72f399fcd4213b301d19ab967ada9fb62a1c102ff6efee2226aa4d04dbf6e6c",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amd-vulkan32.json",
+      "bytes": 144,
+      "sha256": "94540b4c3fbcf07c711bcd5db538da0605c4942a5e7d541398179f60ce1a2c21",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amd-vulkan64.json",
+      "bytes": 144,
+      "sha256": "11ad0d681b4ff040955b915892bc66fb8a45364f1891f89d9984a5c0ca75bc02",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdacpksd.sy_",
+      "bytes": 194979,
+      "sha256": "bdf3b9e0a9f0a89f997d4dde7105f4879e9b69b1c85f1b851704620066c45ec2",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdave32.dl_",
+      "bytes": 64608,
+      "sha256": "bd052c68de7883735b45ca9cb91e115b8167af2295924eb5f41b9553059d9868",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdave64.dl_",
+      "bytes": 70609,
+      "sha256": "094195728d94817ea908e8dcafe735983d9bba2678b80a3f4d31a7143442244a",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amde31a.dat",
+      "bytes": 175584,
+      "sha256": "623b18eb408d056aa26b9bad0dc8a4fd6c3e3330f6559c5a163628ac135d581e",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amde34a.dat",
+      "bytes": 166624,
+      "sha256": "2480f4af46db5f6a1f392f5b5bd784df12acbd5b74b2a8b312f92016edcdd780",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amde34b.dat",
+      "bytes": 166624,
+      "sha256": "5c59d03429c99a7b55de751c56b04126cc12b10f708e48dfd6b0596c0039d1e6",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdgfxinfo32.dl_",
+      "bytes": 118257,
+      "sha256": "4ea047c37be90627050428aef2c697cb210c6b4afcc53602763fbd25d4067d73",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdgfxinfo64.dl_",
+      "bytes": 125769,
+      "sha256": "5e28f5e46924870eafbdd24017ed6e9fc3c89682aee987b7391941e46cbea19b",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdh264enc32.dll",
+      "bytes": 925104,
+      "sha256": "be0bcbfc7894ef0345664493f80ba6d542e06b778b672d1c0a0be8aa97295c24",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdh264enc64.dll",
+      "bytes": 1108968,
+      "sha256": "27d3495bdc9e6a06ed1a404ffef2b89392d5d33ebce87837b11e00ba0bf0d1ea",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhcp32.dl_",
+      "bytes": 98931,
+      "sha256": "f2a86da90d718b4b575f3c3cf28fcacc90d7a250a2280dc2a2de93ad0ac3fb8b",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhcp64.dl_",
+      "bytes": 105563,
+      "sha256": "ded67bf6e31f3a263336cd8ea7eb2d4add1337f1eaf96455a505cadd391accdb",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhdl32.dl_",
+      "bytes": 101013,
+      "sha256": "9529259b1cec2ed71cea244a61d62dc37d9c5b1654703373339bafa2bc971128",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhdl64.dl_",
+      "bytes": 106572,
+      "sha256": "c0ee62583b1aaf069867b9b64ab3aa14c1fd9e63cc8ef779567b9bc04b5a10f6",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhsars.dl_",
+      "bytes": 1215,
+      "sha256": "daf8af519d66d5be9acf817376dcec8387c414947bd04c1c14e69009a97d6125",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhwdecoder_32.dll",
+      "bytes": 208384,
+      "sha256": "88768a2070350f39df5a8e43c3a49f511f1650bc870ea83779cdb5c67b25d5aa",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdhwdecoder_64.dll",
+      "bytes": 246272,
+      "sha256": "bfd30db287be636030a5086e714cd8f2da67b52f6f3f3c75771634e29d8c9557",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdicdxx.da_",
+      "bytes": 143831,
+      "sha256": "f9b966dadfc0102f2b92dbc96dc61b91960fd371f554b164046a746decd43a4d",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkernelevents.mc",
+      "bytes": 12893,
+      "sha256": "d46d54fca276ec1be56c2743d61869621f6deae888272951e4f1dea771f03dbb",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.cbz",
+      "bytes": 9852,
+      "sha256": "e9ede0c0ffe216b2216ad35964d1b617624fdb0851b09e6b310a0ab96674b24d",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.csz",
+      "bytes": 8083,
+      "sha256": "6cd457d65c13368177be4d8d1d6d26bb3682d68fa6acfc60d5a3a36194f3fec6",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.ctz",
+      "bytes": 9863,
+      "sha256": "6f8ed2e983f4b37a6d5d8ee4162b73bd5b900b447cdf1bbddfe812c1453ba2b0",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.ibz",
+      "bytes": 1989,
+      "sha256": "8e230cb48860e5fbd8831b4b2df7f1fb385ca04781a8441e570d8d1d33f8126c",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.isz",
+      "bytes": 1989,
+      "sha256": "8e230cb48860e5fbd8831b4b2df7f1fb385ca04781a8441e570d8d1d33f8126c",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.itz",
+      "bytes": 1989,
+      "sha256": "8e230cb48860e5fbd8831b4b2df7f1fb385ca04781a8441e570d8d1d33f8126c",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.sbz",
+      "bytes": 79120,
+      "sha256": "9ccb666cbdff7a79ae6b1083c8cbd347832b4a990b10eddf1110af1734acd18a",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.ssz",
+      "bytes": 79120,
+      "sha256": "1c2ac2778d92249c05f6c0d79bbcf95ab7d1e16f9dc2514157fdd2549a95579e",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdkmpfd.stz",
+      "bytes": 79120,
+      "sha256": "2c11ea03f42666e4e6d09f70773fbe4add71b31620d05b97905af914d552492a",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdlvr32.dl_",
+      "bytes": 304839,
+      "sha256": "d81c140de003ee0f6601817277012bef4d760a4c67f6fc196c3abfdd3ff6f8f0",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdlvr64.dl_",
+      "bytes": 358703,
+      "sha256": "40c853430c371e75ee5d827888d117b505b2e47a1885eb069212d8f5d3ba3e89",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmantle32.dl_",
+      "bytes": 2749999,
+      "sha256": "f89f47c689119f6d182b73aef83baa829515c2828f34562e0adf13faf838562c",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmantle64.dl_",
+      "bytes": 3249209,
+      "sha256": "0c5aec425582b7294e227c20b3a79d3f19c0f5121ff01e656eac5965660571ca",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmftdecoder_32.dll",
+      "bytes": 97280,
+      "sha256": "8511c05ce6e47c7e2774b7663271da680dcfe6c12acecc6c4e1f04129ec04e71",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmftdecoder_64.dll",
+      "bytes": 114688,
+      "sha256": "c8862c1464204b9e24cc87a673007e0c9e0d8f1ae50121015b261e605d770e7e",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmftvideodecoder_32.dll",
+      "bytes": 110880,
+      "sha256": "73c266f2435f777e6aade6670f8242a0b7cc8506e1d750556b964aa9a707f16b",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmftvideodecoder_64.dll",
+      "bytes": 126360,
+      "sha256": "4517c57d74a8b9a7e04f625ff6229010accff0ac3f62459fc463ad5767cadd4c",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmiracast.dl_",
+      "bytes": 264371,
+      "sha256": "c965ff5d07281bfc0a4b9819c90a168d40b37d98a6729305c18f33560730d7e7",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmmcl.dl_",
+      "bytes": 19784,
+      "sha256": "7afd82c5bf36f88439cfb387b1199daa000c01e0eba27a257cdb610d6d64e32d",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdmmcl6.dl_",
+      "bytes": 21643,
+      "sha256": "ed0b510781041a0c113d5bd43a92251c8f65486b895525a436efb910c4e4c1a6",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdocl.dll",
+      "bytes": 38098432,
+      "sha256": "26094eb7d528dbd1551e97a7396f24669c02f627505439eef8bf1d2df7906259",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdocl12cl.dll",
+      "bytes": 21600768,
+      "sha256": "c8c42aafeaeff4313c28d060ec560c6bcf70277f75830fa88679490c05396204",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdocl12cl64.dll",
+      "bytes": 27433472,
+      "sha256": "f5bf7af01a6422b718c06548b25500055dce6e10cd4476252668b8380ccc8731",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdocl64.dll",
+      "bytes": 48616960,
+      "sha256": "bddd1eb3b93265b2f020973c3fa9669354cf46b46e28d325ce0b39236d0335d0",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdpcom32.dl_",
+      "bytes": 59285,
+      "sha256": "289a6610d7dd9f93c761d1b811d1a5a6b7a86a4d11ccbf4a4c571650952e92f4",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdpcom64.dl_",
+      "bytes": 63874,
+      "sha256": "8bcc2792fa5114d0188fa7f632a62dbb2b6e071dcab420b4618031be7a923f77",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdvlk32.dl_",
+      "bytes": 3297393,
+      "sha256": "b639c2f309724c83e187628793cd70a8b511ed531954602524d264491706534a",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdvlk64.dl_",
+      "bytes": 3908398,
+      "sha256": "08dfcf7c2192056b750baa61115045871a3240e257912798a6addbb7b825e2bd",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdxc32.dl_",
+      "bytes": 3292273,
+      "sha256": "0b2d160bbd2158cc6f338b048226621cb35172f1abf19f7b1d429a9c90c16e2b",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amdxc64.dl_",
+      "bytes": 3836103,
+      "sha256": "5d5bfd5cbb8b9bd32c5b8955d3464bd48ece1e1479d88b26bfebad7e0c6eb7b4",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amf-mft-mjpeg-decoder32.dll",
+      "bytes": 1293824,
+      "sha256": "3243c177e3a9db335d3a437f5f2c1243c0f3e2be23fa61a13d7eaf15457c4702",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/amf-mft-mjpeg-decoder64.dll",
+      "bytes": 1533440,
+      "sha256": "cd5bd4ee63700e0425ef12523b5a65891422a55101c934f7dcdc0d8f3add56bc",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ati2erec.dl_",
+      "bytes": 12367,
+      "sha256": "a86b56b9a6b437ad9a481362257e744d360ece200e978489b87fdf3ceba3a582",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiadlxx.dl_",
+      "bytes": 710070,
+      "sha256": "0b2b5b55f884287214fe3cebc16e5e41b0ee9fdd0ce4dd8cd8001b081dce6b3f",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiadlxy.dl_",
+      "bytes": 527975,
+      "sha256": "04339fbf5def6d6eb2238aa7549c5a571cfbed6bece5fee12e1b380eaf637fb0",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiapfxx.blb",
+      "bytes": 717520,
+      "sha256": "415a2dcdde8d3c7a677449c9015b458137046b0bce9af16299b73a7bae0820bb",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiapfxx.ex_",
+      "bytes": 219770,
+      "sha256": "5e58e48035dc5bf6725e2f376490c4e9a17a3c6454091464f6bc02f7bfabe415",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticalcl.dl_",
+      "bytes": 28185,
+      "sha256": "5b648509a8b563a6eb625cad82c47cdf2c76c89fce8aaf820a8711e35a62ddf2",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticalcl64.dl_",
+      "bytes": 31344,
+      "sha256": "8016e354f366a91e55d5aa2c681b3561fa55c5c7be99cdebe579f64ddbe405b8",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticaldd.dl_",
+      "bytes": 8052221,
+      "sha256": "623213bf8858a52324009e5192b29999a5c02980e10dff988d632ea1ade0cef0",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticaldd64.dl_",
+      "bytes": 8594947,
+      "sha256": "c5563e0995cc9f54694cbcdce5466e362d97c51008be697c3274deb4a18a33c1",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticalrt.dl_",
+      "bytes": 29270,
+      "sha256": "940412f667c3b51b64a51ebd192d4e4a191043e5babc58e3fcfa2cd02d8ecf23",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticalrt64.dl_",
+      "bytes": 33901,
+      "sha256": "95a1d869e9be75ff72f8c5aa27b4ffd9dd4b682cf0ab14f6f0e380cf3bff1aa2",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticfx32.dl_",
+      "bytes": 551224,
+      "sha256": "43308e831c503e46d5771f1f880447fd626d56f1983b4adcf5a30f33bee2844e",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/aticfx64.dl_",
+      "bytes": 673549,
+      "sha256": "56f56f503eeb9f8eb48e6fc81a3eb2d5fb700f54eb1264599f825479203aa963",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atidemgy.dl_",
+      "bytes": 170972,
+      "sha256": "8649604b930ddf7b8ac7b6ee972416a35cae105b6637bf7a8af42f6d62fd6122",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atidxx32.dl_",
+      "bytes": 3905494,
+      "sha256": "10bbf3cf1bb3bfb741cbf04db219ed5e463a227a4aa70761d7345c710f9a14fb",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atidxx64.dl_",
+      "bytes": 4533689,
+      "sha256": "a85e67d1c6e4ea3cebe9d416b8c8dabc8b8f14e3966ff080247db9286ae771d8",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atieah32.ex_",
+      "bytes": 117711,
+      "sha256": "ef36fc7b43535c2e78dc61ba7be8bafd809e51ae5311921a117fdbcea727a119",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atieah64.ex_",
+      "bytes": 124287,
+      "sha256": "5b70d57a41c74ddfdfb1794d8fdbb5c32c186a3321bb0538269e743164af5919",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atieclxx.ex_",
+      "bytes": 345514,
+      "sha256": "20d010327254f18635cb85e14ee88d8188abca750fcbc53e4a5354962131c5c4",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiesrxx.ex_",
+      "bytes": 177447,
+      "sha256": "11c848c1ab92958de5e4c7fc42e816010e92ba0a8fbdeb229ab372729613a7fd",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atig6pxx.dl_",
+      "bytes": 60908,
+      "sha256": "4487c29d3bb69aed1e34efa32e4268557fad9e35f79d51c850b2c21f7892b1f1",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atig6txx.dl_",
+      "bytes": 106163,
+      "sha256": "e797a9cea561cf57b431796998307c8503b15e911a8d498240e460b2ce0797e2",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atigktxx.dl_",
+      "bytes": 98918,
+      "sha256": "63a4c8939021789d4509353fd220741180729e1a4302586d1557469caef491c3",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiglpxx.dl_",
+      "bytes": 58274,
+      "sha256": "48f3eac92c9d2c3d22f306a95b8fdebbd4b14ce2f2839708d3f7b64af2038f47",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiicdxx.da_",
+      "bytes": 116292,
+      "sha256": "5df3c5c6c180992028182b28eace5b340953999e5d8bd70e2106774142fa28e3",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atikmdag.sy_",
+      "bytes": 14934708,
+      "sha256": "78cfc12972fc5e3c1a0d305298da4c678eb9c3d389214083b31445669638bcd6",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atikmpag.sy_",
+      "bytes": 276254,
+      "sha256": "c84f7714fdf096fae65ec6505896e553d2dd83a807959385cc9615e949b61409",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atimpc32.dl_",
+      "bytes": 59285,
+      "sha256": "4a05d49bf2a423b8bc3c377817fa8c9a551d44939b4290fe54ae46d517499835",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atimpc64.dl_",
+      "bytes": 63872,
+      "sha256": "6b7e40b6d34ce3bae7c8ed5fdaf26604e5f9fb5e85afceba9f2fcbc741822b09",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atimuixx.dl_",
+      "bytes": 23829,
+      "sha256": "9061136bb89aeb9bd22bd6b74acfc3cf3790e11045b2f06d966eb59c191f65b3",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atio6axx.dl_",
+      "bytes": 13367005,
+      "sha256": "4004654795d962446a3cfb56303ec42fd22cd59ce9606534f520e4f54d0cf498",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiodcli.ex_",
+      "bytes": 29592,
+      "sha256": "d646fc374af5394d0a6668128d4994c42ccde17475b13df133142a2f75483bb8",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiode.ex_",
+      "bytes": 102873,
+      "sha256": "22b01a05745479ac0ce3aaf671d3b57d2bb0ed10d797678fe4d868b0e8dbd050",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atioglxx.dl_",
+      "bytes": 10992078,
+      "sha256": "b923cbfe0c04459d2cc5204324a34f21bf667d2887c18232f5035b20217070ec",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atisamu32.dl_",
+      "bytes": 65589,
+      "sha256": "28a81cd0a13dca030000af4ed67c29d1f16364692f7a0ab2c3bcbc6e09e3c7d9",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atisamu64.dl_",
+      "bytes": 69057,
+      "sha256": "715c60cde81cb72f729e5827cf7d70b77b97f15cde231c04c7e7faf0dc426cba",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atitmm64.dl_",
+      "bytes": 155503,
+      "sha256": "93d0a960d8812aad871e9355a9bdb42372206cfba76514d95f89611cf1d8d8cf",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiu9p64.dl_",
+      "bytes": 86599,
+      "sha256": "02cfc03cf43abd23e226068d833fa8c627ee8fbb67fb721fdbeb6ca1cd26887a",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiu9pag.dl_",
+      "bytes": 78614,
+      "sha256": "a6b9bd70776aff175d5080d44945eb23d7c101732b7ca3d94ddf824603f6f367",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumd64.dl_",
+      "bytes": 3977852,
+      "sha256": "b06f50d292874319fb4a32a40b53ca74a698d164a1ac6eb22122dd6727571042",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumd6a.ca_",
+      "bytes": 3866560,
+      "sha256": "e52f62b01d2c16c80f07aed4a474ff9d80c75be398268f6cccaa9d14b847f1c7",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumd6a.dl_",
+      "bytes": 5588902,
+      "sha256": "60881e9c53e6ce92a51ebe1bedbaf44d8159a97c2a581e35cfff794f4531a46e",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumdag.dl_",
+      "bytes": 3459175,
+      "sha256": "553fb868b07b3d35d7ea7580e282b164700ef45da1585a2862843a11c0880906",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumdva.ca_",
+      "bytes": 3904547,
+      "sha256": "9b9e8901af85d9109dc60b92b1a7a6dea9cc180d10d99a7ff600b8decaf1fdcb",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiumdva.dl_",
+      "bytes": 5222875,
+      "sha256": "3935ca7b8d022fe2aafddfb5724e50a5a36af154fbc6da230b3434da7ccb7c91",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiuxp64.dl_",
+      "bytes": 90951,
+      "sha256": "a2a5f467c17ae0548b7495004768ae546eacf0c65ac273a020726e3f0078728a",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/atiuxpag.dl_",
+      "bytes": 82671,
+      "sha256": "24b111df2e7c89000b723e435a10cfbc353110a8651958d82b96976e1a3715cf",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativce02.dat",
+      "bytes": 100832,
+      "sha256": "0c49622ce912b451ae5637b2015240b112a26397a3247336c5c0bf24c54e3f4e",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativce03.dat",
+      "bytes": 177280,
+      "sha256": "b3a63984bb1d754254dc36308684491405ebb3084320492e4e192f62b7a4a357",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_cik_nd.dat",
+      "bytes": 232496,
+      "sha256": "5cdc5de1b0fe8b9a53c604efc6e52126fc5f0e996e1fedb39c3c934e4ccade49",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_cik.dat",
+      "bytes": 234292,
+      "sha256": "6207f65129a9dfa47d0dd344ec2e489e8c29a801fec46b547a572262a8209655",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_cz_nd.dat",
+      "bytes": 266688,
+      "sha256": "f0a52b035a286701c6b540d7a4c386c097d1146066a824b3aeb3ab369771aaeb",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_el_nd.dat",
+      "bytes": 368416,
+      "sha256": "b52b2c0274497dd4ec841644d83907b68c4918feb573b034934fab809fdd468f",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_fj_nd.dat",
+      "bytes": 257872,
+      "sha256": "466c1b17695a77d2ac92099e297c826ab42d1d870aefcc4b13c087b68fd925a6",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_fj.dat",
+      "bytes": 260852,
+      "sha256": "b4ec4280b7324d60043bf9c3ce4adee2e91785c0bdc049808313b7c998400502",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_stn_nd.dat",
+      "bytes": 270784,
+      "sha256": "a8bf71e929c9b5ade0b1365b77f1457f9ac258af799597b01c2d4af7e3dc32fb",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_vi_nd.dat",
+      "bytes": 322736,
+      "sha256": "104ac5678d0d21363e27a7947cfd92980a22cf3c5838ebd037eabeda6888c4d9",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvaxy_vi.dat",
+      "bytes": 322996,
+      "sha256": "dfeaff2b126d43395ae6f07542103c7bc431d1438ee1341ccd588a3203e870d7",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvsva.dat",
+      "bytes": 157144,
+      "sha256": "e698410e1b8e5b2875aa8b4d01fe6e4f0bf354f40d92925c4e3503d7fd1ec208",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/ativvsvl.dat",
+      "bytes": 204952,
+      "sha256": "f35a4644d926183d38815207e338e7919cbdd2b1bdb8164074e47b74ea1cf150",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/clinfo.exe",
+      "bytes": 252928,
+      "sha256": "33fe0e986e6d6fee4db95d18f5ba45f9c1c53ea423fff280b286604b391ab880",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/coinst_16.20.dll",
+      "bytes": 865280,
+      "sha256": "67ea0d23e59f5aa30773cb63fac8c2d3920f113dfba0f022716eca56d921db90",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/detoured32.dl_",
+      "bytes": 1456,
+      "sha256": "e77877bb528b02e58cc382677e49ee30ab5d594161ea87949e6b9f89d4499253",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/detoured64.dl_",
+      "bytes": 1346,
+      "sha256": "b573357e4e01a9c8476aacabcfc41c93e577924a13c32babae219a12c3a9eba6",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/dgtrayicon.ex_",
+      "bytes": 156881,
+      "sha256": "ab5ad4e2dd3fd5458314a686b4c537ea41a462c08f5fcde8bbcc5bf7db1d1116",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/doppengine.dl_",
+      "bytes": 140994,
+      "sha256": "51c645398b9b998c6607b21efd090ba91b217fbd47a2bb411ca30d92ab5676ef",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/dsemanager.ex_",
+      "bytes": 112387,
+      "sha256": "34bf7226ab9c9dc5fd439819164e42b8842450331ffaeaa65634a5be83563631",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/gamemanager32.dl_",
+      "bytes": 135957,
+      "sha256": "27d1de686dcc05f38e93ed2c5786c69e2d7d2d102fff55ef5cbbc5004f562102",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/gamemanager64.dl_",
+      "bytes": 148285,
+      "sha256": "d94a662011a77edcce4311472dfebf8748ea286f6c42016f007f6df6ddadc5d9",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/hsa-thunk.dl_",
+      "bytes": 128229,
+      "sha256": "77e97ad064b3d23e6c22a5d3f4d0a3e98cc9031574be2dd0769e5dd0ff7030fa",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/hsa-thunk64.dl_",
+      "bytes": 140169,
+      "sha256": "bb068eed6567d33e05d715ae186f22472e2276d51578986d2c5db1cfa7553993",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/kapp_ci.sbin",
+      "bytes": 47664,
+      "sha256": "ecc9af565509d6a1f78228b842183e0d2bfe7661e4dbabdd9602508ae224c111",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/kapp_si.sbin",
+      "bytes": 43536,
+      "sha256": "9216a737a9282db515ff14b6877bf73dc1b55cce8b20e0552320c30fd3a2ac36",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mantle32.dl_",
+      "bytes": 72045,
+      "sha256": "56792545fa67f8cfc15865db25160a4cb64ef864ae11bd82d946d1f21b5628f7",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mantle64.dl_",
+      "bytes": 78210,
+      "sha256": "d741bc9b56496bed6d25b38694b3dc94f53a42685ff2f0d26a397b930749d865",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mantleaxl32.dl_",
+      "bytes": 58988,
+      "sha256": "401f5058aa2330554ca9ba4b54d977731467512b7bad752e63e9b44207397a70",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mantleaxl64.dl_",
+      "bytes": 64561,
+      "sha256": "af1642d3aae40b04be7aec38e6602ba9e645b9437d0b8673b36ca5709a821c0f",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mcl32.dll",
+      "bytes": 49152,
+      "sha256": "a0def5e3593c3f301de2ac6f2611ac76f03e847b76df1f74d8ac8d89bb792c69",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/mcl64.dll",
+      "bytes": 64512,
+      "sha256": "2ceb0a7d438197fd51c0e60e6457f06259c65b1ad86cdd925fdab9c5d8aa1a88",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/samu_krnl_ci.sbin",
+      "bytes": 140240,
+      "sha256": "41f8bde125374995650ceac052f74e988f76825408b3ea9ed375784d104aee28",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-M370X/B303175/samu_krnl_isv_ci.sbin",
+      "bytes": 138832,
+      "sha256": "bc0d7254d90ba333871b0854e8234ad7db67e404fb1e1318a1a75f239e59a243",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/ArabicLicense.txt",
+      "bytes": 22894,
+      "sha256": "f7da3dc848ba74baadd5d08f3e4f95f67412e011dca7f761c959924238229756",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/BrazilianPortugueseLicense.txt",
+      "bytes": 29920,
+      "sha256": "93aff27cb1719b803d1e15b357a134a273c1445d2fb5c525691343e0174ad7e8",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/cs4208_24.inf",
+      "bytes": 190297,
+      "sha256": "5a50b7903dad40a7e1b600be5b1dba930e3564161e604c1c17c13e3ec5562870",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/cs4208.cat",
+      "bytes": 19680,
+      "sha256": "3d7494ea13c216773251195cc6e66d53794ae986d7866a9f839fe43290889dff",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/CzechLicense.txt",
+      "bytes": 28060,
+      "sha256": "a5d5d12cedca7c226638e23ae0e717fe61918f0746754f5489494b87d6befbd0",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/DanishLicense.txt",
+      "bytes": 27300,
+      "sha256": "d1af24434c622ef139ecfca759876b86e59316b3430236a86ba83dde136445d2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/DPInst.exe",
+      "bytes": 1047632,
+      "sha256": "c20a5d3f5be543a8e73cd25f9dbf14aa0fc4ba1fdc249ee4ff91d159d174d0ea",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/DPInst.xml",
+      "bytes": 18192,
+      "sha256": "ddb3360a67ec75784e0224c1dcffd7db537626d2e603cfeef074eed5f2828774",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/DutchLicense.txt",
+      "bytes": 34054,
+      "sha256": "348d0fc12111f6d50081251b3cce3a5d5f057ef839b66398e672a2b6197a1584",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/EnglishLicense.txt",
+      "bytes": 27142,
+      "sha256": "ee1e7764d1a6773f5009afcd3712b4756daf2d004b3978d99cf9a6bc385c3aef",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/FinnishLicense.txt",
+      "bytes": 24916,
+      "sha256": "885dc67cacb0ac04be0b02a8e9d83dafcf9c066c90b498c5c14c636f7bffa3bd",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/FrenchLicense.txt",
+      "bytes": 32112,
+      "sha256": "ccde40f0535d3c596eb6b74420c942d9374ee57af619d6ce07e89ce06f516ca2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/GermanLicense.txt",
+      "bytes": 33430,
+      "sha256": "a4c3e049309e5a588485f5530992c1ac0f0237d4b356b4936347be33c30b2ca7",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/HungarianLicense.txt",
+      "bytes": 31146,
+      "sha256": "16e4087f675442fbe96a209f68cb091e4c94c642887eb3a6e7a2e985c51b07f3",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/ItalianLicense.txt",
+      "bytes": 32122,
+      "sha256": "014bb342de5e11e2172a1aeb720a1fbe3e1cdc6697e208409509c0f3c21d92ab",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/JapaneseLicense.txt",
+      "bytes": 13762,
+      "sha256": "072578a9f4d36bb6a1206ca717e61a141fb076e32ffae07b83501e326e8217ce",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/KoreanLicense.txt",
+      "bytes": 14590,
+      "sha256": "cd8437a71e4e0854d077eca9ce06460a202c189c696ae954e9b77c77aa75b390",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/NorwegianLicense.txt",
+      "bytes": 28762,
+      "sha256": "657a3058025eaa8a696558b58616292543f4d8a726b54e5180fb9e6838179396",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/PolishLicense.txt",
+      "bytes": 31026,
+      "sha256": "ccd0cadce282d62ba04cda2e8c680eade4de8e204cc3d51df16af2962745d99c",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/PortugueseLicense.txt",
+      "bytes": 31498,
+      "sha256": "d0c14f0db8c355b5727de805fe7c36c308075781e9e88ac2b0e6a65803265d7e",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/RussianLicense.txt",
+      "bytes": 34646,
+      "sha256": "b7d959c56e4dbef9497c3c5b04290779e1f2b226abd79ac8714b8b1b0610e4fb",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/SimplifiedChineseLicense.txt",
+      "bytes": 8944,
+      "sha256": "e42a046204477ec3badd97289508bbd941d4eec618d337ecb972229665ea3757",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/SpanishLicense.txt",
+      "bytes": 32044,
+      "sha256": "47f12e0b8ad5d4e0fb242ab68b2c67248e588a9db8da2dcdeb5121105e194ec3",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/SwedishLicense.txt",
+      "bytes": 28372,
+      "sha256": "93e68b4f10aa03609b5ae35b51f8d70501e87aec75bd77b2e06feb4544fb64ca",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/TraditionalChineseLicense.txt",
+      "bytes": 8392,
+      "sha256": "341c5b7bf1b06ff6a52d33ef2136202a5e18f450c6d74e341c600748af159354",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/TurkishLicense.txt",
+      "bytes": 28716,
+      "sha256": "cae135441fd5306c57216bc6f5a292ed2fc76992f50acacf6de3ba14fc16d011",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/CLFiltAPO.dll",
+      "bytes": 77824,
+      "sha256": "09bbd65c1ec9cdb8781d4f5ff21618077d5236745ff078f07887ea43518005f7",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/CLLoopAPO.dll",
+      "bytes": 81920,
+      "sha256": "795247e948e25ffbf4be044005d8a7f67665d08188e051965367d31255db785b",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/CSLFD.sys",
+      "bytes": 89168,
+      "sha256": "63bc8f65b89e0b128ae2cd17c6437abb7656695fc387fdc6856d4842f91280ae",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/CSUFD.sys",
+      "bytes": 13496,
+      "sha256": "726518cbc163af050fe22911aea2b6e144c63d13cd1ddce3ae51ba5460f98515",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Cirrus-Audio/x64/WdfCoInstaller01011.dll",
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/atihdw76.cat",
+      "bytes": 12414,
+      "sha256": "982fe2dae5615f35291530d7ab94e4551398f7709f5c072b6d0606f9973853fe",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/AtihdW76.inf",
+      "bytes": 51422,
+      "sha256": "5bcc279c05e196ba5ebb5f238f8c5a510404c3242fc2157f81514b371cb72972",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/AtihdW76.msi",
+      "bytes": 86528,
+      "sha256": "ae0a42ec752d072a58c2df76e64c53fb5fa6e9334d328ac83e7d95e467a3ef07",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/atihdw76.sy_",
+      "bytes": 64748,
+      "sha256": "e28b7868362510788102b339da71388293a685642dd464b3ea52ec3a1c54b4fe",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/AMD-HDMI-Audio/delayapo.dl_",
+      "bytes": 61636,
+      "sha256": "b3a9519814c3f35ce38ca04d96882a0570a2c7f2cfd201cfbf4ef739400f75b3",
+      "models": [
+        "MacBookPro11,5"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/AppleMTP.sys",
+      "bytes": 49152,
+      "sha256": "a9fa5cd140368c675469cc130e3d68c5931e1c26b2c6446327ea3475e8dfc11b",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/AppleMTP64.cat",
+      "bytes": 13820,
+      "sha256": "09cad994ce660c58ad7840436005d06019cde8ee944dd1934d4a66d9af341355",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/AppleMTP64.inf",
+      "bytes": 7168,
+      "sha256": "29216b4c8dafba55ff4d6635a4be1f58e78402309817c0d8736e86262d2b07ec",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/ArabicLicense.txt",
+      "bytes": 22894,
+      "sha256": "f7da3dc848ba74baadd5d08f3e4f95f67412e011dca7f761c959924238229756",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/BrazilianPortugueseLicense.txt",
+      "bytes": 29920,
+      "sha256": "93aff27cb1719b803d1e15b357a134a273c1445d2fb5c525691343e0174ad7e8",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/CzechLicense.txt",
+      "bytes": 28060,
+      "sha256": "a5d5d12cedca7c226638e23ae0e717fe61918f0746754f5489494b87d6befbd0",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/DanishLicense.txt",
+      "bytes": 27300,
+      "sha256": "d1af24434c622ef139ecfca759876b86e59316b3430236a86ba83dde136445d2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/DPInst.exe",
+      "bytes": 1047632,
+      "sha256": "c20a5d3f5be543a8e73cd25f9dbf14aa0fc4ba1fdc249ee4ff91d159d174d0ea",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/DPInst.xml",
+      "bytes": 18192,
+      "sha256": "ddb3360a67ec75784e0224c1dcffd7db537626d2e603cfeef074eed5f2828774",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/DutchLicense.txt",
+      "bytes": 34054,
+      "sha256": "348d0fc12111f6d50081251b3cce3a5d5f057ef839b66398e672a2b6197a1584",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/EnglishLicense.txt",
+      "bytes": 27142,
+      "sha256": "ee1e7764d1a6773f5009afcd3712b4756daf2d004b3978d99cf9a6bc385c3aef",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/FinnishLicense.txt",
+      "bytes": 24916,
+      "sha256": "885dc67cacb0ac04be0b02a8e9d83dafcf9c066c90b498c5c14c636f7bffa3bd",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/FrenchLicense.txt",
+      "bytes": 32112,
+      "sha256": "ccde40f0535d3c596eb6b74420c942d9374ee57af619d6ce07e89ce06f516ca2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/GermanLicense.txt",
+      "bytes": 33430,
+      "sha256": "a4c3e049309e5a588485f5530992c1ac0f0237d4b356b4936347be33c30b2ca7",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/HungarianLicense.txt",
+      "bytes": 31146,
+      "sha256": "16e4087f675442fbe96a209f68cb091e4c94c642887eb3a6e7a2e985c51b07f3",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/ItalianLicense.txt",
+      "bytes": 32122,
+      "sha256": "014bb342de5e11e2172a1aeb720a1fbe3e1cdc6697e208409509c0f3c21d92ab",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/JapaneseLicense.txt",
+      "bytes": 13762,
+      "sha256": "072578a9f4d36bb6a1206ca717e61a141fb076e32ffae07b83501e326e8217ce",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/KoreanLicense.txt",
+      "bytes": 14590,
+      "sha256": "cd8437a71e4e0854d077eca9ce06460a202c189c696ae954e9b77c77aa75b390",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/NorwegianLicense.txt",
+      "bytes": 28762,
+      "sha256": "657a3058025eaa8a696558b58616292543f4d8a726b54e5180fb9e6838179396",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/PolishLicense.txt",
+      "bytes": 31026,
+      "sha256": "ccd0cadce282d62ba04cda2e8c680eade4de8e204cc3d51df16af2962745d99c",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/PortugueseLicense.txt",
+      "bytes": 31498,
+      "sha256": "d0c14f0db8c355b5727de805fe7c36c308075781e9e88ac2b0e6a65803265d7e",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/RussianLicense.txt",
+      "bytes": 34646,
+      "sha256": "b7d959c56e4dbef9497c3c5b04290779e1f2b226abd79ac8714b8b1b0610e4fb",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/SimplifiedChineseLicense.txt",
+      "bytes": 8944,
+      "sha256": "e42a046204477ec3badd97289508bbd941d4eec618d337ecb972229665ea3757",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/SpanishLicense.txt",
+      "bytes": 32044,
+      "sha256": "47f12e0b8ad5d4e0fb242ab68b2c67248e588a9db8da2dcdeb5121105e194ec3",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/SwedishLicense.txt",
+      "bytes": 28372,
+      "sha256": "93e68b4f10aa03609b5ae35b51f8d70501e87aec75bd77b2e06feb4544fb64ca",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/TraditionalChineseLicense.txt",
+      "bytes": 8392,
+      "sha256": "341c5b7bf1b06ff6a52d33ef2136202a5e18f450c6d74e341c600748af159354",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/TurkishLicense.txt",
+      "bytes": 28716,
+      "sha256": "cae135441fd5306c57216bc6f5a292ed2fc76992f50acacf6de3ba14fc16d011",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Trackpad/WdfCoinstaller01011.dll",
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/AppleBTBC.cat",
+      "bytes": 10247,
+      "sha256": "e758fac432e27325b2eeac18dc83e23713866e97a8325403b2cbc260e85dc2d3",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/AppleBTBC.inf",
+      "bytes": 4363,
+      "sha256": "cf438c1eb09e22e10d6e68645ae44effe902eaa599e64b6da6696a0775eb4c6b",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/AppleBTBC.sys",
+      "bytes": 38912,
+      "sha256": "226990076cc5e612da2db3d38f70fce9ddb7e7c954e1921c907257d47341b263",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/ArabicLicense.txt",
+      "bytes": 22894,
+      "sha256": "f7da3dc848ba74baadd5d08f3e4f95f67412e011dca7f761c959924238229756",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/BrazilianPortugueseLicense.txt",
+      "bytes": 29920,
+      "sha256": "93aff27cb1719b803d1e15b357a134a273c1445d2fb5c525691343e0174ad7e8",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/CzechLicense.txt",
+      "bytes": 28060,
+      "sha256": "a5d5d12cedca7c226638e23ae0e717fe61918f0746754f5489494b87d6befbd0",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/DanishLicense.txt",
+      "bytes": 27300,
+      "sha256": "d1af24434c622ef139ecfca759876b86e59316b3430236a86ba83dde136445d2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/DPInst.exe",
+      "bytes": 1047632,
+      "sha256": "c20a5d3f5be543a8e73cd25f9dbf14aa0fc4ba1fdc249ee4ff91d159d174d0ea",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/DPInst.xml",
+      "bytes": 18192,
+      "sha256": "ddb3360a67ec75784e0224c1dcffd7db537626d2e603cfeef074eed5f2828774",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/DutchLicense.txt",
+      "bytes": 34054,
+      "sha256": "348d0fc12111f6d50081251b3cce3a5d5f057ef839b66398e672a2b6197a1584",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/EnglishLicense.txt",
+      "bytes": 27142,
+      "sha256": "ee1e7764d1a6773f5009afcd3712b4756daf2d004b3978d99cf9a6bc385c3aef",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/FinnishLicense.txt",
+      "bytes": 24916,
+      "sha256": "885dc67cacb0ac04be0b02a8e9d83dafcf9c066c90b498c5c14c636f7bffa3bd",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/FrenchLicense.txt",
+      "bytes": 32112,
+      "sha256": "ccde40f0535d3c596eb6b74420c942d9374ee57af619d6ce07e89ce06f516ca2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/GermanLicense.txt",
+      "bytes": 33430,
+      "sha256": "a4c3e049309e5a588485f5530992c1ac0f0237d4b356b4936347be33c30b2ca7",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/HungarianLicense.txt",
+      "bytes": 31146,
+      "sha256": "16e4087f675442fbe96a209f68cb091e4c94c642887eb3a6e7a2e985c51b07f3",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/ItalianLicense.txt",
+      "bytes": 32122,
+      "sha256": "014bb342de5e11e2172a1aeb720a1fbe3e1cdc6697e208409509c0f3c21d92ab",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/JapaneseLicense.txt",
+      "bytes": 13762,
+      "sha256": "072578a9f4d36bb6a1206ca717e61a141fb076e32ffae07b83501e326e8217ce",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/KoreanLicense.txt",
+      "bytes": 14590,
+      "sha256": "cd8437a71e4e0854d077eca9ce06460a202c189c696ae954e9b77c77aa75b390",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/NorwegianLicense.txt",
+      "bytes": 28762,
+      "sha256": "657a3058025eaa8a696558b58616292543f4d8a726b54e5180fb9e6838179396",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/PolishLicense.txt",
+      "bytes": 31026,
+      "sha256": "ccd0cadce282d62ba04cda2e8c680eade4de8e204cc3d51df16af2962745d99c",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/PortugueseLicense.txt",
+      "bytes": 31498,
+      "sha256": "d0c14f0db8c355b5727de805fe7c36c308075781e9e88ac2b0e6a65803265d7e",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/RussianLicense.txt",
+      "bytes": 34646,
+      "sha256": "b7d959c56e4dbef9497c3c5b04290779e1f2b226abd79ac8714b8b1b0610e4fb",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/SimplifiedChineseLicense.txt",
+      "bytes": 8944,
+      "sha256": "e42a046204477ec3badd97289508bbd941d4eec618d337ecb972229665ea3757",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/SpanishLicense.txt",
+      "bytes": 32044,
+      "sha256": "47f12e0b8ad5d4e0fb242ab68b2c67248e588a9db8da2dcdeb5121105e194ec3",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/SwedishLicense.txt",
+      "bytes": 28372,
+      "sha256": "93e68b4f10aa03609b5ae35b51f8d70501e87aec75bd77b2e06feb4544fb64ca",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/TraditionalChineseLicense.txt",
+      "bytes": 8392,
+      "sha256": "341c5b7bf1b06ff6a52d33ef2136202a5e18f450c6d74e341c600748af159354",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/TurkishLicense.txt",
+      "bytes": 28716,
+      "sha256": "cae135441fd5306c57216bc6f5a292ed2fc76992f50acacf6de3ba14fc16d011",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Bluetooth/WdfCoinstaller01011.dll",
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/3f3ca95b-3978-4168-b47b-5444f42d6c89.devicemetadata-ms",
+      "bytes": 938,
+      "sha256": "6828173bc3132487d8433648f9e0d909c603ce645746ced4d751afaa1d05ba4f",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/46a6fdbe-c823-4579-bab6-35f67e01f793.devicemetadata-ms",
+      "bytes": 833,
+      "sha256": "002d2c8f82580b6b1c02db252612f2d20c252266ee85caca6ce236e426e294c2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/heci.cat",
+      "bytes": 12259,
+      "sha256": "917fb7ad564cd6245f6a0e1b3e0df3ca0f672b32f45dae1f1dd40c7b33b19304",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/heci.inf",
+      "bytes": 23838,
+      "sha256": "e39a9681b062d2a613f3e51e40c3bbdfd85a1a01b42b860e76b75d897ad51897",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x64/HECIx64.sys",
+      "bytes": 66848,
+      "sha256": "302a53ff6456e026777273f3a2687f2a578859e6436ec133cde8c60e5466af92",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x64/TEEDriverx64.sys",
+      "bytes": 129312,
+      "sha256": "6c9ab779c2355a341800a8f93aaaf9b19faff444cd6a7bd27c63d53f379a75ef",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x64/WdfCoInstaller01011.dll",
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x86/HECI.sys",
+      "bytes": 58656,
+      "sha256": "b4cacdfe45d071a13f7532f06d5b43ca2c0f06408b65e7aad67334c3a4dd3662",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x86/TEEDriver.sys",
+      "bytes": 111904,
+      "sha256": "cdc32d7782196e672cd5c0516f3c1ac1eb7ecbf212ca41871723cc7829b63524",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-MEI/x86/WdfCoInstaller01011.dll",
+      "bytes": 1629040,
+      "sha256": "c7649879a10c9332fc0f9744c7e3224647aee9e7e62c7e21cf9e987462e3dd06",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/4350c5rtecdc.bin",
+      "bytes": 635116,
+      "sha256": "dd264d7f621996acb0bc25d4ed6061d3e2521f4dc55182686a10c6bf22034f24",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/4356a2rtecdc.bin",
+      "bytes": 629868,
+      "sha256": "d3b602942094b2797eae9e11061d752383ed2656a56f3539f5ab919c2e67d7aa",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/43602a1rtecdc.bin",
+      "bytes": 636791,
+      "sha256": "560767684bab9bc07085b4961ffa1826d606f67866c1e292729381bc5a36d18b",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/4371c2rtecdc.bin",
+      "bytes": 629868,
+      "sha256": "be9a6c73a7829a32721286efad4d4e8f3cfaa95501231f865579e2e95316631b",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmihvsrv64.dll",
+      "bytes": 4137504,
+      "sha256": "9796edd25b8626e87f3520bf6594b25740db2a208d165accb559b69371c7bc46",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmihvui64.dll",
+      "bytes": 3776032,
+      "sha256": "e9e9ee5b4c6d849c20ff156084905bed8654f2f64447dcff0921afc1a345b82a",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmpciedhd6.cat",
+      "bytes": 10900,
+      "sha256": "8bd530a70543a658b0f5d121493e7c0fab5e7e9f9f8e175af9d5eb74b5c6d44e",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmpciedhd6.inf",
+      "bytes": 20812,
+      "sha256": "45a7725c0f763c5d97b106ba0f76e37c1f8d528bd15221553b0d77715eb8af88",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/bcmpciedhd6.sys",
+      "bytes": 331008,
+      "sha256": "ae4ac50bdf04c75a13184476dd417dc2ea117d48bf99ac68c2537334007f2325",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Broadcom-WiFi/wapiutil.exe",
+      "bytes": 39968,
+      "sha256": "c87f25ed199cd3ef1511a114b3a80ff68b804f5bcaed6c785f4d73bffc82f4c4",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard/Keymagic64.inf",
+      "bytes": 18702,
+      "sha256": "a535653e4a88defe41884aaeb7bf0509955743d85dce502b317dda6fc04b2de7",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard/Keymagic.sys",
+      "bytes": 50688,
+      "sha256": "a1557a4114421051eda10012d85506cc056e0f0037a9de89cf0cba68d63f1344",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard/Keymagic64.cat",
+      "bytes": 18409,
+      "sha256": "e8591aaa52b06a7ee0f0153de13469c320d6a835b7643f518c27cf6141ca159c",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard/WdfCoinstaller01011.dll",
+      "bytes": 1804672,
+      "sha256": "31f16923f8e799fba0d7799a2b26c4f7e0b923c134d9cb0d86a1ab8067aca885",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/BootCamp-Utility/Bootcamp.exe",
+      "bytes": 2713448,
+      "sha256": "d07ea8eedbe29a93f899befbf4df6995f291e7ea80b3aea2b0158d7f15c98d2c",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/BootCamp-Utility/Boot Camp.Resources/en.lproj/Resources.dll",
+      "bytes": 193464,
+      "sha256": "d3b772b12768e3561699962a1398d836bd23b713084875396648a32a4c57ff64",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/BootCamp-ControlPanel/AppleControlPanel.exe",
+      "bytes": 3831064,
+      "sha256": "d021e42e0ac16d5454437696bd36cb5b76a8c2c8747ac59738bca7ff76d920ee",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Microsoft-SHA2-Update/Windows6.1-KB3033929-x64.msu",
+      "bytes": 45918843,
+      "sha256": "5318587007edb6c8b29310ff18da479a162b486b9101a7de735f94a70dbc3b31",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/CzechA.dll",
+      "bytes": 13752,
+      "sha256": "e780ce0ba85ceccad97a1fe837074d00ca34e15d2460be916c25c04bf5e717b4",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/DanishA.dll",
+      "bytes": 13240,
+      "sha256": "f6a08175dc15242409a31dae1fcaf4e05572c129cb9f12a5b6b45b7c217d0378",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/GermanA.dll",
+      "bytes": 12728,
+      "sha256": "8db73a634e1a8a69369e63654beef7fdc9ffcaa00173b4fa403f513fa51e5654",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/USA.dll",
+      "bytes": 12216,
+      "sha256": "52d8fb00d0d84fee3c77932f3d3d6c38f2c91ded3bfcd04dc7082c952fe12a11",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/SpanishA.dll",
+      "bytes": 13240,
+      "sha256": "3ba84bf71a7fc15318c478298b590a04bd3d6c882fa5c223e2d5eabcca47bbba",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/FinnishA.dll",
+      "bytes": 13240,
+      "sha256": "aae71bcb00a26edc542118bb8b429191732fa5ff557ad6cb0128c34e358a5c9d",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/FrenchA.dll",
+      "bytes": 13240,
+      "sha256": "95624f459522112b20848c60a0e0b2bc9721d7ce6a9c28aeffa2a91424bcc935",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/HungaryA.dll",
+      "bytes": 13752,
+      "sha256": "3636145c4f1949f093e7a2118ef5aef78d9836bc20d8906663fab40032dc5dc8",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/ItalianA.dll",
+      "bytes": 12728,
+      "sha256": "73fc96a4f68c772255c97d80a1053b357f70d9a95b200e90434ce668c0a5ed36",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/DutchA.dll",
+      "bytes": 13240,
+      "sha256": "e3a49b6736954918c9808b70aac857e7df3d8f94ee295cfe9fd8063939c0612e",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/NorwayA.dll",
+      "bytes": 13240,
+      "sha256": "12e15afd8af66281e7a8f41f6635123138cf48b3d79220eff8d904b110e89d91",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/PolishA.dll",
+      "bytes": 14264,
+      "sha256": "d2345bda3029fb4f9213fe43c7174ecf4725b9a91690f7abc2ff8f7edebb7731",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/PortuguA.dll",
+      "bytes": 13240,
+      "sha256": "3dd3ff17d48c2893d0e5609eb755db5b453dc29cf83ee41656fcc6147083e19a",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/RussianA.dll",
+      "bytes": 12728,
+      "sha256": "e9ed275af21ec14d288549ede1c1ab009b0ff06ab393d36c89f5245092cf4795",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/SwedishA.dll",
+      "bytes": 13240,
+      "sha256": "ada9f088325390e5c18888a0ef01143377c11b328857a2aa93541e2443758197",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/TurkeyQA.dll",
+      "bytes": 13240,
+      "sha256": "d367c6b3718ad40526e2c4b52dc65211b838a0150509b660a1dab1b5ea914094",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/BritishA.dll",
+      "bytes": 12728,
+      "sha256": "805020fdce3798472fd6245f2e3ed9828dc2461aa568bd14362403f0ef39c476",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/BelgiumA.dll",
+      "bytes": 13752,
+      "sha256": "c0861af76fe0dd3779eefe55dad1c12e61e8c0cbf829b67f8ba099bf2e79098e",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/CanadaA.dll",
+      "bytes": 13752,
+      "sha256": "8852d99e2379c4e0bb99598a75f65717a81332af06f3dd266d48b769d178cf06",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/SwissA.dll",
+      "bytes": 13240,
+      "sha256": "5bbbb553703c0ab8ba30aaeca3e6bb48e042c806a1f7d808229df19167229808",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/IntlEngA.dll",
+      "bytes": 12728,
+      "sha256": "d0929f8a7f3f7289da5a7e75f4aecca5f2ddb8cdb40b91b8264bf36861caaec0",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Keyboard-Layouts/TurkeyA.dll",
+      "bytes": 13240,
+      "sha256": "7fcaaf86f9efcb3ae1f9ee094d2d4f4db910d4a18c3014b46cf231efff919744",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/c_32.cpa",
+      "bytes": 846855,
+      "sha256": "c14607907f4d7a7c921c48f05c8ce8fdc500a1f8677e629e1141fa644fb096f7",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/c_64.cpa",
+      "bytes": 1519616,
+      "sha256": "b434dd072e15145a5dcb25941b222b134f2d4fc23bd04ad28c6193f8440800d1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/c_w7_32.cpa",
+      "bytes": 846855,
+      "sha256": "c14607907f4d7a7c921c48f05c8ce8fdc500a1f8677e629e1141fa644fb096f7",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/c_w7_64.cpa",
+      "bytes": 1519616,
+      "sha256": "b434dd072e15145a5dcb25941b222b134f2d4fc23bd04ad28c6193f8440800d1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ColorImageEnhancement.wmv",
+      "bytes": 375173,
+      "sha256": "df8dbd54a1328cc79dd14d8b3f485ffd738a8a4ddab85432de36e10f17744a7c",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/cpa_32.vp",
+      "bytes": 993,
+      "sha256": "962deb6de59898f9e422c3afaa62d9292c89fca1b736db69c04ded76d7b7e68b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/cpa_64.vp",
+      "bytes": 993,
+      "sha256": "297aaf403e85e202ce684c9426e19c37f05ed0845e7e1cc50cab7976ad0b56e6",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/cpa_w7_32.vp",
+      "bytes": 993,
+      "sha256": "f1d07deb8a5ec852aadea042c13af432400f83bd01b362a15217246754d887f3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/cpa_w7_64.vp",
+      "bytes": 993,
+      "sha256": "3bdf1599951aaa217a76d7aeab532e2812168b09cfa2c9e40c84e7fd9e5fc7e1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/dev_32.vp",
+      "bytes": 21523,
+      "sha256": "5c8e11faf3a937226e28499c81085f7b74b51b31af1748d20e0a1f436f03c0bd",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/dev_64.vp",
+      "bytes": 21523,
+      "sha256": "186a75f9d048943553f53737a4ab650c6fe426a00654368d3c2aacb55c27c8e8",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/dev_w7_32.vp",
+      "bytes": 21523,
+      "sha256": "72da68de8278eb4b9dcbae16fb27692ad145cf48a7dd516987b2152341cc2019",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/dev_w7_64.vp",
+      "bytes": 21523,
+      "sha256": "812b40a044440a0c1e4e67664c4392a3f6088101aa3fcd69f06d65a6d3c97503",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/difx32.dll",
+      "bytes": 319456,
+      "sha256": "b3c28941ceb057de44d9c322a38bb0f63c62d7ffbd91cf7970964413978f8eb7",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/difx64.dll",
+      "bytes": 525792,
+      "sha256": "83c43d65084cd202aa9982af6d87c963a05035f1e2cdac48304fa299584e3242",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/difx64.exe",
+      "bytes": 156264,
+      "sha256": "d33d101df2c25fc375770de68fe96212d5b368a45e67919b3f80bbb09a1e01e5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/DPTopologyApp.exe",
+      "bytes": 338536,
+      "sha256": "d720636bca62576ce8aca36bb3f4118fe0afb557930040a476adc155e491ee44",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/DPTopologyApp.exe.config",
+      "bytes": 935,
+      "sha256": "b258f5316dc316bd254bdf213dfb19b8316d7eb68f630dfb70185d17066162cc",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/DPTopologyAppv2_0.exe",
+      "bytes": 338024,
+      "sha256": "acbfe642bb3ab87a7c7ea780ce635de733e7fc7ef284641419babee9d4fc80ff",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/DPTopologyAppv2_0.exe.config",
+      "bytes": 895,
+      "sha256": "7e9a52f9bd9ed519b87d5419ccd97d9927feeecef2b904abf04abe4b62a786f0",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/FilmModeDetection.wmv",
+      "bytes": 641530,
+      "sha256": "78b03d3037adac75f92734ccd20298deb4846cd4c6c4917de128865ff0d07c68",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/GfxResources.dll",
+      "bytes": 1131008,
+      "sha256": "25e7117ffc2322c97bfc6ac5a24fb77c3e856c232ff30ccf76d5dc2ca0b744ae",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/GfxUIEx.exe",
+      "bytes": 448104,
+      "sha256": "8ddfa4834a55387ea35a277c51f58b2fedf9bb8cd557d315b0ffcbaf2cc4e780",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Gfxv2_0.exe",
+      "bytes": 1033320,
+      "sha256": "52e31586edbe8dc30c6069129ab1b48f71399446cd28a045426aa06f8e8f8f9c",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Gfxv2_0.exe.config",
+      "bytes": 895,
+      "sha256": "7e9a52f9bd9ed519b87d5419ccd97d9927feeecef2b904abf04abe4b62a786f0",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Gfxv4_0.exe",
+      "bytes": 1036904,
+      "sha256": "50315f87f30c42279da76f9813e59163857741f395c17b353907a299582f6cf3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Gfxv4_0.exe.config",
+      "bytes": 935,
+      "sha256": "b258f5316dc316bd254bdf213dfb19b8316d7eb68f630dfb70185d17066162cc",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/h_w7_32.vp",
+      "bytes": 15768,
+      "sha256": "22036db40dd98dd7f59d6e2a7d2590b7e3978e62d1175831b2fd59361c8bcef0",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/h_w7_64.vp",
+      "bytes": 4016,
+      "sha256": "b4f1c430f226f83cffffc242c638088414e287cd95cca25febe8abe4ea3f9c59",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/he_32.vp",
+      "bytes": 38629,
+      "sha256": "71f3387a11180c37d6e93b9a4e7ee83bf5a85dfe258247c41e3f0712001ae687",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/he_64.vp",
+      "bytes": 9329,
+      "sha256": "474b2035f4764f7f147a8703318ae35a9dfb40ebfa757880ad8f90adcd7a967d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/he_w7_32.vp",
+      "bytes": 16040,
+      "sha256": "9768b26d03ff42c3a24ca3d0073cbdb170d7d45747d8b7ed306cb6fb0c1da752",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/he_w7_64.vp",
+      "bytes": 4016,
+      "sha256": "b3fee3aff8fd1724aa1199a2b9422943ff8b650f05ba5a917658eafd1e3c6e34",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IccLibDll_x64.dll",
+      "bytes": 94208,
+      "sha256": "ba21f40cdbf159ee4eaccbfb2a7d20eb9e1c2758883af089a8e53ee478002e83",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ig75icd32.dll",
+      "bytes": 7502336,
+      "sha256": "d1f5d177c9515424155a0bb016b395252d3dd9a1d17d9dcd9a951d638b878335",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ig75icd64.dll",
+      "bytes": 9530368,
+      "sha256": "e9e3a3b2c47d51096d2d3650684fa69bc714a28c944ea7880e1965f73e5d67b6",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ig8icd32.dll",
+      "bytes": 7487488,
+      "sha256": "727f38a4b83be1a95c2ba32ac47546b09cef522634b22d00f0c65fc3ca8f98e9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ig8icd64.dll",
+      "bytes": 9501184,
+      "sha256": "ea58060e5c085ec494fa4db813bda419f8f5fa79bd96d22517c447fb4de1747b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igd10idpp32.dll",
+      "bytes": 263120,
+      "sha256": "97476351f8c0b6e2742259251d433f7a2c141501e6acd0ddfe50f2ab973a1c87",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igd10idpp64.dll",
+      "bytes": 282696,
+      "sha256": "592782aa7b895944f0e577fe0db5afa391576c71225e169056c344cf0a2fff44",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igd10iumd32.dll",
+      "bytes": 8636008,
+      "sha256": "69b1ef64f3cef9aae13f6e964b3f4745ca8cff742b2164ef51cd140724520fa9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igd10iumd64.dll",
+      "bytes": 9426024,
+      "sha256": "aea9f8fa325143338dac4eb12ebd6f7a2f32420dbc3751fdc04ff71d66968f68",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igd11dxva32.dll",
+      "bytes": 17330248,
+      "sha256": "aadcfade0ccc75d4cf9bae420e0f6c8f9a4c1d39e1b2553136f392680c01740d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igd11dxva64.dll",
+      "bytes": 17805632,
+      "sha256": "c932b4a3376def12f60426da2e83f61313a10e9b1e3bac49029a7a4fc8d07446",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdail32.dll",
+      "bytes": 152064,
+      "sha256": "fc113956efc51931ac05dab017b286e7287f40c62114fd721b2112e0ce09ece3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdail64.dll",
+      "bytes": 169984,
+      "sha256": "a82418cc498eb51889dc230d717f0557a37f04e0ec88966f5c7a0ecb05fc5b77",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdbcl32.dll",
+      "bytes": 373760,
+      "sha256": "809f1396f112084213c94c7876ccf7b56f999748f9366786f68a9d860e1ede19",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdbcl64.dll",
+      "bytes": 424960,
+      "sha256": "98e5bd0972e23963c375f2ff883608da1fd6948b142c2eb6811df9270de08b24",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdclbif.bin",
+      "bytes": 6725162,
+      "sha256": "00b292c6d0ab945dfed649f14a07bf427a78f9e679bb9949364926e9b042ba31",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdde32.dll",
+      "bytes": 153088,
+      "sha256": "ef056ebebb6dc36fa3ba5cffacdd9a6c15e3a4ac21f3a821ef961c7a389e6cd1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdde64.dll",
+      "bytes": 192000,
+      "sha256": "ac5c8534f6355e45ea367ffad24bb616ae9bfcd623c0cac15fb4fd0726a7402e",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdfcl32.dll",
+      "bytes": 10851840,
+      "sha256": "0dbfdee7219144cc0c1f1afaa48c2d4414075d8701d9b260e585d04a993b1ad1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdfcl64.dll",
+      "bytes": 15981056,
+      "sha256": "4dbf71fe453346a48d211252d957a6a7e9cf7c92d5bd2aa43e6df496dd6b919e",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdkmd64.sys",
+      "bytes": 4911544,
+      "sha256": "f2ed9d864a731068f9b5ba052e8417b9e28939822070d477690fbbb54c7cdf2c",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdlh.cat",
+      "bytes": 790577,
+      "sha256": "58fd9b034308a74e4d9e96c863281c880585c2d917d7b265a9df157852e85af2",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdlh64.inf",
+      "bytes": 563202,
+      "sha256": "bd6adfb854b257f1aadf96b84eb194be802bc9191db8ca8f3cd6d50a57cd38c3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdmd32.dll",
+      "bytes": 1196848,
+      "sha256": "ae2bc215050a340a94263473f0257d466db5cd7f43e2b82d85eb5ae55acc1fed",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdmd64.dll",
+      "bytes": 1541416,
+      "sha256": "080e021f2db07d153b341fdc2c18e4955729435a29efa5476773fb90d5bd7aa1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdrcl32.dll",
+      "bytes": 3318272,
+      "sha256": "046afb1449b2fd8aff124f7ca3233d02b155a34b86b52d19ab7126660f1ca16d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdrcl64.dll",
+      "bytes": 3584512,
+      "sha256": "3b5ce097b4a0ebda5fd218dcdb5aa450d07660961044218f35ef8d0c870d170f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdumdim32.dll",
+      "bytes": 24048968,
+      "sha256": "55c5acc5264448776e6c742d15e6b2ec29517d09bd729b1d4cbe0399bb064089",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdumdim64.dll",
+      "bytes": 24847224,
+      "sha256": "628e3c3920ee04647046c18ca9812f255cca87f1aba705b6f9e6d509742a66c3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdusc32.dll",
+      "bytes": 4852360,
+      "sha256": "29c524b0ada585dc53a99dcee9671ad223a632b3df890bdeaed2ff158d6cade2",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igdusc64.dll",
+      "bytes": 6160960,
+      "sha256": "9eab298f7b4a76072d9238ac3ff9132c65edee4ba0bee057ac92717c7563525f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfx11cmrt32.dll",
+      "bytes": 179200,
+      "sha256": "e2b8c2cb555a2cdd33f4a9aa279c0f29750e90fa1bbee2953279dbc85a4290f9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfx11cmrt64.dll",
+      "bytes": 213504,
+      "sha256": "901415a2cbb745c8b9af1d9c12a60360c0486310029efe742c8299103ae4c7d4",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxcmjit32.dll",
+      "bytes": 1064448,
+      "sha256": "d72251b6da24f387b25e2327f4476d8d31ff2ed37cb83263ac599f7589cb91c4",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxcmjit64.dll",
+      "bytes": 1370624,
+      "sha256": "387bc93468be2dfe789eff537bf6b9ff04cf6fff9425e4edadb7899ccfa0de39",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxcmrt32.dll",
+      "bytes": 178672,
+      "sha256": "c43cf24b85d5493a183eb1798589265c07127abe1d3547a8288336a3e50bf620",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxcmrt64.dll",
+      "bytes": 213192,
+      "sha256": "85fead557d5cbaad969c2836bfe4095c965ad48d2750462d1b22f2950e6fd074",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxCPL.cpl",
+      "bytes": 256000,
+      "sha256": "fbc051da0f095e3febacd87a49aee1ed14f2b7a5c674aff536edfbf3357f4c02",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxCUIService.exe",
+      "bytes": 344168,
+      "sha256": "260bc24ade04c5c480c96e30a5fe0d0a7a6853d852e63f009afb4e992d0b76d1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxCUIServicePS.dll",
+      "bytes": 86528,
+      "sha256": "80c03395597a5384dd357bd46fb36fa991227b767c774436f5430ab3f0adf5fb",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDH.dll",
+      "bytes": 698880,
+      "sha256": "06a1fd857dd407ac0fd34fd35dbb20eea022080be0b5f1e9eed85a182f57b195",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDHLib.dll",
+      "bytes": 60928,
+      "sha256": "2611a97fe1fe4c2218d5448d5e6dde623746656413ff534e56294837e3dc5a4b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDHLibv2_0.dll",
+      "bytes": 73728,
+      "sha256": "7a5dc9dd6aba3511a56f202873c803a87ddca7bb0b01ceb960312ac8f71844ab",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDI.dll",
+      "bytes": 286208,
+      "sha256": "91e53f6a418115b45a5b9e0686b2a2582fb27ee3aebcbfd647e747eeb8cbd1bc",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDILib.dll",
+      "bytes": 11264,
+      "sha256": "2500b4bfbc8da84310cecc672112a98cc8eca6be5b888619b0c8ad6e5e0741f3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDILibv2_0.dll",
+      "bytes": 10752,
+      "sha256": "48f3645fdb9643906324e381dd00fa3567fb9b57a1807dedafd8de32d3319d64",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxDTCM.dll",
+      "bytes": 231424,
+      "sha256": "3f715d8928aa9ed2441b11498f8260d13dff530513968abb4feb6473234cf0e3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxEM.exe",
+      "bytes": 313448,
+      "sha256": "59c1d3b88a0640a499bd3bc0f48e8b819769580a9249f1ad6ffd1047e7fcdb98",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxEMLib.dll",
+      "bytes": 10240,
+      "sha256": "44b7c846475a4b75f6d9a9d998c148cef7c31574bb08a8a7dcaeefcaba9e50ab",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxEMLibv2_0.dll",
+      "bytes": 10240,
+      "sha256": "3f0bea18c1d5ec88a37eebcbf34ee0073d15dd4a99da44d04c72ba1eff08be13",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxexps.dll",
+      "bytes": 36616,
+      "sha256": "552e0ff00e86d76510f02842a4b224444305406eb41d108cd6d3b111b233c893",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxexps32.dll",
+      "bytes": 35328,
+      "sha256": "26ec279a082693656a5a9244e55de1429e05c9b9c4bb685b8d4f7ed3b8e0c3b3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxext.exe",
+      "bytes": 218728,
+      "sha256": "f2053822d5eb39ede59b0a5d163459b7e1850893440e353b22f1289927c301ec",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxHK.exe",
+      "bytes": 248424,
+      "sha256": "9e7f7739e5109f4c9f7553bf4b33515c8ea44a930806b8b91a790dfbd08d5aca",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxLHM.dll",
+      "bytes": 2039808,
+      "sha256": "f9ea97fe458ae8871f674a99d55f9523dee7633d1a45c2c9bef17bb4a2780b2b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxLHMLib.dll",
+      "bytes": 5120,
+      "sha256": "d27896a7681dd60fa26c1086f7f5c5155ea67d32131a897b3e881b4b3215b4f0",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxLHMLibv2_0.dll",
+      "bytes": 5120,
+      "sha256": "d953c16b09cf9fb8bb4cbd91844a4768dfd7cecbe3d6d67b59fee834d7e986b1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxOSP.dll",
+      "bytes": 385024,
+      "sha256": "e9052db4599e16381fbde37b1fd2a32d5f6cc9d14e9247c0a300d65cdcdb4139",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igfxTray.exe",
+      "bytes": 393320,
+      "sha256": "b1817a9863c8bc002fccd58934fc1bc785393a79ce6c2b8f4a9e9c7bc6af118d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhcp32.dll",
+      "bytes": 184352,
+      "sha256": "db5915b8263dd9541130076e7716b37d699cb5858b917f4a7f904ed04a7b94fa",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhcp64.dll",
+      "bytes": 220432,
+      "sha256": "b47c10e509da91f7d578ec71a5982585b066caf88faca04758027427b459165e",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhsip32.dll",
+      "bytes": 1399240,
+      "sha256": "4cff84302d67d227a5b25badf40383de66119d848faceeb008a854337973a571",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhsip64.dll",
+      "bytes": 1402336,
+      "sha256": "8498c8336c0e305fc68afb33175e4367d0de70d188733824c8e81e564503bfe5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxa64.cpa",
+      "bytes": 2813952,
+      "sha256": "fdf4eba3126d1f9a217f7f8be83b125033fb027c19ec79f45f833f8c09c98560",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxa64.vp",
+      "bytes": 1125,
+      "sha256": "22c85fcf5f75a4ab6447f9086c53b6a5dfd008d73d7e4a2f3052e9bff123e2ac",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxc64.vp",
+      "bytes": 43494,
+      "sha256": "454989e3d1c1d39ff597825eb31439250fdd0b1af163bdf9fc3945540a8032c1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxc64_dev.vp",
+      "bytes": 43816,
+      "sha256": "0b28fae4a7fe0b043199a8be132d5d076ef42d99245c75ec9e6feb713c2602ec",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxg64.vp",
+      "bytes": 43256,
+      "sha256": "cf84a96868bc0af0c292ead23a4b439fa2fa85c7c228e6ba5f73dbcf4073b903",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxg64_dev.vp",
+      "bytes": 43298,
+      "sha256": "bb4248402c28ec5ebd9bb55b767f14089ddaca05ef1ffaa1c636a1ecab8c05d5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxo64.vp",
+      "bytes": 44025,
+      "sha256": "ee2d74e219d61bc28c989405eef16827d5a3bcefdf5ebd05a5d572b70ad898a7",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxo64_dev.vp",
+      "bytes": 42079,
+      "sha256": "044a3ae4f1e716329e91eee48eb5fcc9d47b929e6c84b5918397469934627329",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxs64.vp",
+      "bytes": 4020,
+      "sha256": "06740927e0d3954cc5af86661d738c0ec797797fe27f5d43d109d2f52fb94923",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/iglhxs64lp.vp",
+      "bytes": 2048,
+      "sha256": "fd40c0714410e6b96f1c3903e6c5d23e949659f4e2b690d91058febbe8199e35",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igxpco64.dll",
+      "bytes": 183296,
+      "sha256": "759518a85e4f4cdfa5cd763113af855c989fbab6df7b6575a0a5e24a89580cca",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/igxpun.exe",
+      "bytes": 997480,
+      "sha256": "0bf40d41f1c932b0b1445297bba71736190222403d12cf8c4d82fa49ee35e4c3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ImageStabilization.wmv",
+      "bytes": 403671,
+      "sha256": "262ffa4ccc5d44f83c3054f24cd4cb97eeb88cdbd90f9e21d5080ac58d0b2430",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Intel_OpenCL_ICD32.dll",
+      "bytes": 86528,
+      "sha256": "836540ba767aff62751b7a0bee47fd7e32273d403d5587a225c97d54a822cda6",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Intel_OpenCL_ICD64.dll",
+      "bytes": 82432,
+      "sha256": "e2e19e3ddb163e1473f042dd310e427795207ddf30589652352df41b4b11b85b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelCpHeciSvc.exe",
+      "bytes": 279144,
+      "sha256": "242386b3516892216556a88be8d3977431b692b8734f5bb6adb50f0c392d0251",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelOpenCL32.dll",
+      "bytes": 304128,
+      "sha256": "050c95bdf35cc04ebdf657feb89b67fecf29879181f5fca31c8f3af01f9e5ba8",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelOpenCL64.dll",
+      "bytes": 372224,
+      "sha256": "84e9d81960b83535d2ec481abd11edd3c75b874ebf1f9fcb90e47694e8e4f165",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiAAC64.dll",
+      "bytes": 2777120,
+      "sha256": "9e13618c5b978970b24ae9f458cb37d44fdb568079761fc1a8bd6e3ef0a13569",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiAudioFilter64.dll",
+      "bytes": 672800,
+      "sha256": "db61d99fe7f60ddb82249468d1f26d1ed3c5a19625c5d49279fc0d25000ed044",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiDDEAgent64.dll",
+      "bytes": 198176,
+      "sha256": "dc2ea9e6b5d13aa7475e6b0f5067e90cbbf3ed2d6035a2eea8e5fdc56310e965",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiLogServer64.dll",
+      "bytes": 128032,
+      "sha256": "284396a4d7de2e667293cbb7b23f8ba06015754e40d70c0297808fae2f59f46f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiMCUMD64.dll",
+      "bytes": 135712,
+      "sha256": "b0bdca2d2728949f3c49e1acbd079559ded111f49f119112e2b6d33aee05dff9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiMux64.dll",
+      "bytes": 616992,
+      "sha256": "93e84f2de06b11ff2b1b0b3bac489d6a0c6226aba0691316ae44782fb1f01cdd",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiSecureSourceFilter64.dll",
+      "bytes": 1514016,
+      "sha256": "85e89da1cef1d1fb71280fd6317717bed675527eab290de0f8e58a1e325f35ae",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiSilenceFilter64.dll",
+      "bytes": 354848,
+      "sha256": "f0046b712de47ec60c58d705ad8b18a149b41c792e6f7e3323dd737ac9ae565d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiUMS64.exe",
+      "bytes": 472168,
+      "sha256": "ae81dddb59a077c16c6506a43d62f27c62872d74294681411e66bb02ee045626",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiUtils64.dll",
+      "bytes": 268832,
+      "sha256": "692c6d6725fe56b9bf67c8c0ba6647da42cbc055b36ad084964774adb91acc49",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiVAD64.exe",
+      "bytes": 2946688,
+      "sha256": "bdc88b82483d2676edf3bc6d59fdcdb732d760740eeed0f333351ce7ecd6a90d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/IntelWiDiWinNextAgent64.dll",
+      "bytes": 1015840,
+      "sha256": "c57e9806b4c8a869932f6f96a270eaa29dc29865c461e5f2f12d9373c7b3cae3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ar-SA/license.txt",
+      "bytes": 40408,
+      "sha256": "43a92df3b4ebb6854ca8b990f4d7c7c7bdb6a2591c75ecfaa89e0d37e211ad31",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ar-SA/setup.exe.mui",
+      "bytes": 28160,
+      "sha256": "a084dbb4e922089abc64e57603ed6da36a8e7e3fedb7c97a56b836ef8a737ce5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/cs-CZ/license.txt",
+      "bytes": 46378,
+      "sha256": "c4b944cedfddd2570a4151c65a75e77b32a5dc55f5dbf4eae8386b4d04f9c41c",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/cs-CZ/setup.exe.mui",
+      "bytes": 31232,
+      "sha256": "30b8f2041881a4158b5d75a442776264a8d0da67220b0ee4fa78efbdce39fe32",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/da-DK/license.txt",
+      "bytes": 47718,
+      "sha256": "5a61815446603bd8ff69d9558b18781457481bb505dc3b59954bc0c773a71978",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/da-DK/setup.exe.mui",
+      "bytes": 31744,
+      "sha256": "12cdcc82f90633414300bc255ad3d4dba72a9f29af5982d5a984d786ec9c6657",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/de-DE/license.txt",
+      "bytes": 50692,
+      "sha256": "4a5b864f5cc4faf291a4e8b9f23fbafcb353f33cb27a4cab3364293e36249608",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/de-DE/setup.exe.mui",
+      "bytes": 33792,
+      "sha256": "acb6785eee19e3011244936b43157fa69dcb0138a95217753ab40c1d531baf01",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/el-GR/license.txt",
+      "bytes": 51072,
+      "sha256": "0d6910240197185f69998e6c205570584dcb512759488e3535046d6327fcebfe",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/el-GR/setup.exe.mui",
+      "bytes": 35328,
+      "sha256": "d1f3beb4a7339e8f5b3867a94ab6aa24f26b6466c86a3566ebcb74b78b42a98f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/en-US/license.txt",
+      "bytes": 22644,
+      "sha256": "90b020441fb3f2a8787408c8feccd5385188856cb132a645d65a4b3e0b0f22ba",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/en-US/setup.exe.mui",
+      "bytes": 19456,
+      "sha256": "c5571ec9595a66f41d68f7a76e8ab2b638412a8f220f067fa5f8039c69ea0dcd",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/es-ES/license.txt",
+      "bytes": 48130,
+      "sha256": "f732b8ac7ff688ff723d367d8d8fed818eefff19aec4ac8a217c0a0833c4ec11",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/es-ES/setup.exe.mui",
+      "bytes": 33792,
+      "sha256": "c8186c2630a97a32387a0d447501815f36afdb7c210c8fe8778074dce2972fc0",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/fi-FI/license.txt",
+      "bytes": 46872,
+      "sha256": "10c4b32ac10009351037c81614cdb0dac83c7eb3efe4c87a25ed28616e4e49e5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/fi-FI/setup.exe.mui",
+      "bytes": 30208,
+      "sha256": "f5401ecc1f391c39db83241b31a3c6512f7dc5ece8c84ef63924f82ea0e92017",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/fr-FR/license.txt",
+      "bytes": 49020,
+      "sha256": "0d43db81bd2d44fff6a9948517efaddc2d6bd48b60edab402e9d84be1e062f73",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/fr-FR/setup.exe.mui",
+      "bytes": 35328,
+      "sha256": "35d54bb34bc71219b883137cd5339d81551725155eaabd026fea8cedd42d54a2",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/he-IL/license.txt",
+      "bytes": 39676,
+      "sha256": "ac7b0fd4868a3fa32463ca47930163481b3e33276d2ce06be16f33669a9833af",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/he-IL/setup.exe.mui",
+      "bytes": 26112,
+      "sha256": "129e4d2372a4bfe12e36eef7ec1378dfa184de6348a709d54aa524d2be723642",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/hr-HR/license.txt",
+      "bytes": 45930,
+      "sha256": "a07ed579a5c89ceeeafc07aa8491e99c857fceeaf78120c02ffdf645ae27f9f1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/hr-HR/setup.exe.mui",
+      "bytes": 32768,
+      "sha256": "4c82c71aa57e0fa1523b3746093747b7c67aa9ed5883713a2e7817abb64b9da3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/hu-HU/license.txt",
+      "bytes": 48874,
+      "sha256": "d5a0a255ba97756924e2b89b89b33c4ba6e215b1d0104a258f5b79e3c79ad4c4",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/hu-HU/setup.exe.mui",
+      "bytes": 32256,
+      "sha256": "93e988448b8dc79d7fef22726e4ce52d8f2c8f49e37fce08619f122a1595c26f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/it-IT/license.txt",
+      "bytes": 49306,
+      "sha256": "22446c6e168cf281ee475a578fcf5fb519dfa9b1a4823ed5fed05aa15358b02d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/it-IT/setup.exe.mui",
+      "bytes": 33280,
+      "sha256": "563be1ccb3a43953b91d39793f51f2fb42f8c87507e626c7bc8309cf8a61559d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ja-JP/license.txt",
+      "bytes": 33058,
+      "sha256": "65d18987e7280e78698626e48a44519e62fac0a6d8af7873be1977f605bc90bc",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ja-JP/setup.exe.mui",
+      "bytes": 22528,
+      "sha256": "2f9ce2568cb046820667612013a66b1c3a777a27750b632cf6928105a64f3c99",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ko-KR/license.txt",
+      "bytes": 35086,
+      "sha256": "e049a00c20dc83cecfac2e0d9aa76368a7c26fba82d72d95ffc123a0f2ddf54b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ko-KR/setup.exe.mui",
+      "bytes": 21504,
+      "sha256": "c7cbef481afc3dc61670471c1b954c245a6b02c035435292817448251ddcca0f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/nb-NO/license.txt",
+      "bytes": 46620,
+      "sha256": "ee0eb3783c276dbe12314dcdfd1eaca74d3b55baa2043663d0ce3d4ee37a20b5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/nb-NO/setup.exe.mui",
+      "bytes": 31232,
+      "sha256": "41137c9230ef780c8c357c8d3424e356fdc426c59dc3cdf95b8f68204232a092",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/nl-NL/license.txt",
+      "bytes": 49392,
+      "sha256": "e4e9db98bfea89256c60ce396b8577031eceaa3dfdf4e04e7a3c5cdfd1e15eea",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/nl-NL/setup.exe.mui",
+      "bytes": 34304,
+      "sha256": "2e1140734a0087b5bb2e9defd99725d085eabbc508458eeba47bb1c3fa5253bc",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pl-PL/license.txt",
+      "bytes": 50908,
+      "sha256": "c09e45f8fb31ba3248e93483b36123a2e686019de92b935c9cde5c2bd12c971b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pl-PL/setup.exe.mui",
+      "bytes": 32768,
+      "sha256": "dcf506c2a9c6cb96e5ba20bfd366e36638b55a4a614864192dd963455e972567",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pt-BR/license.txt",
+      "bytes": 46976,
+      "sha256": "00696bbab1e14e0ae9b1ec2520f0a1cda7053566e70f5a1b603e4e4a24dfb0c3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pt-BR/setup.exe.mui",
+      "bytes": 32256,
+      "sha256": "0a6c7ca8fb2292fb08fcdeaa91864bcb0c811b1931454e1e60f78c5a8c25df7c",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pt-PT/license.txt",
+      "bytes": 48188,
+      "sha256": "608e11d997c21e4730d74665f65a2a3b0dcbcf8e07ecbe33e80537c03ed81137",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/pt-PT/setup.exe.mui",
+      "bytes": 33792,
+      "sha256": "04ea0d15c9f6221b329775fd4eb30b2f0e8709f91e02fed21d1e09ddca1e8e89",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ro-RO/license.txt",
+      "bytes": 46956,
+      "sha256": "7c5d1dc05dd5431ccfc47b9b5e0aae79e1293b4dde750a534a9a386531f3736d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ro-RO/setup.exe.mui",
+      "bytes": 33280,
+      "sha256": "dbd1b90afd17abde217f534abda40b2dab0c4e39d7926eb7d18c30539ab4206c",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ru-RU/license.txt",
+      "bytes": 50020,
+      "sha256": "d121bf4d439208451b27c169264a3ff87030170bbef852f1ae988dacd0d7965f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/ru-RU/setup.exe.mui",
+      "bytes": 30720,
+      "sha256": "62df3ad3777535c9136b24d42592d8082e69599ce24302d9d788b136d16a049e",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sk-SK/license.txt",
+      "bytes": 47124,
+      "sha256": "bff0103a8342eb724fce9268f36cc62d3b91f825dbbdb4180433546787b96056",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sk-SK/setup.exe.mui",
+      "bytes": 32256,
+      "sha256": "eb79846d51f4baae7ba7e9d621793e4b2377d2ac2647045444d1441cadcbed60",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sl-SI/license.txt",
+      "bytes": 44970,
+      "sha256": "e3ebdbe80c7edc233655354e608256f7f637b3071ba72feae4c2eebdef598a65",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sl-SI/setup.exe.mui",
+      "bytes": 31744,
+      "sha256": "75cf6badc623af5243b68ccfb22d4367e41ca28e2c43c8ec2223d38d7380c1b5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sv-SE/license.txt",
+      "bytes": 47326,
+      "sha256": "14ee60bffbfe496ad7e71412f4acced6063c86eed0e9b7a0281f2da4fde2835f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/sv-SE/setup.exe.mui",
+      "bytes": 30720,
+      "sha256": "0e9bf68c17903096a3af6de5403493cd887e656349c9549220339c247bb9f4ef",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/th-TH/license.txt",
+      "bytes": 45824,
+      "sha256": "fe198b364edec30ed0f5dd6530a114ebf1b9dd9db5b0dbee79b84f44433d427d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/th-TH/setup.exe.mui",
+      "bytes": 29696,
+      "sha256": "9fc97fc2b2a2fd2afd2d1c1ff24ae096c31f0f16ce132b392f8ba50e39904d54",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/tr-TR/license.txt",
+      "bytes": 48008,
+      "sha256": "71865b6fd0b8fb260fb1c55b800a99060cd49dbc6426e8ef7dd8027dc2bb17bf",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/tr-TR/setup.exe.mui",
+      "bytes": 31744,
+      "sha256": "bfe11e50fbc59d9125f854c74d06d87a09f63758e56d0571b194f9c4a0c0e749",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/zh-CN/license.txt",
+      "bytes": 30360,
+      "sha256": "8bf40d54ede27d3441507f75408cad374934d154a1b74ffa5a35bdf23aa1736d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/zh-CN/setup.exe.mui",
+      "bytes": 18432,
+      "sha256": "4eeaa09013565475122ec16f64f082fc5b4182524957ab723674c4bc6454b678",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/zh-TW/license.txt",
+      "bytes": 30572,
+      "sha256": "5e9fa8952f146723009ff54254318ae0e3f36677ba94666275a5f04d4e8d6528",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/Lang/zh-TW/setup.exe.mui",
+      "bytes": 18944,
+      "sha256": "30a0a30d25cbfe56b5cc9a29478ff4e4cfd031296674392aaa7341a0de235704",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/libmfxhw32.dll",
+      "bytes": 8684696,
+      "sha256": "ce529e4edc61205a18c7fe9d3cd8ef919941716f4eb3498ff03ccad6c35c2bb5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/libmfxhw64.dll",
+      "bytes": 9563800,
+      "sha256": "feb40c42431ef668ed3812f16e23c4f8a4be61c65ec4a60b6dfcf6a47fe98382",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/m_w7_32.vp",
+      "bytes": 15771,
+      "sha256": "1ae9ac3fe99ed48816cd458371a3114f860b738b4fe8bd8ebaa2fe486f998777",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/m_w7_64.vp",
+      "bytes": 4015,
+      "sha256": "2bcb268331c6e0e711b705e4b4212c3d569e89a5a6fc3baced7a6015c3edcb13",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/MetroIntelGenericUIFramework.dll",
+      "bytes": 623616,
+      "sha256": "517f8a2cf46ca6edc833e9625dce6cb44f6029fcd46d515b11dc1f941bdd20d6",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264vd_w7_32.dll",
+      "bytes": 465824,
+      "sha256": "ed1e7a99c50e7d6630d76be747c34f629335f629334d8b3b4d44f7bfdea9fc64",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264vd_w7_64.dll",
+      "bytes": 553888,
+      "sha256": "68a1128da0cb9033e12b7f36063cbf92c2b3a1ff6c3d3d089cf11d953abed64a",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264ve_32.dll",
+      "bytes": 1095848,
+      "sha256": "96802a6eb0ab79cf5374da053db6f555607dae427cadce5cec62dac7e20ee021",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264ve_64.dll",
+      "bytes": 1356704,
+      "sha256": "dca517ecbe6386c4bd18e57502f509046e3f1ed5c5d48090077432e4dac5f0a1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264ve_w7_32.dll",
+      "bytes": 470944,
+      "sha256": "c9763f98c4d99dd17ae23a19819f2abd8af87c5b2b7a66ccd97699a573eb1726",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_h264ve_w7_64.dll",
+      "bytes": 559008,
+      "sha256": "3e67c54589bd11ca9a492e37aa7fa7edc621d4e18c6e5e2eb3ff66892fd03175",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mjpgvd_32.dll",
+      "bytes": 1022120,
+      "sha256": "f03d19570316b898699d62eac004808094e0e7272094dc86d10499374ad9fcb2",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mjpgvd_64.dll",
+      "bytes": 1267104,
+      "sha256": "820ec8941f52c6eddfdb09910d7b3fdc03607fc8d99a0c2d75fe62d4790dfe24",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mjpgvd_w7_32.dll",
+      "bytes": 465824,
+      "sha256": "ea576fa79d731a15adbc1a823495bd3b1a451521a63474db0aa739bf96248492",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mjpgvd_w7_64.dll",
+      "bytes": 554400,
+      "sha256": "691c12288e2b16f322858a536e631787d5271bd2fcd752867393cccaae9c025d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mp2vd_w7_32.dll",
+      "bytes": 465824,
+      "sha256": "98a715bc834f3d14e48e243740c822bb9a1a99d9f866e304fe33a3d6f68e77a9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_mp2vd_w7_64.dll",
+      "bytes": 553888,
+      "sha256": "433d43f5b6b0f7a1d00ecaaf858eeb5249c1db9ca57050ae827ea8aeeabfa24b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vc1vd_w7_32.dll",
+      "bytes": 465824,
+      "sha256": "626c048ca608a3ab4731daced251b24bcfc103a6b7758ca486e979537097f560",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vc1vd_w7_64.dll",
+      "bytes": 553888,
+      "sha256": "35a206ad7f636c0913a06f1cff1bf13633c50b42bf9360189f20c26d02ca384f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vp8vd_32.dll",
+      "bytes": 1027752,
+      "sha256": "7366d8117df9822dbea236ce55e40d2a18827244ce0ba366eb63ebfebef8df8e",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vp8vd_64.dll",
+      "bytes": 1273248,
+      "sha256": "a7a70151d2f760d83179b6fbd2ae2ab273d5f3a879a1897d1fe3caf0327f7fc9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vp9vd_32.dll",
+      "bytes": 1027752,
+      "sha256": "b6e8930c93cdf80b7f2862b59698b82220f8ff4149ad3a8698443496889645b3",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vp9vd_64.dll",
+      "bytes": 1273248,
+      "sha256": "806dcc9bfd505fdd51e49c293cf5d139910ee7f6bea67e3f365a4dcbe6aae4dd",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vpp_w7_32.dll",
+      "bytes": 450464,
+      "sha256": "103a3845f20d4a3ee7805569884e03bdefb3dffb068a465e193a07db62db9562",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfx_mft_vpp_w7_64.dll",
+      "bytes": 533920,
+      "sha256": "04584c7b57d0a2568549c8295d891582dd162d6765f872f42f8057e1feaf7ec7",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfxplugin32_hw.dll",
+      "bytes": 734872,
+      "sha256": "2fd1881c5a24ac56d859605f7d6b693072c1baf1d7807ec76b479e6bea508289",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mfxplugin64_hw.dll",
+      "bytes": 866968,
+      "sha256": "c00c414c0b95237e0236aaccc01087590a268a809b7090ab0a8df90dec7cece8",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mj_32.vp",
+      "bytes": 35753,
+      "sha256": "645665a571cd864b8217df40da68bdb8243ea7cac65040bea51faa91c8af408e",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mj_64.vp",
+      "bytes": 8973,
+      "sha256": "701cddca644c7990f639c9cf7b92bdf666c4f9623e42fb854283ef2c54173fb0",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mj_w7_32.vp",
+      "bytes": 15748,
+      "sha256": "c42d5d33906653d67fcbda296532513ea3bb460524c633a0a7927990ece22a99",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/mj_w7_64.vp",
+      "bytes": 4020,
+      "sha256": "8088a5ec09abb9e955236355bbb7ae7e2f69c7b233f22a3eeb74e813d4447489",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu___ocl_svml_h8.dll",
+      "bytes": 5255680,
+      "sha256": "4f2cf1a72803bf43c03ec4288918fcf6ce05cff692cf82b33b6f2159444c781f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu___ocl_svml_l9.dll",
+      "bytes": 5770240,
+      "sha256": "783597e9e30b521889718e06c7dc9eaacc50a4d522f57ee1f919cd8ba0af5cf4",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu___ocl_svml_n8.dll",
+      "bytes": 5047808,
+      "sha256": "cb3302c8ef2657944b19a0324b751e61395e503f9dc97021b242d8cf7939360f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu___ocl_svml_s9.dll",
+      "bytes": 5244928,
+      "sha256": "1512739e1ce0ac1c1df30cabf2ace5430b879353eccac79bf2664c84c446f981",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clang_compiler32.dll",
+      "bytes": 6908928,
+      "sha256": "ba68ef6b8d3e44f6ce635e7023edb4a802026f1a91a06a88a40017d85e419a6f",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clang_compiler64.dll",
+      "bytes": 7138304,
+      "sha256": "a69da6fdc2eca127f4b8ae02f712614cc9bafc4bb3fd49c7d3b4df6a39280dc5",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnh8.rtl",
+      "bytes": 2457604,
+      "sha256": "4ca9d1bc966c984aa8583cda813ed795c87867685d297016b377260c6953be43",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnh8_img_cbk.o",
+      "bytes": 361592,
+      "sha256": "88381ba483e5d2185c0a4cf8f3876e0e7853e362d2c85c0304a656fa94675310",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnh8_img_cbk.rtl",
+      "bytes": 407380,
+      "sha256": "cf955ca78db2ab48dfa09a8f82933fad568fcda24a62b415454817ff16a4a971",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnl9.rtl",
+      "bytes": 1881888,
+      "sha256": "6015712853fc6b8883a2bd245d5dcc31aafb3912c8b79fc816df471fbb7443de",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnl9_img_cbk.o",
+      "bytes": 293576,
+      "sha256": "d82541723d6506ea6885f290e7cc2609ddc903a18a819c0f0f9646a69673ac52",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnl9_img_cbk.rtl",
+      "bytes": 367948,
+      "sha256": "83757bfd2148e670ffcfd11e5437f2e84aaf7f67cb139cdab04e2d6062005cbf",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnn8.rtl",
+      "bytes": 2455960,
+      "sha256": "4e17fd17b15a830cb62ac5269fbe47ecc41c360104a4b4aa0da9526aff117b4a",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnn8_img_cbk.o",
+      "bytes": 295420,
+      "sha256": "02e2e9fc05c1dd974e5ce0d09d4990c55154135453166366be61bd11d156e30e",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfnn8_img_cbk.rtl",
+      "bytes": 393976,
+      "sha256": "7c123188f1b259965419ba9b8b750a2c12a4eb153108607fad2c1b37250c9377",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfns9.rtl",
+      "bytes": 1880124,
+      "sha256": "0d5dfd88c7f51d1b10eb8b97b52da8b0776c4def24591da84fd63f7d5af92781",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfns9_img_cbk.o",
+      "bytes": 249668,
+      "sha256": "be687ac1d47a37a8fcf4ce01d368f099dac724937a1480c2a5026920aaee514d",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_clbltfns9_img_cbk.rtl",
+      "bytes": 354492,
+      "sha256": "aa6438fa4d8c269a91ab979447d9f936b8d7b7446e92610ddf88eb174e4aa34c",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_cpu_device32.dll",
+      "bytes": 493568,
+      "sha256": "72ba643d488e358afd859fc3eda0e3db413002bfbc77fc285e772329dfe1c053",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_cpu_device64.dll",
+      "bytes": 641536,
+      "sha256": "1b8f69d35dc5e98110745fc1c6aaeb895543f3cc3439b7936d59908ac0aeba5b",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_intelocl32.dll",
+      "bytes": 1153024,
+      "sha256": "4b70659401703817f5222e1c9f21f100e8efbd49d64237de0d582b8548b964b1",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_intelocl64.dll",
+      "bytes": 1396736,
+      "sha256": "95e1f7a846d8f605920e4634fc3b382590dc31f9e3ee04e8a61ab4ea82980006",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_IntelOpenCL32.dll",
+      "bytes": 290816,
+      "sha256": "7c3f811eb21e4f0ead60928b47706df2fe1f3e417314d784bd518c186868bde9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_IntelOpenCL64.dll",
+      "bytes": 355328,
+      "sha256": "86941a43857d996bdb01dec9df5d07c8607c4d721d58168fd9e4337a73e55e39",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_llvm_release_license.txt",
+      "bytes": 1981,
+      "sha256": "5098ae5b13f2beca662f782b61eba500dc46e0e7d98c392465d9b35bbc46d669",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_OclCpuBackend32.dll",
+      "bytes": 8022016,
+      "sha256": "42f6f8a25b3338bc1593b3565bc21d11314fca2eb9e5efd9c23ff8e5244e38bf",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_OclCpuBackend64.dll",
+      "bytes": 10621952,
+      "sha256": "833aed1f65f767e72529be92991cfb4ee02b0550696085ddbbe5aeec46ad7898",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_readme.txt",
+      "bytes": 9788,
+      "sha256": "edd5a21e9678a20d627ba03db7569f22e3f22ee5ead3aaff2cea7c42ecf7e6ee",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_task_executor32.dll",
+      "bytes": 285696,
+      "sha256": "c5eb58dab8a1eec4c2a293b66bf8c5ee5fc4abb8bbd851e558266957420821d9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_task_executor64.dll",
+      "bytes": 331776,
+      "sha256": "043cdcb8c3bc1686d80d80ff3c6807856459f43faf616a5d35afdb36e3f64336",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_tbb32.dll",
+      "bytes": 338576,
+      "sha256": "683b808c0e1bcf9cc72265d414f5e4b2762ceea21b2a827206bef98f50bff5a9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_tbb64.dll",
+      "bytes": 416400,
+      "sha256": "cf89e93dd40c7997cb9a9eacb3f84db5e3629c044b33490d42bf6d3c23d1a8a9",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_tbbmalloc32.dll",
+      "bytes": 186000,
+      "sha256": "b4dcd36de3da01dd096794a19ffae63d9e8a2139f2e88d67ae2cdefc39c41d46",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_tbbmalloc64.dll",
+      "bytes": 222352,
+      "sha256": "37e62f8df7d286e553a663a9607bbd50de2046022ab59f6a22a7bf8ca8c8f594",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/ocl_cpu_version.ini",
+      "bytes": 28,
+      "sha256": "99359cc4e3fec5ad084c214a522e8a2ded28fc19f88ece673ced76b5ae43bcf8",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/v1_w7_32.vp",
+      "bytes": 15755,
+      "sha256": "1d2973705e4715b0d1661ed5bfa501ecdab8deeee6fd0f9e32c3415022d37f1a",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/v1_w7_64.vp",
+      "bytes": 4019,
+      "sha256": "b081e981a2f10edb0b564aca3590f2f51b92e6fb996f44a5e2c98abca29c71d2",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/vp_w7_32.vp",
+      "bytes": 15229,
+      "sha256": "23b0929e9ef2ba55fe432f98356312ccbe4c88e2217f929d80a51da6831cc3e8",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Iris/vp_w7_64.vp",
+      "bytes": 3949,
+      "sha256": "b0f89dd7d89a3b10728ba2b513f78d595118152618a7bd4064b3cd1726112cad",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-HDMI-Audio/intcdaud.cat",
+      "bytes": 11805,
+      "sha256": "35a7ac42ca14810044b6666989004d4dcae748a3fc92f96abd5fb1bdd0fb9f5e",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-HDMI-Audio/IntcDAud.inf",
+      "bytes": 1564924,
+      "sha256": "fb4f8656a85ce65f121d35f5183b883e162814666ae6c4c0f61fe3ab6196815c",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-HDMI-Audio/IntcDAud.sys",
+      "bytes": 460048,
+      "sha256": "c575dc65275bea8558a855c7dc6cfa84bd7f48d24bb0c522084e89ddc5cb02a7",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-HDMI-Audio/version.ini",
+      "bytes": 33,
+      "sha256": "5e1f2caf59164bae4b22af725e30e6a6ebee9cf918f85deb0207a70752511848",
+      "models": [
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/BootCamp-Dependencies/MacHALDriver.sys",
+      "bytes": 33568,
+      "sha256": "04a70324139e09a9a580de3f67b000bcae63eade4cd68c32374df9ead84bca45",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/BootCamp-Dependencies/KeyAgent.sys",
+      "bytes": 18720,
+      "sha256": "e1a9b54c157f07674a611197324103f90a6d072ca478beb48ce4982eb1c42baa",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Identification/AppleNull64.inf",
+      "bytes": 4256,
+      "sha256": "6ec9704a5581c923befd840769968bb82debaec7bd841223d5bdd328df2c3578",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Apple-Identification/AppleNull64.cat",
+      "bytes": 11303,
+      "sha256": "33ab6f884d10ecccc82b5a1860955250bb8457e7b4adbdb9d9f1670bcc51bccc",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Identification/Chipset_SMBus.inf",
+      "bytes": 15368,
+      "sha256": "4fd1701c3c5d1bc53ac0284ea1e859bf52cb99c78bafd7981453e9699c461ec1",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Identification/Chipset_Thermal.inf",
+      "bytes": 9438,
+      "sha256": "7d58bf0ce17beba6e68850b0379ced1edd6dbba2aa50c7eb0990fa39191082a8",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    },
+    {
+      "path": "Payload/Intel-Identification/Chipset.cat",
+      "bytes": 59218,
+      "sha256": "a8922245f34ee128c7c69f9f7a0af4f83fdd25f19e349d79f05928c98197774f",
+      "models": [
+        "MacBookPro11,5",
+        "MacBookPro11,4"
+      ]
+    }
+  ]
+}

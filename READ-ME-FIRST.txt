@@ -1,12 +1,16 @@
-Development components - Windows 7 driver setup
+Windows 7 driver support - development snapshot
 
-The setup wizard is used with the original publisher drivers prepared by the macOS deployment app.
-It automatically installs applicable components, preserves normal UAC and driver
-signature enforcement, and presents normal restart choices when necessary.
-After a required restart, setup reopens once at sign-in and requests normal UAC.
-Click Install to continue. If it does not reopen, run the same setup EXE again.
-Results and rollback records are retained in ProgramData, in the session shown by setup.
-This archive contains our installer and a download recipe, not vendor driver binaries.
-MacBookPro11,5 and experimental 11,4 only; 11,4 receives no AMD packages.
-Fresh hardware acceptance is still required. Fn/backlight, dock Ethernet and camera
-are not claimed fixed. No fan, power, EFI or Windows boot settings are changed.
+Original publisher drivers are downloaded separately by the macOS app.
+This archive contains the setup program, recipe and instructions, not vendor drivers.
+MacBookPro11,4 uses Intel graphics; MacBookPro11,5 uses AMD graphics and its
+specific recorded EFI helper. This combined installer requires fresh hardware testing.
+Run Windows7-Driver-Setup.exe after normal Windows account setup. Approve UAC,
+click Install and use Restart now when offered. After sign-in it resumes with
+another normal UAC prompt; do not launch another copy manually.
+Accepted individual fixes include graphics/HDMI audio, keyboard/Fn/backlight,
+Apple keyboard layout, trackpad scrolling, Wi-Fi and analog audio.
+Cameras, sleep/resume repair and dock Ethernet remain deferred. Bluetooth
+discovery was tested; pairing was not. Connect Thunderbolt docks before boot.
+Normal driver-signature enforcement and UAC remain enabled. No Test Mode.
+The 11,5 graphics repair is limited to a verified recorded boot route; it
+preserves OpenCore, unrelated loaders and other installations.
