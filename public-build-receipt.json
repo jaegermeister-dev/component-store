@@ -1,12 +1,18 @@
 {
-  "bytes": 2169743,
-  "sha256": "f2676c6da1a84037e259a1e254aa7b6ef92e06c1c0bd8ae1b39162fe7ae30527",
-  "engine_sha256": "41ccb62b0d1df8d5e4c8eac880243ffe57afe61cf766bc5644e6cea3cd11c854",
+  "status": "built-native-self-test-passed",
+  "bytes": 2441836,
+  "sha256": "8a19f52ec06e637a194b2024e14b99ce58a414bbae0020327b12b7c23c76cd92",
+  "payload_files": 552,
+  "engine_sha256": "80aed602f8e6937bdeb1f46b2119ff457c339e1bed17fe9a407bc7d41a7af23b",
+  "wizard": "Inno Setup 6.7.3",
+  "original_drivers_installed": false,
+  "windows7_runtime_tested": false,
+  "ready_for_owner_test": false,
   "source_sha256": {
     "driver_setup.c": "2e2b9ba819e2caaa00406e5f59d0b941db6c32166f3b8689b639417c9a15941a",
     "Driver-Setup.ps1": "f5d53d62683cb6b2a64032d64f3952b3dfe469d0231bcfa0e301fccfaafaeaf4",
     "Native-Driver-Api.cs": "69b84d49e3b03444ae7e6d1494f0c1d0d8abd28166597756db4207050004889e",
-    "Driver-Setup.iss": "51b655c58d938a4faffaee0dea9ff63c3e488af3e57a2cdd726f6ce8ec63071d",
+    "Driver-Setup.iss": "bddafc811c1abe5b7198b22a151ac130403ca0b113902c814dd2a0ec3b8ff227",
     "Apple-Keyboard-Layout.ps1": "2a907fadef4c8c3c3a3e446a92f73762f9a505d39d32339d82aeef4d363489ad",
     "Accepted-Hardware.ps1": "6a144d14fb719a6fe34d9f3d8ea97dc3c6b373358e047fd10b22cde7b916429a",
     "Apple-Timestamp-Trust.ps1": "35beae995f80fc71ce58c5a551f018c4bf6e62372f76746b97b06885f2462e7b",
@@ -18,11 +24,9 @@
     "Repair-Graphics-Boot.ps1": "e77a2242a21b950319a3aab23556f624e5d945c4a32be59056b6ab8a89a0af65",
     "Boot-Partition-Identity.cs": "2fa4db515260308e1e7553dee0c6b3fa9c66a7912bc3fcffde6694a8fe112d13",
     "Boot-Store-Guard.cs": "e1d0b3c46ca4a6bc7f84d76ffa7ca5d496fecf4455d37d65479fb37c96dc1e67",
-    "Menu-Store-Guard.cs": "d3393216d480a3be0e2c87b9f19bac088fc32c79a5a7ebafae21fabb4d749dec"
-  },
-  "wizard": "Inno Setup 6.7.3",
-  "payload_files": 552,
-  "windows7_runtime_tested": false,
-  "vendor_binaries_in_asset": false,
-  "physical_acceptance_pending": true
+    "Menu-Store-Guard.cs": "d3393216d480a3be0e2c87b9f19bac088fc32c79a5a7ebafae21fabb4d749dec",
+    "BackToSeven.ico": "4ffb79649e7d8ce69ee45cb7384ce11ccb957eb21913e6c89e35d4749c66d23b",
+    "BackToSeven-Wizard.bmp": "3fa0f91a9902a61677286b1c4b9c2bb7e31fdd7f1ef1de6439bc85e4c4344ad5",
+    "BackToSeven-Wizard-Small.bmp": "c9134b277695c5eda4bccd10f074f16564b5134a53d1bfecabd4b8e2df8dba0e"
+  }
 }

@@ -1,21 +1,21 @@
 {
   "schema": 1,
-  "version": "v0.3.1-dev.20261108",
-  "url": "https://github.com/jaegermeister-dev/component-store/releases/download/v0.3.1-dev.20261108/Windows7-Driver-Support-v0.3.1-dev.20261108.zip",
+  "version": "v0.3.2-dev.20261108",
+  "url": "https://github.com/jaegermeister-dev/component-store/releases/download/v0.3.2-dev.20261108/Windows7-Driver-Support-v0.3.2-dev.20261108.zip",
   "files": {
     "driver-recipe.json": {
       "bytes": 212330,
       "sha256": "14ebf0bb28901790cdcab03bb48b4bd7fa69b2b535a41cd3f573177eb69d6e63"
     },
-    "Windows7-Driver-Setup.exe": {
-      "bytes": 2169743,
-      "sha256": "f2676c6da1a84037e259a1e254aa7b6ef92e06c1c0bd8ae1b39162fe7ae30527"
+    "BackToSeven Drivers Installer.exe": {
+      "bytes": 2441836,
+      "sha256": "8a19f52ec06e637a194b2024e14b99ce58a414bbae0020327b12b7c23c76cd92"
     },
     "READ-ME-FIRST.txt": {
-      "bytes": 1115,
-      "sha256": "ec89b5e80d282a25705b3413bc62b2fa124cef39e0a4e4b7e002b1c5cf45e2c7"
+      "bytes": 1206,
+      "sha256": "2260f17f7d93e80fa96920b1a009dfe3315ea3005b0d6556c9617b3d27db339f"
     }
   },
-  "bytes": 1639420,
-  "sha256": "b8f7d2a92057fac73c3a8cd08fb5406bd3ac40e4a62f66655bdb0e35b1ea56b6"
+  "bytes": 1959918,
+  "sha256": "930c1cd8fad4ecf7ff650185eb96b7d518073599625335cb3d3c5d4daccd251b"
 }

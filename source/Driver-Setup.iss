@@ -8,8 +8,8 @@
 #endif
 [Setup]
 AppId=Windows7-Community-Windows7-Drivers
-AppName=Windows 7 Driver Setup
-AppVersion=0.3.0
+AppName=BackToSeven Drivers Installer
+AppVersion=0.3.2
 AppPublisher=jaegermeister-dev
 DefaultDirName={autopf}\Windows7
 CreateAppDir=no
@@ -29,6 +29,12 @@ MinVersion=6.1sp1
 OnlyBelowVersion=6.2
 #endif
 WizardStyle=modern
+SetupIconFile=BackToSeven.ico
+WizardImageFile=BackToSeven-Wizard.bmp
+WizardSmallImageFile=BackToSeven-Wizard-Small.bmp
+WizardImageStretch=yes
+WizardSizePercent=112
+WizardResizable=yes
 SetupLogging=yes
 AllowCancelDuringInstall=no
 CloseApplications=no
@@ -37,16 +43,16 @@ OutputDir={#BuildOutput}
 #ifdef Preview
 OutputBaseFilename=Driver-Wizard-Preview
 #else
-OutputBaseFilename=Windows7-Driver-Setup
+OutputBaseFilename=BackToSeven Drivers Installer
 #endif
 Compression=lzma2
 SolidCompression=yes
-VersionInfoDescription=Windows 7 Driver Setup
+VersionInfoDescription=BackToSeven Drivers Installer
 [Files]
 Source: "{#Engine}"; DestName: "Windows7-Driver-Engine.exe"; Flags: dontcopy
 [Messages]
-WelcomeLabel1=Welcome to Windows 7 Driver Setup
-WelcomeLabel2=This wizard installs the applicable Windows 7 drivers and Boot Camp Control Panel for your Mac.%n%nThe driver files were prepared by the macOS installation app. No Internet connection is needed in Windows.%n%nSetup may need to restart Windows before finishing. Normal administrator approval and Windows driver-signature checks remain enabled.
+WelcomeLabel1=Welcome to BackToSeven
+WelcomeLabel2=BackToSeven Drivers Installer prepares your Mac for Windows 7.%n%nThis wizard installs the applicable Windows 7 drivers and Boot Camp Control Panel for your Mac.%n%nThe driver files were prepared by the macOS installation app. No Internet connection is needed in Windows.%n%nSetup may need to restart Windows before finishing. Normal administrator approval and Windows driver-signature checks remain enabled.
 ReadyLabel1=Setup is ready to install the applicable drivers.
 ReadyLabel2a=Click Install to begin. There is no need to select or install individual driver packages.
 FinishedHeadingLabel=Driver setup results
@@ -227,7 +233,7 @@ begin
     if ResumeRegistered then ResultText := ResultText + #13#10#13#10 +
       'Setup will reopen automatically after sign-in and show a UAC prompt. Approve it and click Install to continue. Do not start a second copy manually.'
     else ResultText := ResultText + #13#10#13#10 +
-      'After restarting, run Windows7-Driver-Setup.exe again. Automatic continuation is unavailable.';
+      'After restarting, run BackToSeven Drivers Installer.exe again. Automatic continuation is unavailable.';
   end else if EngineCode = 0 then begin
     ResultText := 'All applicable driver stages completed. Physical functions still need testing.' + #13#10#13#10 +
       'Trackpad scrolling and Apple keyboard settings are applied automatically. Boot Camp Control Panel remains available for your preferences; its tray starts at sign-in.';

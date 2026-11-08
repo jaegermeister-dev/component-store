@@ -12,8 +12,7 @@ import tempfile
 HERE=Path(__file__).resolve().parent/'source'
 PROJECT=HERE.parent
 assert len(sys.argv)==4, 'Usage: build_installer.py zig.exe ISCC.exe output-folder'
-ZIG=Path(sys.argv[1]).resolve()
-COMPILER=Path(sys.argv[2]).resolve()
+ZIG=Path(sys.argv[1]).resolve();COMPILER=Path(sys.argv[2]).resolve()
 WORK=Path(sys.argv[3]).resolve();WORK.mkdir()
 sys.path.insert(0,str(PROJECT))
 from community_payload import select_files
@@ -28,7 +27,7 @@ def c_array(name,data):
 
 def main():
     source_paths=[HERE/name for name in ('driver_setup.c','Driver-Setup.ps1','Native-Driver-Api.cs','Driver-Setup.iss','Apple-Keyboard-Layout.ps1','Accepted-Hardware.ps1','Apple-Timestamp-Trust.ps1','Apple-Timestamp-Root.crt','BootCamp-Backlight-Response.ps1','Apply-Trackpad-Settings.ps1','BackToSeven-Trackpad-Preferences.exe','trackpad_preferences.c','Repair-Graphics-Boot.ps1','Boot-Partition-Identity.cs','Boot-Store-Guard.cs')]
-    source_paths.append(HERE/'Menu-Store-Guard.cs')
+    source_paths.extend(HERE/name for name in ('Menu-Store-Guard.cs','BackToSeven.ico','BackToSeven-Wizard.bmp','BackToSeven-Wizard-Small.bmp'))
     source_bytes={p.name:p.read_bytes() for p in source_paths}
     source_hashes={name:hashlib.sha256(data).hexdigest() for name,data in source_bytes.items()}
     manifest=json.loads((PROJECT/'payload-inventory.json').read_text())
@@ -74,7 +73,7 @@ def main():
     compiler=COMPILER
     subprocess.run([str(compiler),'/Qp','/DEngine='+str(engine),'/DBuildOutput='+str(root),
                     str(HERE/'Driver-Setup.iss')],check=True,timeout=180)
-    exe=root/'Windows7-Driver-Setup.exe'
+    exe=root/'BackToSeven Drivers Installer.exe'
     assert all(p.read_bytes()==source_bytes[p.name] for p in source_paths), 'Sources changed during build; rebuild before using it'
     result=dict(status='built-native-self-test-passed',exe=str(exe),bytes=exe.stat().st_size,
         sha256=hashlib.sha256(exe.read_bytes()).hexdigest(),payload_files=len(rows),
