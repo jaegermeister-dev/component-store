@@ -20,6 +20,7 @@ public static class BootStoreGuard {
  }
  static byte[] Element(IntPtr root,string id,string number,uint kind){return Value(root,"Objects\\"+id+"\\Elements\\"+number,"Element",kind);}
  static string Text(byte[] b){if(b.Length<2||b.Length%2!=0||b[b.Length-1]!=0||b[b.Length-2]!=0)throw new Exception("Invalid BCD text");return Encoding.Unicode.GetString(b,0,b.Length-2);}
+ static string Single(byte[] b){string s=Text(b).TrimEnd('\0');Require(s.Length>0&&s.IndexOf('\0')<0,"Invalid single BCD string");return s;}
  static bool Equal(byte[] a,byte[] b){if(a.Length!=b.Length)return false;for(int i=0;i<a.Length;i++)if(a[i]!=b[i])return false;return true;}
  public static byte[] Device(Guid disk,Guid partition){byte[] b=new byte[88];Array.Copy(BitConverter.GetBytes(6),0,b,16,4);Array.Copy(BitConverter.GetBytes(72),0,b,24,4);Array.Copy(partition.ToByteArray(),0,b,32,16);Array.Copy(disk.ToByteArray(),0,b,56,16);return b;}
  static void Require(bool ok,string message){if(!ok)throw new Exception(message);}
@@ -28,19 +29,19 @@ public static class BootStoreGuard {
   Require(disk!=esp&&disk!=win&&esp!=win,"Ambiguous boot identity");
   IntPtr root;int error=RegLoadAppKey(file,out root,0x20019,1,0);if(error!=0)throw new Win32Exception(error);
   try{
-   string loader=Text(Element(root,Manager,"23000003",1)).ToLowerInvariant();
+   string loader=Single(Element(root,Manager,"23000003",1)).ToLowerInvariant();
    Guid parsed=new Guid(loader);Require(loader=="{"+parsed.ToString()+"}","Invalid default loader");
    Require(BitConverter.ToUInt32(Value(root,"Objects\\"+Manager+"\\Description","Type",4),0)==0x10100002,"Not a Windows EFI manager");
    Require(BitConverter.ToUInt32(Value(root,"Objects\\"+loader+"\\Description","Type",4),0)==0x10200003,"Not a normal Windows loader");
    Require(Text(Element(root,Manager,"24000001",7)).ToLowerInvariant()==loader+"\0","Shared Windows boot menu retained");
-   Require(Text(Element(root,Manager,"12000002",1)).ToLowerInvariant()==@"\efi\microsoft\boot\bootmgfw.efi","Custom boot path retained");
-   Require(Text(Element(root,loader,"12000002",1)).ToLowerInvariant()==@"\windows\system32\winload.efi","Unexpected OS loader");
-   Require(Text(Element(root,loader,"22000002",1)).ToLowerInvariant()==@"\windows","Unexpected Windows directory");
+   Require(Single(Element(root,Manager,"12000002",1)).ToLowerInvariant()==@"\efi\microsoft\boot\bootmgfw.efi","Custom boot path retained");
+   Require(Single(Element(root,loader,"12000002",1)).ToLowerInvariant()==@"\windows\system32\winload.efi","Unexpected OS loader");
+   Require(Single(Element(root,loader,"22000002",1)).ToLowerInvariant()==@"\windows","Unexpected Windows directory");
    byte[] system=Device(disk,esp),windows=Device(disk,win);
    Require(Equal(Element(root,Manager,"11000001",3),system),"Boot manager belongs to another ESP");
    Require(Equal(Element(root,loader,"11000001",3),windows)&&Equal(Element(root,loader,"21000001",3),windows),"Boot store belongs to another Windows installation");
    IntPtr objects;error=RegOpenKeyEx(root,"Objects",0,0x20019,out objects);if(error!=0)throw new Win32Exception(error);
-   HashSet<string> permittedSequence=new HashSet<string>();permittedSequence.Add(loader);
+   List<string> permittedSequence=new List<string>();permittedSequence.Add(loader);
    try{for(uint i=0;;i++){
     StringBuilder name=new StringBuilder(128);uint count=128;error=RegEnumKeyEx(objects,i,name,ref count,IntPtr.Zero,IntPtr.Zero,IntPtr.Zero,IntPtr.Zero);
     if(error==259)break;if(error!=0)throw new Win32Exception(error);

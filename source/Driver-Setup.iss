@@ -9,7 +9,7 @@
 [Setup]
 AppId=Windows7-Community-Windows7-Drivers
 AppName=BackToSeven Drivers Installer
-AppVersion=0.3.2
+AppVersion=0.3.3
 AppPublisher=jaegermeister-dev
 DefaultDirName={autopf}\Windows7
 CreateAppDir=no
@@ -49,7 +49,7 @@ Compression=lzma2
 SolidCompression=yes
 VersionInfoDescription=BackToSeven Drivers Installer
 [Files]
-Source: "{#Engine}"; DestName: "Windows7-Driver-Engine.exe"; Flags: dontcopy
+Source: "{#Engine}"; DestName: "Windows7-Driver-Engine.exe"; Flags: dontcopy notimestamp
 [Messages]
 WelcomeLabel1=Welcome to BackToSeven
 WelcomeLabel2=BackToSeven Drivers Installer prepares your Mac for Windows 7.%n%nThis wizard installs the applicable Windows 7 drivers and Boot Camp Control Panel for your Mac.%n%nThe driver files were prepared by the macOS installation app. No Internet connection is needed in Windows.%n%nSetup may need to restart Windows before finishing. Normal administrator approval and Windows driver-signature checks remain enabled.
@@ -61,8 +61,8 @@ var
   Details: TNewMemo;
   ViewLog: TNewButton;
   SessionRoot, PayloadRoot: String;
-  EngineCode, ResumeCount: Integer;
-  RestartRequired, ResumeRegistered, EngineRan: Boolean;
+  EngineCode, ResumeCount, FailedStages: Integer;
+  RestartRequired, ResumeRegistered, EngineRan, ResultReceived, RepairMode: Boolean;
   ResultText, PlanText: String;
 
 procedure UpdateRestartButton(Sender: TObject);
@@ -97,6 +97,18 @@ begin
     SessionRoot := Copy(S, 15, MaxInt);
     Exit;
   end;
+  if Pos('W7DEP_RESULT|', S) = 1 then begin
+    Parts := StringSplit(S, ['|'], stAll);
+    if GetArrayLength(Parts) = 3 then begin
+      Current := StrToIntDef(Parts[1], -1);
+      Total := StrToIntDef(Parts[2], -1);
+      if (Current >= 0) and ((Total = 0) or (Total = 1)) then begin
+        FailedStages := Current;
+        ResultReceived := True;
+      end;
+    end;
+    Exit;
+  end;
   if Pos('W7DEP_PROGRESS|', S) = 1 then begin
     Parts := StringSplit(S, ['|'], stAll);
     if GetArrayLength(Parts) = 4 then begin
@@ -118,6 +130,7 @@ procedure InitializeWizard;
 var
   Counter: AnsiString;
 begin
+  RepairMode := ExpandConstant('{param:REPAIRGRAPHICS|0}') = '1';
   PayloadRoot := ExpandConstant('{param:RESUME|}');
   ResumeCount := 0;
   if PayloadRoot = '' then PayloadRoot := ExpandConstant('{src}')
@@ -144,20 +157,26 @@ begin
     'Includes Wi-Fi, keyboard, Bluetooth, Intel Management Engine, audio, model-specific graphics and HDMI audio, trackpad and Boot Camp Control Panel.' + #13#10#13#10 +
     'Both models include Fn controls, keyboard backlight and automatic trackpad scrolling. Cameras, sleep/resume and dock Ethernet remain deferred.' + #13#10#13#10 +
     'If a restart is required, setup will offer to restart and resume after sign-in. You may need to approve UAC again.';
+  if RepairMode then begin
+    WizardForm.WelcomeLabel1.Caption := 'Repair graphics boot';
+    WizardForm.WelcomeLabel2.Caption := 'This checks the recorded Windows 7 graphics boot path on MacBookPro11,5 and repairs only a recognised replaced entry. Drivers are not reinstalled. OpenCore, unrelated boot files and other Windows installations are preserved. A backup and results log are saved.';
+    WizardForm.ReadyLabel.Caption := 'Ready to check this installation''s graphics boot path.';
+    PlanText := 'Repair the known MacBookPro11,5 graphics boot route, if needed. An existing recognised multi-Windows picker is preserved. Unknown configurations are left unchanged. No driver installation, default-boot change or automatic restart.';
+  end;
 end;
 
 function PrepareToInstall(var NeedsRestart: Boolean): String;
 begin
   Result := '';
 #ifndef Preview
-  if not FileExists(AddBackslash(PayloadRoot) + 'Payload\Microsoft-SHA2-Update\Windows6.1-KB3033929-x64.msu') then
+  if (not RepairMode) and not FileExists(AddBackslash(PayloadRoot) + 'Payload\Microsoft-SHA2-Update\Windows6.1-KB3033929-x64.msu') then
     Result := 'The downloaded driver files are missing. Keep this installer beside its Payload folder, as prepared by the macOS installation app.';
 #endif
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 var
-  ContinueExe, ResumeExe, Engine: String;
+  ContinueExe, ResumeExe, Engine, EngineArgs: String;
   Code, LayoutCode: Integer;
   LayoutResult: String;
 begin
@@ -177,15 +196,19 @@ begin
   EngineRan := True;
   WizardForm.StatusLabel.Caption := 'Checking hardware and driver files...';
   try
-    if not ExecAndLogOutput(Engine, '--install "' + PayloadRoot + '"', PayloadRoot,
+    EngineArgs := '--install';
+    if RepairMode then EngineArgs := '--repair-graphics';
+    if not ExecAndLogOutput(Engine, EngineArgs + ' "' + PayloadRoot + '"', PayloadRoot,
       SW_HIDE, ewWaitUntilTerminated, EngineCode, @EngineLog) then
       Details.Lines.Add('The driver engine could not start: ' + SysErrorMessage(EngineCode));
   except
     Details.Lines.Add(GetExceptionMessage);
     EngineCode := 1;
   end;
+  if (EngineCode = 0) and not ResultReceived then EngineCode := 1;
+  if (EngineCode = 0) and (FailedStages > 0) then EngineCode := 2;
   LayoutResult := '';
-  if (SessionRoot <> '') and FileExists(AddBackslash(SessionRoot) + 'apple-layouts-ready.txt') then begin
+  if (not RepairMode) and (SessionRoot <> '') and FileExists(AddBackslash(SessionRoot) + 'apple-layouts-ready.txt') then begin
     Details.Lines.Add('Automatically selecting the Apple keyboard layout for your input language...');
     LayoutCode := -1;
     if not ExecAsOriginalUser(ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe'),
@@ -196,12 +219,13 @@ begin
       LayoutResult := 'Apple keyboard layout installed and automatically selected. Your previous layouts remain available.'
     else begin
       LayoutResult := 'The Apple keyboard layouts are installed, but automatic selection needs attention. Check Control Panel > Region and Language > Change keyboards. Your previous layout is retained.';
+      FailedStages := FailedStages + 1;
       if EngineCode = 0 then EngineCode := 2;
     end;
     Details.Lines.Add(LayoutResult);
     Log(LayoutResult + ' User-layout exit code: ' + IntToStr(LayoutCode));
   end;
-  if (SessionRoot <> '') and FileExists(AddBackslash(SessionRoot) + 'trackpad-settings-ready.txt') then begin
+  if (not RepairMode) and (SessionRoot <> '') and FileExists(AddBackslash(SessionRoot) + 'trackpad-settings-ready.txt') then begin
     LayoutCode := -1;
     if not ExecAsOriginalUser(ExpandConstant('{sys}\WindowsPowerShell\v1.0\powershell.exe'),
       '-NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -File "' + AddBackslash(SessionRoot) +
@@ -209,12 +233,13 @@ begin
       SessionRoot, SW_HIDE, ewWaitUntilTerminated, LayoutCode) then LayoutCode := -1;
     if LayoutCode <> 0 then begin
       Details.Lines.Add('Automatic trackpad preferences need attention. See the saved setup log.');
+      FailedStages := FailedStages + 1;
       if EngineCode = 0 then EngineCode := 2;
     end;
   end;
   RestartRequired := EngineCode = 3010;
   ResumeRegistered := False;
-  if RestartRequired and (ResumeCount < 3) and
+  if RestartRequired and not RepairMode and (ResumeCount < 3) and
     (Pos(AddBackslash(ExpandConstant('{commonappdata}')) + 'Windows7-Driver-Setup-{', SessionRoot) = 1) and
     FileExists(AddBackslash(SessionRoot) + 'expected-files.csv') then begin
     ContinueExe := AddBackslash(SessionRoot) + 'Continue-Driver-Setup.exe';
@@ -229,10 +254,11 @@ begin
     end;
   end;
   if RestartRequired then begin
-    ResultText := 'Windows needs a restart to finish installing drivers.';
+    ResultText := 'Windows needs a restart to finish applying changes.';
+    if FailedStages > 0 then ResultText := IntToStr(FailedStages) + ' driver stage(s) did not complete. A restart is also required. See View results log for details.';
     if ResumeRegistered then ResultText := ResultText + #13#10#13#10 +
       'Setup will reopen automatically after sign-in and show a UAC prompt. Approve it and click Install to continue. Do not start a second copy manually.'
-    else ResultText := ResultText + #13#10#13#10 +
+    else if not RepairMode then ResultText := ResultText + #13#10#13#10 +
       'After restarting, run BackToSeven Drivers Installer.exe again. Automatic continuation is unavailable.';
   end else if EngineCode = 0 then begin
     ResultText := 'All applicable driver stages completed. Physical functions still need testing.' + #13#10#13#10 +
@@ -240,6 +266,11 @@ begin
     WizardForm.ProgressGauge.Position := WizardForm.ProgressGauge.Max;
   end else begin
     ResultText := 'Some driver stages did not complete. Click View results log for the per-driver results before retrying.';
+  end;
+  if RepairMode then begin
+    if EngineCode = 0 then ResultText := 'The verified graphics boot route is already correct. No repair was needed.'
+    else if RestartRequired and (FailedStages = 0) then ResultText := 'The recognised graphics boot entry was repaired. Restart Windows to use it. Drivers and unrelated boot files were preserved.'
+    else ResultText := 'Graphics boot repair did not complete. See View results log. An unfamiliar configuration is not replaced.';
   end;
   if LayoutResult <> '' then ResultText := ResultText + #13#10#13#10 + LayoutResult;
   if SessionRoot <> '' then Log('Results and rollback records: ' + SessionRoot);
@@ -262,7 +293,7 @@ begin
       WizardForm.NoRadio.OnClick := @UpdateRestartButton;
       UpdateRestartButton(WizardForm);
     end;
-    if (EngineCode <> 0) and not RestartRequired then
+    if (FailedStages > 0) or ((EngineCode <> 0) and not RestartRequired) then
       WizardForm.FinishedHeadingLabel.Caption := 'Driver setup needs attention';
   end;
 end;
@@ -271,6 +302,7 @@ function GetCustomSetupExitCode: Integer;
 begin
   Result := 0;
   if EngineRan and (EngineCode <> 0) and (EngineCode <> 3010) then Result := EngineCode;
+  if FailedStages > 0 then Result := 2;
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;

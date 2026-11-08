@@ -1,18 +1,18 @@
 {
   "status": "built-native-self-test-passed",
-  "bytes": 2441836,
-  "sha256": "8a19f52ec06e637a194b2024e14b99ce58a414bbae0020327b12b7c23c76cd92",
+  "bytes": 2442807,
+  "sha256": "d647776b9c067508d60bf8c6919f764dff22a4cbfd9c27c5228dd9ebacf83c12",
   "payload_files": 552,
-  "engine_sha256": "80aed602f8e6937bdeb1f46b2119ff457c339e1bed17fe9a407bc7d41a7af23b",
+  "engine_sha256": "85c18b249efef1ba77d6e1bb4ec620a365cbd940cb99de256c4ad652027d16d4",
   "wizard": "Inno Setup 6.7.3",
   "original_drivers_installed": false,
-  "windows7_runtime_tested": false,
+  "windows7_runtime_tested": true,
   "ready_for_owner_test": false,
   "source_sha256": {
-    "driver_setup.c": "2e2b9ba819e2caaa00406e5f59d0b941db6c32166f3b8689b639417c9a15941a",
-    "Driver-Setup.ps1": "f5d53d62683cb6b2a64032d64f3952b3dfe469d0231bcfa0e301fccfaafaeaf4",
+    "driver_setup.c": "492f28094318971ba3be577578e5b327ba9921f6c601b15cf294163381275aed",
+    "Driver-Setup.ps1": "57376532ebc77c476925ed158bd13fedc8c7512de1c49f764a33ee69a6d72f26",
     "Native-Driver-Api.cs": "69b84d49e3b03444ae7e6d1494f0c1d0d8abd28166597756db4207050004889e",
-    "Driver-Setup.iss": "bddafc811c1abe5b7198b22a151ac130403ca0b113902c814dd2a0ec3b8ff227",
+    "Driver-Setup.iss": "65ddfa789a15dab787f6129e67a4dfae93ef6e3b85e71f5eba1f95e4285fe85b",
     "Apple-Keyboard-Layout.ps1": "2a907fadef4c8c3c3a3e446a92f73762f9a505d39d32339d82aeef4d363489ad",
     "Accepted-Hardware.ps1": "6a144d14fb719a6fe34d9f3d8ea97dc3c6b373358e047fd10b22cde7b916429a",
     "Apple-Timestamp-Trust.ps1": "35beae995f80fc71ce58c5a551f018c4bf6e62372f76746b97b06885f2462e7b",
@@ -21,12 +21,13 @@
     "Apply-Trackpad-Settings.ps1": "13637c91388fe4d42938fc9e5e46433dd34bebc0b5a92b9991b4b6f39177060b",
     "BackToSeven-Trackpad-Preferences.exe": "7077e492368cfac6e1c86aeceee5c0806bfb3bb1990176f6e8e1f1964be594b0",
     "trackpad_preferences.c": "12b4e01dbc655ef31c73a9bbc9619b05f008aa93b441f0feadadade6d7664cb5",
-    "Repair-Graphics-Boot.ps1": "e77a2242a21b950319a3aab23556f624e5d945c4a32be59056b6ab8a89a0af65",
+    "Repair-Graphics-Boot.ps1": "e3f1ae4bea19db373f575b095bbab268126578002e76105b58aa520a45ab2a25",
     "Boot-Partition-Identity.cs": "2fa4db515260308e1e7553dee0c6b3fa9c66a7912bc3fcffde6694a8fe112d13",
-    "Boot-Store-Guard.cs": "e1d0b3c46ca4a6bc7f84d76ffa7ca5d496fecf4455d37d65479fb37c96dc1e67",
+    "Boot-Store-Guard.cs": "754af180bea39e8cf809b4a642fba72a843a2814960bc6451d1a7059caee327a",
     "Menu-Store-Guard.cs": "d3393216d480a3be0e2c87b9f19bac088fc32c79a5a7ebafae21fabb4d749dec",
     "BackToSeven.ico": "4ffb79649e7d8ce69ee45cb7384ce11ccb957eb21913e6c89e35d4749c66d23b",
     "BackToSeven-Wizard.bmp": "3fa0f91a9902a61677286b1c4b9c2bb7e31fdd7f1ef1de6439bc85e4c4344ad5",
     "BackToSeven-Wizard-Small.bmp": "c9134b277695c5eda4bccd10f074f16564b5134a53d1bfecabd4b8e2df8dba0e"
-  }
+  },
+  "windows7_runtime_test_scope": "Read-only native/PowerShell 2 CLR2, real exported BCD and dummy stage exit-code tests; no full fresh driver installation"
 }

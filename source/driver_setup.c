@@ -151,13 +151,13 @@ static int write_embedded(const wchar_t *path,const unsigned char *data,size_t s
     if(f==INVALID_HANDLE_VALUE || size>0xffffffff)return 0;
     int ok=WriteFile(f,data,(DWORD)size,&written,NULL)&&written==size&&FlushFileBuffers(f);CloseHandle(f);return ok;
 }
-static int stage_and_run(const wchar_t *source,const wchar_t *model) {
+static int stage_and_run(const wchar_t *source,const wchar_t *model,int repair) {
     static wchar_t base[MAX_PATH],root[CAP],src[CAP],dst[CAP],system[MAX_PATH],command[CAP];
     GUID id;wchar_t guid[50];PSECURITY_DESCRIPTOR sd=NULL;SECURITY_ATTRIBUTES sa={sizeof(sa),NULL,FALSE};
     static HANDLE files[sizeof(pack_files)/sizeof(pack_files[0])];size_t count=sizeof(pack_files)/sizeof(pack_files[0]);int result=1;
     for(size_t i=0;i<count;++i)files[i]=INVALID_HANDLE_VALUE;
     /* Validate every required byte before creating any permanent output. */
-    for(size_t i=0;i<count;++i){if(((pack_files[i].amd==1 && !lstrcmpW(model,L"MacBookPro11,4")) || (pack_files[i].amd==2 && !lstrcmpW(model,L"MacBookPro11,5"))))continue;
+    for(size_t i=0;i<count && !repair;++i){if(((pack_files[i].amd==1 && !lstrcmpW(model,L"MacBookPro11,4")) || (pack_files[i].amd==2 && !lstrcmpW(model,L"MacBookPro11,5"))))continue;
         if(i%8==0)progress(i,count,L"Verifying driver files");
         if(!join(src,source,pack_files[i].path) || (files[i]=verified_file(src,&pack_files[i]))==INVALID_HANDLE_VALUE){fail(L"Driver payload is missing or has changed. No driver was installed.");goto done;}}
     if(FAILED(SHGetFolderPathW(NULL,CSIDL_COMMON_APPDATA,NULL,SHGFP_TYPE_CURRENT,base)) || FAILED(CoCreateGuid(&id)) || !StringFromGUID2(&id,guid,50))goto done;
@@ -191,6 +191,7 @@ static int stage_and_run(const wchar_t *source,const wchar_t *model) {
     if(!append(command,L"\"")||!append(command,src)||!append(command,L"\" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -File \"")||
        !append(command,root)||!append(command,L"\\Driver-Setup.ps1\" -PackRoot \"")||!append(command,root)||
        !append(command,L"\" -ExpectedModel \"")||!append(command,model)||!append(command,L"\""))goto done;
+    if(repair && !append(command,L" -RepairGraphicsOnly"))goto done;
     STARTUPINFOW si;PROCESS_INFORMATION pi;ZeroMemory(&si,sizeof(si));ZeroMemory(&pi,sizeof(pi));si.cb=sizeof(si);
     SECURITY_ATTRIBUTES inputSa={sizeof(inputSa),NULL,TRUE};
     HANDLE input=CreateFileW(L"NUL",GENERIC_READ,FILE_SHARE_READ|FILE_SHARE_WRITE,&inputSa,OPEN_EXISTING,0,NULL);
@@ -247,16 +248,18 @@ static int app_main(void) {
     int argc=0;LPWSTR *argv=CommandLineToArgvW(GetCommandLineW(),&argc);if(!argv)return 1;
     if((argc==2||argc==3)&&!lstrcmpW(argv[1],L"--self-test")){int result=self_test(argc==3?argv[2]:NULL);LocalFree(argv);return result;}
     if(argc==3&&(!lstrcmpW(argv[1],L"--register-resume")||!lstrcmpW(argv[1],L"--continue"))){int result=resume_action(argv[2],!lstrcmpW(argv[1],L"--register-resume"));LocalFree(argv);return result;}
-    if(argc!=3||lstrcmpW(argv[1],L"--install")){LocalFree(argv);return 2;}
+    int repair=argc==3 && !lstrcmpW(argv[1],L"--repair-graphics");
+    if(argc!=3||(!repair && lstrcmpW(argv[1],L"--install"))){LocalFree(argv);return 2;}
     static wchar_t source[CAP];DWORD full=GetFullPathNameW(argv[2],CAP,source,NULL);
     LocalFree(argv);if(!full||full>=CAP||source[1]!=L':'||source[2]!=L'\\')return 2;
     if(!supported_os()){fail(L"This optional driver installer is for Windows 7 SP1 x64 only. No changes were made.");return 3;}
     static wchar_t model[80];
     if(!machine_model(model) || (lstrcmpW(model,L"MacBookPro11,5")&&lstrcmpW(model,L"MacBookPro11,4"))){fail(L"This pack is for MacBookPro11,5 and experimental MacBookPro11,4 only. No changes were made.");return 4;}
+    if(repair && lstrcmpW(model,L"MacBookPro11,5")){fail(L"This graphics boot repair applies only to MacBookPro11,5.");return 4;}
     if(!elevated()){fail(L"Launch the setup wizard and approve normal Windows UAC.");return 6;}
     HANDLE mutex=CreateMutexW(NULL,FALSE,L"Global\\Windows7-Windows7-Driver-Setup");
     if(!mutex)return 8;
     if(GetLastError()==ERROR_ALREADY_EXISTS){CloseHandle(mutex);fail(L"Another Windows 7 driver installation is running.");return 8;}
-    int result=stage_and_run(source,model);CloseHandle(mutex);return result;
+    int result=stage_and_run(source,model,repair);CloseHandle(mutex);return result;
 }
 void WINAPI Windows7Entry(void) {ExitProcess((UINT)app_main());}

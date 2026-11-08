@@ -54,10 +54,10 @@ function RepairGraphicsBoot {
    Note 'Existing multi-Windows picker already routes this installation through the graphics helper. All menu entries and private boot stores are preserved.'
    return
   }
-  # Unknown EFI managers are retained; this narrow repair does not adopt them.
-  foreach($directory in @(Get-ChildItem -LiteralPath ($letter+'\EFI') | Where-Object {$_.PSIsContainer})){
-   if(@('Microsoft','Boot','OC','APPLE','W7DEP-WIN7-AUTO','WinDeploy','BackToSeven')-notcontains$directory.Name){throw ('Existing EFI manager retained: '+$directory.Name+'. Use the macOS app to review this configuration.')}
-  }
+  # Other directories may contain independent loaders or old diagnostics.
+  # Preserve them byte-for-byte. A proven current BCD/partition binding and
+  # the exact known alias/helper bytes authorize this one-file repair.
+  if(Test-Path -LiteralPath ($letter+'\EFI\WinDeploy\menu.bin')){throw 'Uncatalogued shared menu retained for explicit recovery'}
   $export=Join-Path $PackRoot ('graphics-system-BCD-export-'+[Guid]::NewGuid().ToString('N'))
   & "$env:WINDIR\System32\bcdedit.exe" /export $export | Out-Null
   if($LASTEXITCODE-ne0){throw 'Could not snapshot the active boot store; no EFI repair'}

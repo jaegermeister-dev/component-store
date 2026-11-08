@@ -1,6 +1,6 @@
 # Windows 7 PowerShell 2.0 syntax only. Embedded by the native EXE, not a
 # prerequisite download. No networking, UAC changes, signing bypass or reboot.
-param([string]$PackRoot,[string]$ExpectedModel,[switch]$SelfTest)
+param([string]$PackRoot,[string]$ExpectedModel,[switch]$SelfTest,[switch]$RepairGraphicsOnly)
 $ErrorActionPreference='Stop'
 
 function Hash([string]$Path) {
@@ -311,7 +311,7 @@ function RunPlan($Plan,[scriptblock]$Runner) {
  foreach($component in $Plan){
   $number++;$script:ComponentState='installed';$detail=''
   Note ('W7DEP_PROGRESS|'+($number-1)+'|'+$Plan.Count+'|'+$component.Title)
-  try {& $Runner $component} catch {
+  try {& $Runner $component | ForEach-Object { Note ([string]$_) }} catch {
    $script:ComponentState='failed';$detail=$_.ToString()
    Note ('FAILED '+$component.Title+': '+$detail)
    if($PackRoot){($_|Format-List * -Force|Out-String)|Out-File -FilePath (Join-Path $PackRoot ($component.Name+'-error.txt')) -Encoding utf8}
@@ -323,8 +323,10 @@ function RunPlan($Plan,[scriptblock]$Runner) {
   if($component.Kind -eq 'Update' -and ($script:RebootNeeded -or $script:ComponentState -eq 'failed')){break}
  }
  foreach($row in $script:Results){Note ($row.Title+': '+$row.State)}
+ $failed=@($script:Results|Where-Object {$_.State -eq 'failed' -or $_.State -eq 'not-detected'}).Count
+ Note ('W7DEP_RESULT|'+$failed+'|'+[int]$script:RebootNeeded)
  if($script:RebootNeeded){return 3010}
- if(@($script:Results|Where-Object {$_.State -eq 'failed' -or $_.State -eq 'not-detected'}).Count){return 2}
+ if($failed){return 2}
  return 0
 }
 
@@ -360,10 +362,13 @@ if($SelfTest){
   if([Windows7DriverApi]::Matches($dev,($id+'0'))){throw 'Partial-ID matches must not be accepted'}
  }
  $plan=@(@{Name='GPU';Title='GPU';Kind='INF'},@{Name='HDMI';Title='HDMI';Kind='INF'},@{Name='Panel';Title='Panel';Kind='ControlPanel'})
- $script:Seen=@();$code=RunPlan $plan {param($c);$script:Seen+=$c.Name;if($c.Name -eq 'GPU'){$script:RebootNeeded=$true}}
+ $script:Seen=@();$code=RunPlan $plan {param($c);$script:Seen+=$c.Name;'helper informational output';if($c.Name -eq 'GPU'){$script:RebootNeeded=$true}}
+ if($code-isnot[int]){throw 'Helper output contaminated scalar result'}
  if($code -ne 3010 -or $script:Seen.Count -ne 3){throw 'GPU restart incorrectly skipped remaining drivers'}
  $script:Seen=@();$code=RunPlan $plan {param($c);$script:Seen+=$c.Name;if($c.Name -eq 'GPU'){throw 'fixture failure'}}
  if($code -ne 2 -or $script:Seen.Count -ne 3){throw 'Independent components must still run after a failure'}
+ $code=RunPlan $plan {param($c);if($c.Name-eq'GPU'){$script:RebootNeeded=$true};if($c.Name-eq'HDMI'){throw 'fixture failure with restart'}}
+ if($code-isnot[int]-or$code-ne3010-or@($script:Results|Where-Object {$_.State-eq'failed'}).Count-ne1){throw 'Combined failure/restart reporting failed'}
  $script:Seen=@();$code=RunPlan @(@{Name='SHA2';Title='SHA2';Kind='Update'},@{Name='After';Title='After';Kind='INF'}) {param($c);$script:Seen+=$c.Name;$script:RebootNeeded=$true}
  if($code -ne 3010 -or $script:Seen.Count -ne 1){throw 'Signing update restart handling failed'}
  'PASS: pure policy/path tests and read-only native ABI checks. No driver, registry, UAC or device changes.';exit 0
@@ -379,12 +384,19 @@ try {
  $PackRoot=[IO.Path]::GetFullPath($PackRoot)
  if([IO.Path]::GetDirectoryName($PackRoot) -ne [Environment]::GetFolderPath('CommonApplicationData') -or [IO.Path]::GetFileName($PackRoot) -notlike 'Windows7-Driver-Setup-{*}'){throw 'Use the EXE-created protected staging directory.'}
  if((Get-Item -LiteralPath $PackRoot).Attributes -band [IO.FileAttributes]::ReparsePoint){throw 'Staging cannot be a link'}
+ if($RepairGraphicsOnly){
+  if($model-ne'MacBookPro11,5'){throw 'Graphics boot repair is for MacBookPro11,5 only'}
+  $code=RunPlan @(@{Name='Graphics-Boot';Title='Repair this installation graphics boot path';Kind='GraphicsBoot'}) {param($component);RepairGraphicsBoot}
+  if($code-isnot[int]){throw 'Invalid graphics repair result'}
+  Note ('Graphics repair logs and rollback records: '+$PackRoot)
+  exit $code
+ }
  $script:Inventory=@(Import-Csv -Path (Join-Path $PackRoot 'expected-files.csv'))
  foreach($row in $script:Inventory){if(($row.AMD -eq '1' -and $model -eq 'MacBookPro11,4') -or ($row.AMD -eq '2' -and $model -eq 'MacBookPro11,5')){continue};[void](Original $row.Path)}
  Add-Type -Path (Join-Path $PackRoot 'Native-Driver-Api.cs')
  if(![Windows7DriverApi]::LayoutSelfTest()){throw 'Native API layout mismatch'}
  Add-Type -AssemblyName System.ServiceProcess
- Note ('Driver setup 0.3.0; Windows '+[Environment]::OSVersion.Version+'; CLR '+[Environment]::Version+'. Reading present-device properties using size-probed native queries.')
+ Note ('Driver setup 0.3.3; Windows '+[Environment]::OSVersion.Version+'; CLR '+[Environment]::Version+'. Reading present-device properties using size-probed native queries.')
  $deviceSnapshot=[Windows7DriverApi]::Devices()
  $deviceSnapshot|Export-Clixml -Path (Join-Path $PackRoot 'devices-before.xml')
  $ids=0;foreach($device in $deviceSnapshot){$ids+=$device.HardwareID.Length}
@@ -392,13 +404,15 @@ try {
  if($deviceSnapshot.Length -eq 0 -or $ids -eq 0){throw 'Hardware inventory is empty; no driver changes will be attempted.'}
  Note ('Installing all applicable components for '+$model+'. No WMI dependency, no security-policy changes.')
  if(Test-Path -LiteralPath "$env:SystemRoot\winsxs\pending.xml"){Note 'Windows servicing is pending. Restart before continuing.';exit 3010}
- $code=RunPlan @(Components $model) {param($component)
+ $plan=@(Components $model)
+ $code=RunPlan $plan {param($component)
   Note ('Starting '+$component.Title)
   switch($component.Kind){'Update'{InstallSigningUpdate};'INF'{InstallINF $component};'Trackpad'{InstallTrackpad};'ControlPanel'{InstallControlPanel};'KeyboardLayouts'{InstallKeyboardLayouts};'GraphicsBoot'{RepairGraphicsBoot};'AppleDependencies'{InstallAppleDependencies};'TrackpadStartup'{InstallTrackpadStartup};'Backlight'{InstallBacklightResponse};default{throw 'Unknown component'}}
  }
  Note 'Enable your preferred trackpad options in Boot Camp Control Panel after signing in.'
  Note 'Camera, sleep/resume and dock Ethernet remain deferred. No fan, power or default-boot settings changed.'
  Note ('Logs and rollback records: '+$PackRoot)
+ if($code-isnot[int]){throw 'Driver engine returned a non-numeric result; success cannot be established.'}
  exit $code
 } catch {
  if($PackRoot -and (Test-Path -LiteralPath $PackRoot)){($_|Format-List * -Force|Out-String)|Out-File -FilePath (Join-Path $PackRoot 'fatal-error.txt') -Encoding utf8;Note ('FAILED: '+$_.ToString())}

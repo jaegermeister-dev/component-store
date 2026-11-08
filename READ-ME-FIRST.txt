@@ -16,3 +16,5 @@ The 11,5 graphics repair is limited to a verified recorded boot route; it
 preserves OpenCore, unrelated loaders and other installations.
 
 The prepared installation folder is C:\BackToSevenSupport. Run BackToSeven Drivers Installer.exe.
+
+This revision corrects stock Windows 7 boot-store validation and driver failure/restart reporting. The macOS app also prepares Repair graphics boot.cmd for MacBookPro11,5; it invokes the same guarded engine without reinstalling drivers. Existing OpenCore and unrelated boot configurations are preserved. Fresh-install acceptance remains required.

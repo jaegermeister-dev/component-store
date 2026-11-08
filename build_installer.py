@@ -59,9 +59,9 @@ def main():
     engine=root/'Windows7-Driver-Engine.exe'
     env=dict(os.environ,ZIG_LOCAL_CACHE_DIR=str(WORK/'tooling/zig-cache/local'),
              ZIG_GLOBAL_CACHE_DIR=str(WORK/'tooling/zig-cache/global'))
-    command=[str(ZIG),'cc','-target','x86_64-windows.win7-gnu','-O2','-Wall','-Wextra','-Werror',
+    command=[str(ZIG),'cc','-target','x86_64-windows.win7-gnu','-O2','-g0','-s','-Wall','-Wextra','-Werror',
              '-nostdlib','-fno-builtin','-isystem',str(ZIG.parent/'lib/libc/include/any-windows-any'),
-             '-Wl,-e,Windows7Entry','-Wl,--subsystem,windows','-I'+str(root),str(HERE/'driver_setup.c'),
+             '-Wl,-e,Windows7Entry','-Wl,--subsystem,windows','-Wl,--build-id=none','-I'+str(root),str(HERE/'driver_setup.c'),
              '-lkernel32','-lbcrypt','-lshell32','-ladvapi32','-lole32','-luser32',
              '-Wl,--major-subsystem-version,6','-Wl,--minor-subsystem-version,1','-o',str(engine)]
     subprocess.run(command,env=env,check=True,timeout=600)
